@@ -1,0 +1,30 @@
+:root{
+    --blueBk : #00A3FF;
+    --blueDk :#3B30B6;
+    --white : #ffffff;
+}
+@font-face {
+    font-family: McLaren;
+    src: url(./fonts/McLaren-Regular.ttf);
+}
+body{
+    background:radial-gradient(circle,var(--blueBk), var(--blueDk));
+}
+#title{
+    width:100%;
+    text-align: center;
+    position: absolute;
+    top:10%;
+    left:0%;
+}
+#title > h1, #title > h3{
+    color: var(--white);
+    font-family: McLaren;
+    font-weight: 400;
+}
+#title > h1{
+    font-size: 5em;
+}
+#title > h3{
+    font-size: 1.5em;
+}
