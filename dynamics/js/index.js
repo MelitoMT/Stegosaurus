@@ -1,6 +1,7 @@
 var title = $('#title');
 var menu = $('#menu');
 $(document).ready(()=>{
+    console.log($(window));
     title.css("display","none");
-    menu.css("display","block");
+    contIndex('./statics/menu.html');
 })

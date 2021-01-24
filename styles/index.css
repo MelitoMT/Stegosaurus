@@ -2,6 +2,7 @@
     --blueBk : #00A3FF;
     --blueDk :#3B30B6;
     --blueOc : #1F0E65;
+    --blueOcHov : #2d158c;
     --white : #ffffff;
 }
 @font-face {
@@ -16,15 +17,13 @@ body{
     top:10%;
     left:0%;
 }
-#menu{
-    display:none;
-}
-#title, #menu{
+
+#title, #menu,#modoDeJuego{
     width:100%;
     text-align: center;
     align-items: center;
 }
-#title > h1, #title > h3, #menu > h1, #menu > div > h3{
+#title > h1, #title > h3, #menu > h1, #menu > div > h3,#modoDeJuego > h1,#modoDeJuego > .opt > h2{
     color: var(--white);
     font-family: McLaren;
     font-weight: 400;
@@ -39,13 +38,55 @@ body{
     line-height: 69px;
 }
 #menu > .botonMenu{
+    margin-top:50%;
     background-color:var(--blueOc);
     border-radius: 18px;
     width: 30%;
     height: 70px;
     margin: auto;
 }
-#menu > #footer{
+#menu > .botonMenu:hover{
+    background-color:var(--blueOcHov);
+}
+#modoDeJuego > .opt{
+    background-color: var(--blueOc);
+    width:450px;
+    height:32vh;
+    position: absolute;
+    border-radius:15px;
+}
+#modoDeJuego > #opt1,#modoDeJuego > #opt3{
+    left:20%;
+}
+#modoDeJuego > #opt1,#modoDeJuego > #opt2{
+    top:20%;
+}
+#modoDeJuego > #opt2,#modoDeJuego > #opt4{
+    right:20%;
+}
+#modoDeJuego > #opt3,#modoDeJuego > #opt4{
+    bottom:13%;
+}
+#modoDeJuego > .opt > h2{
+    font-size:2.5em;
+    position: relative;
+    top:50%;
+    transition: all 0.6s ease-in-out;
+}
+#modoDeJuego > .opt{
+    opacity: 0.7;
+    transition: all 0.6s ease-in-out;
+}
+#modoDeJuego > .opt:hover{
+    transform: scale(1.05);
+}
+#modoDeJuego > .opt:hover{
+    opacity: 1;
+}
+#modoDeJuego > h1{
+    font-size:2.8em;
+}
+#footer{
     width:100%;
     height: 70px;
     background-color: var(--blueOc);
