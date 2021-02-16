@@ -6,7 +6,7 @@
 	-moz-user-select: none;
 	user-select: none;
 
-	z-index: 2000;
+	z-index: 5000;
 	position: fixed;
 	margin: auto;
 	top: 0;
@@ -35,10 +35,9 @@
 	transform: translate3d(0, 0, 0);
 
 	max-width: 100%;
-	position: fixed;
-	z-index: 2000;
-	display: block;
 	position: absolute;
+	z-index: 5000;
+	display: block;
 	top: 0;
 	right: 100%;
 	height: 100%;
