@@ -97,7 +97,7 @@ var jugarButton = $("#jugar");
 var instruccionesButton = $("#instrucciones");
 var personajesButton = $("#personajes");
 var creditosButton = $("#creditos");
-numJugadores = cambiarPags(jugarButton,'./charOpts.html');
+var numJugadores = cambiarPags(jugarButton,'./charOpts.html');
 cambiarPags(instruccionesButton,'./charOpts.html');
 cambiarPags(personajesButton,'./charOpts.html');
 cambiarPags(creditosButton,'./charOpts.html');
