@@ -1,0 +1,234 @@
+:root{
+    --blueButton: #08244F;
+    --blueButtonHover: #0e3671;
+    --buttonGradient:  linear-gradient(180deg, #7BF7FF 0%, #4A2AA7 100%);
+    --menuBckGradient:linear-gradient(138.26deg, #2BCAFC 11.6%, rgba(6, 42, 166, 0.89) 88.55%);
+    --whiteText:#ffffff;
+}
+@font-face{
+    font-family: 'McLaren';
+    src:url(../fonts/McLaren-Regular.ttf);
+}
+body{
+    font-family: 'McLaren';
+    background:var(--menuBckGradient);
+    background-size:cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin:0%;
+    padding: 0%;
+    border: 0%;
+    overflow-y: hidden;
+}
+/* Pantalla de carga */
+#title{
+    width: 100%;
+    height: 100vh;
+    background-color: var(--blueButton);
+    text-align:center;
+    position: absolute;
+    z-index: 2000;
+    color: var(--whiteText);
+}
+#title > h1{
+    padding-top:5%;
+    color: var(--whiteblueCarga);
+    font-size: 4em;
+}
+#title > #frases{
+    color: var(--whiteblueCarga);  
+    font-size: 1.2em; 
+}
+/* Botones */
+.generalButtonOut{
+    margin-bottom: 30px;
+    height: 15vh;
+    width:400px;
+    clip-path:polygon(100% 0%, 62% 0%, 60% 8%, 37% 8%, 35% 0%, 0% 0%, 0% 28%, 2% 38%, 2% 60%, 0% 70%, 0% 100%, 35% 100%, 37% 92%, 60% 90%, 62% 100%, 100% 100%, 100% 70%, 98% 60%, 98% 38%, 100% 28%);
+    background: var(--buttonGradient);
+}
+.generalButtonIn{
+    margin: auto;
+    height: 13vh;
+    width:96%;
+    clip-path: polygon(100% 0%, 65% 0%, 61% 14%, 36% 14%, 32% 0%, 0% 0%, 0% 15%, 2% 32%, 2% 66%, 0% 80%, 0% 100%, 32% 100%, 36% 86%, 61% 86%, 64% 100%, 100% 100%, 100% 80%, 98% 66%, 98% 32%, 100% 15%);
+    background: var(--blueButton);
+    position: relative;
+    top:5%;
+    text-align: center;
+}
+.generalButtonIn > span{
+    color:var(--whiteText);
+    position: relative;
+    font-size: 1.5em;
+    top:30%;
+}
+.generalButtonIn:hover{
+    background: var(--blueButtonHover);
+}
+/* Menú Principal */
+#topBar{
+    width: 100%;
+    background-color: var(--blueButton);
+    height: 50px;
+}
+#buttonContainer{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 450px;
+    height: 80vh;
+    position: relative;
+    left:65%;
+    top:70px;
+}
+#subTitleOut{
+    width:60%;
+    height: 200px;
+    position: absolute;
+    bottom:0%;
+    clip-path: polygon(73% 0%, 0% 0%, 0% 100%,100% 100%, 97% 50%,76% 50%);
+    background: var(--buttonGradient);
+}
+#subTitleIn{
+    width:99%;
+    position: relative;
+    top:-10%;
+    height: 197px;
+    clip-path: polygon(73% 0%, 0% 0%, 0% 100%,100% 100%, 97% 50%,76% 50%);
+    background: var(--blueButton); 
+}
+#subTitleIn > h3{
+    padding-left:10%;
+    padding-right:30%;
+    font-weight: 100;
+    color:var(--whiteText);
+    position: relative;
+    font-size: 2em;
+    top:15%;   
+}
+.negButton{
+    width:40px;
+    height: 40px;
+    position: relative;
+    top:-125%;
+    color:var(--whiteText);
+    left: 92%;
+    font-size: 30px;
+}
+/* Elección de Personajes */
+/* Lado Izquierdo */
+.leftCol{
+    position: absolute;
+    left:10%;
+    top:0%;
+    height: 100vh;
+}
+.playersContainer{
+    position: relative;
+    top:70px;
+}
+.playButton{
+    position: absolute;
+    bottom:0px;
+}
+.player{
+    background-color: var(--blueButton);
+    height:100px;
+    width:400px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.playerImg{
+    background-color: var(--whiteText);
+    width: 62px;
+    height:62px;
+    border-radius: 10px;
+    position:relative;
+    top:10px;
+    left:10px;
+    border:8px solid #2BCAFC;
+}
+.playerTxt{
+    color: var(--whiteText);
+    text-align: center;
+    font-size: 30px;
+    position: relative;
+    top:-50%;
+}
+/* Lado Derecho */
+.rightCol{
+    width:60%;
+    height: 100vh;
+    position: absolute;
+    right:0px;
+    bottom:0px;
+}
+.charOpts{
+    margin:auto;
+    margin-top: 50px;
+    width:50%;
+    height:100px;
+    display: flex;
+}
+.charOpts > div > img{
+    height: 80px;
+    width: 80px;
+    overflow:hidden;
+}
+#char1,#char2,#char3,#char4{
+    background-color: var(--whiteText);
+    height: 60px;
+    width: 80px;
+    margin: 20px;
+    border-radius: 10px;
+    border:8px solid var(--blueButton) ;
+}
+#characterContainer{
+    margin: auto;
+    width: 700px;
+    height: 550px;
+}
+#charImg > img{
+    margin-left: 20%;
+    bottom:20%;
+    width:300px;
+    overflow: hidden;
+    position: absolute;
+    z-index: 600;
+}
+#scene{
+    background-color: var(--blueButtonHover);
+    width: 400px;
+    height:150px;
+    position: absolute;
+    bottom:10%;
+    left:25%;
+    border-radius: 50%;
+    z-index: 0;
+}
+#charInfo{
+    border-radius: 50%;
+    height:60px;
+    width: 60px;
+    background-color:var(--blueButton);
+    position: relative;
+    top:35%;
+    left:60%;
+    z-index: 800;
+}
+#charInfo > span{
+    color: var(--whiteText);
+    font-size: 60px;
+    position: relative;
+    top:-20%;
+    left:25%;
+}
+.infoSquare{
+    clip-path: polygon(22% 14%, 12% 0%, 0% 15%, 0% 52%, 100% 52%, 100% 14%);
+    background-color: var(--whiteText);
+}
+#newPlayer{
+    color: var(--whiteText);
+    font-size: 25px;
+}
