@@ -37,8 +37,8 @@ body{
     font-size: 4em;
 }
 #title > #frases{
-    color: var(--whiteblueCarga);  
-    font-size: 1.2em; 
+    color: var(--whiteblueCarga);
+    font-size: 1.2em;
 }
 #menu,#cont{
     position: absolute;
@@ -126,7 +126,7 @@ body{
     top:-5%;
     height: 190px;
     clip-path: polygon(73% 0%, 0% 0%, 0% 100%,100% 100%, 97% 50%,76% 50%);
-    background: var(--gradientBluePurpleLight); 
+    background: var(--gradientBluePurpleLight);
 }
 #subTitleIn > h3{
     padding-left:10%;
@@ -135,5 +135,63 @@ body{
     color:var(--whiteblueCarga);
     position: relative;
     font-size: 2em;
-    top:15%;   
+    top:15%;
 }
+
+.generalButtonOut:hover, .generalButtonOut:focus{
+  cursor: pointer;
+}
+/* Diseño de los modales */
+/* #modalBackground{
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  height: 100vh;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  z-index: 9;
+}
+.modal{
+  background-color: var(--whiteblueCarga);
+  display: none;
+  width: 50%;
+  position: absolute;
+  left: 25%;
+  height: 500px;
+  top: 100px;
+  z-index: 10;
+  padding: 0;
+  margin: 0;
+}
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.close:hover, .close:focus{
+  color: #ffffff;
+  cursor: pointer;
+}
+.modalTitle{
+ background-color: var(--blueCarga);
+ color: var(--whiteblueCarga);
+ font-size: 2em;
+ font-weight: bolder;
+ height: 15%;
+ text-align: center;
+ width: 100%;
+}
+.modalContent{
+  color: var(--blueCarga);
+  font-size: 1em;
+  height: 70%;
+  width: 100%;
+}
+.modalBottom{
+  height: 15%;
+  width: 100%;
+} */
