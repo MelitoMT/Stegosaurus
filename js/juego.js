@@ -29,8 +29,11 @@ for(var i = 1; i <= numJugadores; i++){
     playerPlace.append([1,0]);
     console.log(oli);
 }
-function girarDado(target){
-
+function girarDado(){
+    var i = Math.floor(Math.random() * Math.floor(5)+1);
+    /* Falta agregar la animación */
+    console.log(i);
+    return i;
 }
 
 function compararDado(){
