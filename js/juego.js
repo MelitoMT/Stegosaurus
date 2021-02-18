@@ -44,7 +44,7 @@ function generarTablero(tablero){
         var row = "<div class=\"boardRow\">";
         for(var i = 0; i < 10; i++){
             var color;
-            switch(tablero[i*(10**j)]){
+            switch(tablero[j*10+i]){
                 case 1:
                     color= "azul";
                     break;
