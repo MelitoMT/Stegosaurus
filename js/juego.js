@@ -36,11 +36,34 @@ function girarDado(target){
 function compararDado(){
     
 }
-function generarTablero(){
+function generarTablero(tablero){
     for(var j = 0; j < 9; j++){
+        var row = "<div class=\"boardRow\">";
         for(var i = 0; i < 10; i++){
-            $("#board").append("<div>alo</div>")
+            var color;
+            switch(tablero[i*(10**j)]){
+                case 1:
+                    color= "azul";
+                    break;
+                case 2:
+                    color= "verde"; 
+                    break;
+                case 3:
+                    color= "rojo";
+                    break;
+                case 4:
+                    color= "morado";
+                    break;
+                case 5:
+                    color = "inicio";
+                    break; 
+                default:
+                    color = "vacio"       
+            }
+            row  += "<div class=\"boardCol\"><div class=\""+color+"\"></div></div>";
         }
+        row += "</div>"
+        $("#board").append(row);
     }
 }
-generarTablero();
+generarTablero(gameBoard);
