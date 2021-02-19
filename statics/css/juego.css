@@ -5,6 +5,11 @@
     --casillaMorada: rgb(133, 28, 165);
     --casillaInicio: rgb(249, 231, 255);
 }
+#board{
+    position: absolute;
+    top:10%;
+    left:32%;
+}
 .azul, .verde, .rojo, .morado, .inicio{
     border-radius: 50%;
     border: 2px solid var(--casillaInicio);
@@ -12,7 +17,6 @@
 .vacio,.azul, .verde, .rojo, .morado, .inicio{
     width:40px;
     height:40px;
-    border: 2px solid var(--casillaInicio);
 }
 .azul{
     background-color: var(--casillaAzul);
