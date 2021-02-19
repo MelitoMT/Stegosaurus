@@ -1,0 +1,43 @@
+:root{
+    --casillaAzul: rgb(26, 115, 204);
+    --casillaVerde: rgb(33, 171, 60);
+    --casillaRojo: rgb(179, 4, 4);
+    --casillaMorada: rgb(133, 28, 165);
+    --casillaInicio: rgb(249, 231, 255);
+}
+.azul, .verde, .rojo, .morado, .inicio{
+    border-radius: 50%;
+    border: 2px solid var(--casillaInicio);
+}
+.vacio,.azul, .verde, .rojo, .morado, .inicio{
+    width:40px;
+    height:40px;
+    border: 2px solid var(--casillaInicio);
+}
+.azul{
+    background-color: var(--casillaAzul);
+}
+.verde{
+    background-color: var(--casillaVerde);
+}
+.rojo{
+    background-color: var(--casillaRojo);
+}
+.morado{
+    background-color: var(--casillaMorada);
+}
+.inicio{
+    background-color: var(--casillaInicio);
+}
+.boardRow{
+    display: flex;
+    width:500px;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+.boardCol{
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+}
