@@ -29,19 +29,12 @@ var gameBoardDirec = [0,1,1,1,1,1,1,1,1,4,/* Primera Fila */
                     3,0,0,0,3,2,2,2,2,24,/* Séptima Fila */
                     3,0,0,0,0,0,0,0,0,4,/* Octava Fila */
                     3,2,2,2,2,2,2,2,2,2/* Novena Fila */];    
-/* Guarda posiciones de las casillas con opción a girar 
-Ciclo cada 4:
-1: x de la casilla
-2: y de la casilla
-3: primera dirección de giro
-4: segunda dirección de giro */
-var turnBox = [9,6,'s','d',4,4,'a','d',6,2,'w','d',];
 /* Guarda posición del jugador 
 Al inicio 1,0 es la posición predeterminada*/
 var playerPlace = [];
 /* Coloca las posiciones de acuerdo al número de jugadores */
 for(var i = 1; i <= 4; i++){
-    playerPlace.push([1,0]);
+    playerPlace.push([8,0]);
 }
 /*  */
 function girarDado(){
@@ -64,6 +57,7 @@ function verifCasillas(pos){
         casillasValidas=[true,false,true,false];
     }
     else{
+        console.log("Soy la posición"+pos)
         if(pos[1]!=0){
             if(gameBoardDirec[(pos[1]-1)*10+pos[0]]==3){
                 casillasValidas[2]=true;
@@ -75,22 +69,82 @@ function verifCasillas(pos){
             }  
         }
         if(pos[0]!=0){
-            if(gameBoardDirec[pos[1]*10+pos[0]-1]==2){
+            if(gameBoardDirec[pos[1]*10+pos[0]-1]==2||gameBoardDirec[(pos[1]-1)*10+pos[0]+1]==3){
                 casillasValidas[1]=true;
             }  
         } 
         if(pos[0]!=9){
-            if(gameBoardDirec[pos[1]*10+pos[0]+1]==1){
+            console.log(pos[0]);
+            console.log(gameBoardDirec[pos[1]*10+pos[0]+1])
+            if(gameBoardDirec[pos[1]*10+pos[0]+1]==1||gameBoardDirec[(pos[1]+1)*10+pos[0]+1]==4){
                 casillasValidas[0]=true;
             }  
         }       
     }
-    console.log(casillasValidas) 
+    return(casillasValidas) 
+}
+function actualizarPos(movDir, playerPlace, index){
+    switch (movDir){
+        case 1:
+            playerPlace[index][0] += 1;
+            console.log("Sume 1 en x")
+            break;
+        case 2:
+            playerPlace[index][0] -= 1;
+            break;    
+        case 3:
+            playerPlace[index][1] -= 1;
+            break;
+        case 4:
+            playerPlace[index][1] += 1;
+            break;        
+    }
+    return playerPlace;
+}
+function keys(dir) {
+    if (dir.keyCode === 39) {
+      direction = 1; /* derecha */
+    }
+    else if (dir.keyCode === 38) {
+      direction = -lado; /* arriba */
+    }
+    else if (dir.keyCode === 37) {
+      direction = -1; /* izq */
+    }
+    else if (dir.keyCode === 40) {
+      direction = +lado; /* abajo */
+    }
+  }
+function elegirCamino(dir1,dir2){
+    
 }
 /* Mueve al jugador
 -jugador: Jugador que se quiere mover (1-4) */
 function moverJugador(jugador){
     var num=girarDado();
+    for(var j = 1; j <= num; j++){
+        var casillasValid=verifCasillas(playerPlace[jugador-1]);
+        console.log(casillasValid)
+        var casillasValidNum = 0;
+        var movDir;
+        var movDirOpt;
+        for(var i = 0; i <= 4;i++){
+            if(casillasValid[i]==true){
+                casillasValidNum += 1;
+                movDir = i+1;
+                if(casillasValidNum > 1){
+                    movDirOpt = i+1;
+                }
+            }
+        }    
+            if(casillasValidNum == 1){
+                playerPlace = actualizarPos(movDir,playerPlace,jugador-1);
+            }
+            else{
+                console.log("olii");
+                /* elegirCamino(movDir,movDirOpt); */
+            }
+    }
     console.log(playerPlace[jugador-1]);
 }
 function generarTablero(tablero){
