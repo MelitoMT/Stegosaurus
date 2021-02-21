@@ -65,6 +65,7 @@ body{
 }
 .generalButtonIn:hover{
     background: var(--blueButtonHover);
+    cursor: pointer;
 }
 /* Menú Principal */
 #topBar{
@@ -144,6 +145,18 @@ body{
     border-radius: 10px;
     margin-bottom: 20px;
 }
+#player1 > .playerImg{
+  border:8px solid #ad0322;
+}
+#player2 > .playerImg{
+  border:8px solid #030fad;
+}
+#player3 > .playerImg{
+  border:8px solid #2aad03;
+}
+#player4 > .playerImg{
+  border:8px solid #5d03ad;
+}
 .playerImg{
     background-color: var(--whiteText);
     width: 62px;
@@ -153,12 +166,22 @@ body{
     top:10px;
     left:10px;
     border:8px solid #2BCAFC;
+    overflow: hidden;
+}
+.playerImg > img{
+  width: 62px;
+  height:62px;
+}
+.playerImg:hover, .playerImg:focus{
+  border: 8px solid #00d5fb;
+  transition: border 0.3s ease;
+  cursor: pointer
 }
 .playerTxt{
     border:4px solid #2BCAFC;
     border-radius: 10px;
     color: var(--blueButton);
-    font-family: font-family: 'McLaren';;
+    font-family: font-family: 'McLaren';
     font-size: 30px;
     left: 110px;
     position: relative;
@@ -167,7 +190,9 @@ body{
     width: 230px;
 }
 .playerTxt:hover, .playerTxt:focus{
+  border: 4px solid #00d5fb;
   outline: none;
+  transition: border 0.3s ease;
 }
 /* Lado Derecho */
 .rightCol{
@@ -177,65 +202,150 @@ body{
     right:0px;
     bottom:0px;
 }
-.charOpts{
-    margin:auto;
-    margin-top: 50px;
-    width:50%;
-    height:100px;
-    display: flex;
+#charOpts{
+  width:600px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 50px auto 0px;
+  max-height: 223px;
 }
-.charOpts > div > img{
+.charImgs> img{
     height: 80px;
     width: 80px;
-    overflow:hidden;
 }
-#char1,#char2,#char3,#char4{
+.charImgs{
     background-color: var(--whiteText);
-    height: 60px;
+    height: 80px;
     width: 80px;
-    margin: 20px;
+    margin: 10px;
     border-radius: 10px;
     border:8px solid var(--blueButton) ;
+    overflow: hidden;
+}
+.charImgs:hover{
+  cursor: pointer;
+  border:8px solid #4A2AA7;
+  transition: border 0.3s ease;
+}
+.charImgs.selected{
+  border:8px solid #2BCAFC;
 }
 #characterContainer{
     margin: auto;
-    width: 700px;
+    width: 600px;
     height: 550px;
+    padding: 0 30px;
 }
 #charImg > img{
-    margin-left: 20%;
-    bottom:20%;
     width:300px;
     overflow: hidden;
-    position: absolute;
+    position: relative;
     z-index: 600;
+    bottom: 50px;
+    left: 150px;
 }
 #scene{
     background-color: var(--blueButtonHover);
     width: 400px;
     height:150px;
-    position: absolute;
-    bottom:10%;
-    left:25%;
+    position: relative;
+    margin: 0 auto;
+    top: 400px;
     border-radius: 50%;
     z-index: 0;
 }
-#charInfo{
+#charAñadir{
     border-radius: 50%;
     height:60px;
     width: 60px;
     background-color:var(--blueButton);
     position: relative;
-    top:35%;
-    left:60%;
+    left: 400px;
     z-index: 800;
 }
-#charInfo > span{
+#charAñadir:hover{
+  cursor: pointer;
+}
+#charAñadir > span{
     color: var(--whiteText);
     font-size: 60px;
     position: relative;
     top:-20%;
     left:25%;
+}
+#divElegir{
+  width: fit-content;
+    max-width: 550px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    position: relative;
+    top: 580px;
+    right: 0;
+    background-color: var(--blueButton);
+    padding: 0;
+    margin: 0 auto;
+    color: var(--whiteText);
+    z-index: 1500;
+}
+#divElegir > p{
+  position: relative;
+  top: -10.5px;
+  font-size: 25px;
+  padding: 0 10px;
+  margin: 0;
+}
+.btn-elegir{
+  width: 80px;
+  height: 50px;
+  background-color: #5f4271;
+  box-shadow: 0 0 3px #000000;
+  position: relative;
+  font-size: 25px;
+  padding: 0 7px;
+  margin: 0;
+  text-align: center;
+}
+.btn-elegir:hover{
+  cursor: pointer;
+  text-shadow: 0 0 10px #000000;
+  transition: 0.5 ease;
+}
+#btn-P1{
+  background-color: #ad0322;
+}
+#btn-P2{
+  background-color: #030fad;
+  display: none;
+}
+#btn-P3{
+  background-color: #2aad03;
+  display: none;
+}
+#btn-P4{
+  background-color: #5d03ad;
+  display: none;
+}
+#btn-P1:hover{
+  box-shadow: 0 0 10px #ff0000;
+  transition: 0.3 ease;
+}
+#btn-P2:hover{
+  box-shadow: 0 0 10px #0029ff;
+  transition: 0.3 ease;
+}
+#btn-P3:hover{
+  box-shadow: 0 0 10px #14ff00;
+  transition: 0.3 ease;
+}
+#btn-P4:hover{
+  box-shadow: 0 0 10px #bd00ff;
+  transition: 0.3 ease;
 }
 .infoSquare{
     clip-path: polygon(22% 14%, 12% 0%, 0% 15%, 0% 52%, 100% 52%, 100% 14%);

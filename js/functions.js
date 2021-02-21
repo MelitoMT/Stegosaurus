@@ -17,46 +17,77 @@ function checkMaxPlayer(numPlay){
 };
 /* Agrega Nuevos Jugadores
 count: cuenta de jugadores al momento */
-function nuevoJugador(){
+function nuevoJugador(obj){
     var count = 1;
     let divCont = $("#botonesJugadores");
     $("#newPlayer").click(()=>{
         count+=1;
         checkMaxPlayer(count);
+        $("#btn-P"+count).show();
         var divPlayer = $('<div class="player" id="player'+count+'"></div>');
         var close = $('<div class="negButton"><span>x</span></div>');
+        let index = generRandomIndex(obj);
+        var imgPlayer = $('<div class="playerImg"><img src="'+obj[index].urlImgAvatar+'" alt="'+obj[index].personaje+'"></img></div>');
         $(".negButton").css("display","none");
         close.click(()=>{
           divCont.children().last().remove();
+          $("#btn-P"+count).hide();
           $(".negButton").last().css("display","block");
           count-=1;
           checkMaxPlayer(count);
-        })
-        divPlayer.append('<div class="playerImg" ></div>', ['<input type="text" class="playerTxt" maxlength="8" placeholder="Player '+count+'" value="">', close]);
+        });
+        divPlayer.append(imgPlayer, ['<input type="text" class="playerTxt" maxlength="8" placeholder="Player '+count+'" value="">', close]);
         divCont.append(divPlayer);
     })
 }
-function captarInfo(){
+function getIndexByName(nombre, obj){
+  var index;
+  for (var i = 0; i < obj.length; i++) {
+    if (obj[i].personaje==nombre) {
+      index = i;
+    }
+  }
+  return index;
+}
+function generRandomIndex(obj) {
+  var index = Math.floor((Math.random() * obj.length));
+  return index;
+}
+function cambiarAvatar(obj){
+  $.each($(".btn-elegir"),(index, elem)=>{
+    elem.onclick= ()=>{
+      actualizarImg(index+1, $("#avatarImgDescr").attr("alt"), obj);
+    }
+  });
+}
+function actualizarImg(jugador, imagen, obj) {
+  var imgPlayer = $("#player"+jugador).children(".playerImg").children("img");
+  var index = getIndexByName(imagen, obj);
+  imgPlayer.attr("src", obj[index].urlImgAvatar);
+  imgPlayer.attr("alt", obj[index].personaje);
+}
+function captarInfo(obj){
     $("#jugarFinal").click(()=>{
       let divCont = $("#botonesJugadores").children();
       var jugadores = [];
       for (var i = 1; i < 5; i++) {
         if (i<=divCont.length) {
           var nombre = $("#player"+i)[0].children[1].value;
+          var personaje = $("#player"+i)[0].children[0].children[0].alt;
           if (nombre == "") {
             nombre = "Player" +i;
           }
           let jugador = {
             nPlayer: i,
             nickname: nombre,
-            avatar: "vacio"
+            avatar: personaje
           }
           jugadores.push(jugador);
         }else{
           let jugador = {
             nPlayer: i,
             nickname: "Bot"+i,
-            avatar: "vacio"
+            avatar: obj[generRandomIndex(obj)].personaje
           }
           jugadores.push(jugador);
         }
@@ -65,26 +96,21 @@ function captarInfo(){
       console.log(jugadores);
     })
 }
-/* Cambia la imagen a mostrar a partir del menú de personaje */
-function rotarPersonaje(){
-    cambiarTexto(descripciones[0]);
-    $("#char1").click(()=>{
-        $("#charImg").html('<img src="'+persElegibles[0].urlImg+'" alt=""></img>')
-        cambiarTexto(descripciones[0]);
-    });
-    $("#char2").click(()=>{
-        $("#charImg").html('<img src="./statics/img/michibot2.png" alt=""></img>')
-        cambiarTexto(descripciones[1]);
-    });
-    $("#char3").click(()=>{
-        $("#charImg").html('<img src="./statics/img/cagumago.png" alt=""></img>')
-        cambiarTexto(descripciones[2]);
-    });
-    $("#char4").click(()=>{
-        $("#charImg").html('<img src="./statics/img/michibot2.png" alt=""></img>')
-        cambiarTexto(descripciones[3]);
-    });
-}
+function descPersonajes(obj){
+  $.each(obj,(index, elem)=>{
+    console.log(elem);
+    let charImg = $('<div class="charImgs" id="char'+(index+1)+'">' );
+    charImg.append('<img src="'+elem.urlImgAvatar+'" alt="'+elem.personaje+'">');
+    charImg.click(()=>{
+      $(".charImgs").removeClass("selected")
+      charImg.addClass("selected")
+      console.log("Cambiar imagen y descripcion");
+      $("#avatarImgDescr").attr("src",elem.urlImg);
+      $("#avatarImgDescr").attr("alt",elem.personaje);
+    })
+    $("#charOpts").append(charImg);
+  });
+};
 /* Cambia el contenido de el menú a partir de las opciones
 Parámetros:
 -target: elemento detonador
@@ -100,8 +126,11 @@ function cambiarPags(target, ruta){
         .then((html)=>{
             $("body").html(html);
             if(target="jugarButton"){
-                captarInfo();
-                nuevoJugador();
+                captarInfo(persElegibles);
+                nuevoJugador(persElegibles);
+                descPersonajes(persElegibles);
+                cambiarAvatar(persElegibles);
+                actualizarImg(1,"Cangumago",persElegibles);
                 // rotarPersonaje();
                 // $("#jugarFinal").click(()=>{
                 //     window.location.href = "./juego.html"
