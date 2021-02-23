@@ -92,9 +92,14 @@ function captarInfo(obj){
           jugadores.push(jugador);
         }
       }
-      console.log("Funciono");
       console.log(jugadores);
     })
+}
+function regresarInicio() {
+  $(".inicio").click(()=>{
+    $("#INDEX").show();
+    $("#OTHER").empty();
+  })
 }
 function descPersonajes(obj){
   $.each(obj,(index, elem)=>{
@@ -124,23 +129,20 @@ function cambiarPags(target, ruta){
             return response.text();
         })
         .then((html)=>{
-            $("body").html(html);
+            $("#OTHER").html(html);
             if(target="jugarButton"){
                 captarInfo(persElegibles);
                 nuevoJugador(persElegibles);
                 descPersonajes(persElegibles);
                 cambiarAvatar(persElegibles);
                 actualizarImg(1,"Cangumago",persElegibles);
-                // rotarPersonaje();
-                // $("#jugarFinal").click(()=>{
-                //     window.location.href = "./juego.html"
-                // })
+                regresarInicio();
             }
+            $("#INDEX").hide();
         })
         .catch(error => {
             console.error('Fallo al obtener el contenido', error);
         });
-        $("#menu").css("display", "none");
     });
     return numJugadores;
 }
