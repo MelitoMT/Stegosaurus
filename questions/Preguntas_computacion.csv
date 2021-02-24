@@ -1,0 +1,147 @@
+Categoria,Pregunta,Dificultad,Tipo,r1,r2,r3,r4,rCorrecta
+Cultura,"FireWire es un estándar de interfaz, una conexión de alta velocidad desarrollada por:",Dificil,multiple,Microsoft,Apple,NASA,ASME,r2
+Hardware,La capacidad normal del CD-ROM es,Dificil,multiple,4.7 GB,0.7 GB,2.2 GB,0.45GB,r2
+Hardware,Cual de las siguientes partes no pertenece al CPU,Dificil,multiple,Memoria caché,Unidad aritmética lógica,Núcleo,Memoria de acesso aleatorio,r4
+Hardware,¿Cuál es el tamaño máximo de la unidad óptica BD / RW de una sola capa?,Dificil,multiple,4.6 GB,27 GB,12 GB,1.7GB,r2
+Hardware,Las impresoras láser producen salidas de resolución en:,Dificil,multiple,= 1200dpi,>6000 dpi,>=600 dpi,<60 dpi,r3
+Hardware,"""JPEG"" es el acrónimo en inglés de:",Dificil,multiple,Joint Photographic Experts Group,Joint Photographic Experts Group,Joint Photographic Extra Graphics,Joint Pulses Exponential Group,r1
+Hardware,¿Cuántos voltios necesita la placa base (según sus componentes)?,Dificil,multiple,5 o 15,9 o 12,5 o 12,9 o 15,r1
+Hardware,Los conectores de red son de tipo,Dificil,multiple,RJ45,R2-D2,C3-PO,RJ11,r1
+Software,Licencia que conserva los derechos de autor y se puede distribuir y modificar,Dificil,multiple,GPL,Creative,Shareware,Freeware,r1
+Software,Fundador de la Free Software Foundation y del proyecto GNU,Dificil,multiple,Bill Gates,Richard Stallman,Linus Torvalds,Steve Jobs,r2
+Software,Aplicación que permite crear una máquina virtual,Dificil,multiple,suse,Mandriva,vmware,ubuntu,r3
+Software,Es el escritorio de Ubuntu,Dificil,multiple,Unity,Gnome,Unity-Gnome,kde,r3
+Software,Tipos de escritorios ampliamente extendidos y conocidos de Ubuntu,Dificil,multiple,Unity,Gnome,Unity-Gnome,KDE y GNOME,r4
+Software,Diseñó el KERNEL de LINUX,Dificil,multiple,Richard Stallman,Linus Torvalds,Bill Gates,Steve Jobs,r2
+Hardware,La digitalización es un proceso que convierte los datos de,Facil,multiple,Analógico a digital,Digital a digital,Digital a analógico,Analógico a analógico,r1
+Hardware,Parte física de los ordenadores y perifericos,Facil,multiple,Hardware,Software,Pantalla,Sistema Operativo,r1
+Hardware,DVD-ROM es para,Facil,multiple,Solo escritura,Solo lectura,Escritura y lectura,Ninguna de las dos,r1
+Hardware,Una cámara digital puede capturar momentos del mundo real como:,Facil,multiple,Imagen analógica,Transmisión de datos,transmisión de voz,Imagen digital,r4
+Hardware,Cual de las siguinets definiciones describe mejor el reloj interno de un microprocesador,Facil,multiple,Un reloj dentro del microprocesador.,Es el dispositivo de tiempo para sincronizar las operaciones de la computadora.,La arquitectura del procesador.,La compatibilidad de un microprocesador,r2
+Hardware,¿Cómo se mide la velocidad de una computadora moderna?,Facil,multiple,En gigahercios,A través de procesadores,RPM,Cantidad de espacio de almacenamiento,r4
+Hardware,¿Cuál es el tipo de almacenamiento primario más común en una computadora?,Facil,multiple,CPU,GPU,RAM,TPU,r3
+Hardware,Cuáles son ejemplos de dispositivos de almacenamiento,Facil,multiple,"ROM, unidad flash, disco duro","RAM, unidad flash, ROM","Teclado, ratón, PC","Altavoces, escáner, monitor",r1
+Hardware,"Cual de las siguientes palabras pertenece al campo semántico ""dispositivos de salida""",Facil,multiple,"Tecnología LCD, proyectores de video, plotter, impresora de cartucho","Impresoras de línea, impresoras láser, impresoras de impacto","Máquina ax, módem de fax, tarjetas de sonido, impresoras MFP","Tecnología LCD, monitores CRT, tarjetas de escritorio",r3
+Hardware,"Cual de las siguientes palabras no pertenece al campo semántico ""dispositivos de salida""",Facil,multiple,Bocina,Pantalla,Teclado,Audifonos,r3
+Hardware,"Cual de las siguientes palabras no pertenece al campo semántico ""dispositivos de salida""",Facil,multiple,Mouse,Audifonos,Impresora,Proyector,r1
+Hardware,"Cual de las siguientes palabras no pertenece al campo semántico ""dispositivos de salida""",Facil,multiple,Bocina,Escaner,Pantalla,Proyector,r2
+Hardware,"Cual de las siguientes palabras no pertenece al campo semántico ""dispositivos de salida""",Facil,multiple,Plotter,Cámara de video,Audifonos,Bocina,r2
+Hardware,"Cual de las siguientes palabras no pertenece al campo semántico ""dispositivos de entrada""",Facil,multiple,Pantalla,Teclado,Ratón,Unidad de disco óptico,r1
+Hardware,"Cual de las siguientes palabras no pertenece al campo semántico ""dispositivos de entrada""",Facil,multiple,Unidad de disco óptico,Impresoras,Escáner,Micrófono,r2
+Hardware,"Cual de las siguientes palabras no pertenece al campo semántico ""dispositivos de entrada""",Facil,multiple,Tableta gráfica,Ratón,Bocina,Teclado,r3
+Hardware,"Cual de las siguientes palabras no pertenece al campo semántico ""dispositivos de entrada""",Facil,multiple,Teclado,Unidad de disco óptico,Micrófono,Audifonos,r4
+Hardware,"Cual de las siguientes palabras no pertenece al campo semántico ""dispositivos de entrada""",Facil,multiple,Escáner,Plotter,Teclado,Tableta gráfica,r2
+Hardware,"Cual de las siguientes palabras pertenece al campo semántico ""dispositivos de salida""",Facil,multiple,Pantalla,Teclado,Ratón,Unidad de disco óptico,r1
+Hardware,"Cual de las siguientes palabras pertenece al campo semántico ""dispositivos de salida""",Facil,multiple,Unidad de disco óptico,Impresoras,Escáner,Micrófono,r2
+Hardware,"Cual de las siguientes palabras pertenece al campo semántico ""dispositivos de salida""",Facil,multiple,Tableta gráfica,Ratón,Bocina,Teclado,r3
+Hardware,"Cual de las siguientes palabras pertenece al campo semántico ""dispositivos de salida""",Facil,multiple,Teclado,Unidad de disco óptico,Micrófono,Audifonos,r4
+Hardware,"Cual de las siguientes palabras pertenece al campo semántico ""dispositivos de salida""",Facil,multiple,Escáner,Plotter,Teclado,Tableta gráfica,r2
+Hardware,"Cual de las siguientes palabras pertenece al campo semántico ""dispositivos de entrada""",Facil,multiple,Bocina,Pantalla,Teclado,Audifonos,r3
+Hardware,"Cual de las siguientes palabras pertenece al campo semántico ""dispositivos de entrada""",Facil,multiple,Mouse,Audifonos,Impresora,Proyector,r1
+Hardware,"Cual de las siguientes palabras pertenece al campo semántico ""dispositivos de entrada""",Facil,multiple,Bocina,Escaner,Pantalla,Proyector,r2
+Hardware,"Cual de las siguientes palabras pertenece al campo semántico ""dispositivos de entrada""",Facil,multiple,Plotter,Cámara de video,Audifonos,Bocina,r2
+Hardware,¿Cuál es la parte física de un ordenador?,Facil,multiple,Hardware,Software,Malware,Ninguna respuesta es correcta,r1
+Hardware,¿Cuáles el elemento más importante del hardware?,Facil,multiple,El disco duro,La placa base,La memoria RAM,El microprocesador,r4
+Hardware,La capacidad de los discos duros se mide en,Facil,multiple,MB/s (Megas por segundo),GigaHerzios,Letras/milímetro,Gigabytes o Terabytes,r4
+Hardware,El puerto VGA sirve para,Facil,booleana,Conectar el monitor,Conectarse a internet,,,r1
+Hardware,El teclado es un periférico de:,Facil,booleana,Entrada,Salida,,,r1
+Hardware,El pen-drive es un periférico de:,Facil,multiple,Entrada,Salida,Entrada/Salida,Ninguna respuesta es correcta,r3
+Hardware,El micrófono es un perférico de:,Facil,multiple,Entrada,Salida,Entrada/Salida,Ninguna respuesta es correcta,r1
+Hardware,El ratón es un perférico de:,Facil,booleana,Entrada,Salida,,,r1
+Hardware,La impresora es un perférico de:,Facil,booleana,Entrada,Salida,,,r2
+Hardware,El altavozes un perférico de:,Facil,multiple,Entrada,Salida,Entrada/Salida,Ninguna respuesta es correcta,r2
+Hardware,La unidad de disco óptico es un perférico de:,Facil,booleana,Entrada,Salida,,,r1
+Hardware,Los audifonos son un perférico de:,Facil,multiple,Entrada,Salida,Entrada/Salida,Ninguna respuesta es correcta,r2
+Hardware,La impresoras multifunciónes un perférico de:,Facil,multiple,Entrada,Salida,Entrada/Salida,Ninguna respuesta es correcta,r3
+Hardware,La WebCam es un perférico de:,Facil,multiple,Entrada,Salida,Entrada/Salida,Ninguna respuesta es correcta,r1
+Hardware,La pantalla es un perférico de:,Facil,multiple,Entrada,Salida,Entrada/Salida,Ninguna respuesta es correcta,r2
+Hardware,La pantalla táctiles un perférico de:,Facil,multiple,Entrada,Salida,Entrada/Salida,Ninguna respuesta es correcta,r3
+Software,El sistema numérico binario denota todos los números usando una combinación de...,Facil,multiple,1 dígito,2 dígito,3 dígito,4 dígito,r2
+Software,El procesamiento paralelo también se conoce como:,Facil,multiple,Multiprocesamiento,Procesamiento online,Procesamiento digital,Paralelismo,r1
+Software,¿Cuál de los siguientes es un sistema operativo que usaría en la computadora?,Facil,multiple,Internet Explorer,Microsoft Windows,Microsoft Word,Netscape,r2
+Software,Cuál no es un archivo de video,Facil,multiple,.jpg,.mp4,.swf,.wmv,r1
+Software,La relacion entre software y programas,Facil,multiple,son verbos,antonimos,sinonimos,adjetivos,r3
+Software,El software te permite,Facil,multiple,ver documentos,ver videos,oir musica,todas las anteriores,r4
+Software,El software es la parte logica de la computadora conformada por los programas que ejecutan funciones.,Facil,booleana,Verdadero,Falso,,,r1
+Software,Un software y un hardware es lo mismo.,Facil,booleana,Verdadero,Falso,,,r2
+Software,Los programas que administran y controlan la computadora y todos sus accesorios perifericos se conocen como:,Facil,multiple,sistemas operativos,procesadores de texto,hojas de calculo,presentaciones,r1
+Software,Los programas utilizados para escribir todo tipo de documentos.,Facil,multiple,navegadores,presentaciones,procesadores de texto,hojas de cálculo,r3
+Software,Los programas para ejecutar operaciones matematicas se conocen como:,Facil,multiple,navegadores,sistemas operativos,presentaciones,hojas de calculo,r4
+Software,Power Point es un software de presentaciones.,Facil,multiple,Verdadero,Falso,,,r1
+Software,Los programas para elaborar presentaciones son conocidos como:,Facil,multiple,presentaciones,navegadores,hojas de calculo,sistemas operativos,r1
+Software,Los software y programas son elementos fisicos.,Facil,booleana,Verdadero,Falso,,,r2
+Software,Microsoft Word es un software para realizar hojas de calculo.,Facil,booleana,Verdadero,Falso,,,r2
+Software,Internet Explorer es un ejemplo de un navegador,Facil,booleana,Verdadero,Falso,,,r1
+Software,Programas que te permiten navegar por internet son:,Facil,multiple,hojas de calculo,procesadores  de texto,presentaciones,navegadores,r4
+Software,El puntero del mouse en el programa de Microsoft se representa con una flecha.,Facil,booleana,Verdadero,Falso,,,r1
+Software,El puntero del mouse siempre se representa con una flecha.,Facil,booleana,Verdadero,Falso,,,r2
+Software,Cual de los siguientes es un software de hoja de calculo?,Facil,multiple,MIcrosoft Word,Chrome,Microsoft Excel,Microsoft Power Point,r3
+Software,El sistema operativo Windows tiene una version solamente.,Facil,booleana,Verdadero,Falso,,,r2
+Software,Indica cuál de estos elementos es software,Facil,multiple,Teclado,Virus,Webcam,Escáner,r2
+Software,Cuál de estos elementos no es software,Facil,multiple,Word,Windows,Router,Power Point,r3
+Software,Un ejemplo de procesador de textos es ...,Facil,multiple,Power Point,Libre Office Writer,Windows,Excel,r2
+Software,Un programa que crea presentaciones es ...,Facil,multiple,Windows,Google Chrome,Libre Office Impress,Word,r3
+Software,Indica cuáles son Sistemas Operativos,Facil,multiple,Windows,Linux,Mac OS,Todos los anteriores,r4
+Software,Identifica cuál de estos Sistemas Operativos es de ordenador,Facil,multiple,iOS,Chrome,Android,Mac OS,r4
+Software,¿Qué tipo de programa es un reproductor de música?,Facil,multiple,Programa de aplicación,Programa multimedia,Virus,Sistema Operativo,r2
+Software,¿Qué tipo de programa es Word?,Facil,multiple,Programa de aplicación,Programa multimedia,Virus,Sistema Operativo,r1
+Software,¿Qué tipo de programa es un juego?,Facil,multiple,Programa de aplicación,Programa multimedia,Virus,Sistema Operativo,r2
+Software,¿Qué tipo de programa es Power Point?,Facil,multiple,Programa de aplicación,Programa multimedia,Virus,Sistema Operativo,r1
+Software,¿Qué tipo de programa es un troyano?,Facil,multiple,Programa de aplicación,Programa multimedia,Virus,Sistema Operativo,r3
+Software,¿Qué tipo de programa es Linux?,Facil,multiple,Programa de aplicación,Programa multimedia,Virus,Sistema Operativo,r4
+Software,"Sin Sistema Operativo, mi ordenador ...",Facil,booleana,No puede funcionar,Sí puede funcionar,,,r1
+Software,¿Qué tipo de programa es Windows?,Facil,multiple,Programa de aplicación,Programa multimedia,Virus,Sistema Operativo,r4
+Software,.doc es la extensión de un archivo de ...,Facil,multiple,Power Point,Word,Imagen,Audio,r2
+Software,.ppt es la extensión de un archivo de ...,Facil,multiple,Power Point,Word,Imagen,Audio,r1
+Software,.jpg es la extensión de un archivo de ...,Facil,multiple,Power Point,Word,Imagen,Audio,r3
+Software,.mp3 es la extensión de un archivo de ...,Facil,multiple,Power Point,Word,Imagen,Audio,r4
+Cultura,La computadora personal (PC) fue introducida por,Media,multiple,Apple,Ford,IBM,Hp,r3
+Cultura,"El acrónimo en inglés ""USB"" significa...",Media,multiple,Universal Serial Bus,Universal Society of Books,University of Brisbane,United States Bank,r1
+Cultura,Un _____________ es un estándar que define cómo un código de barras almacena su información.,Media,multiple,Identificación de frecuencia de radio,Reconocimiento óptico de caracteres,Código Universal de Producto,Reconocimiento óptico de marcas,r3
+Cultura,Sistema operativo caracteristico de las computadoras personales IBM durante la década de 1980 y mediados de los 90,Facil,multiple,MS-DOS.,Unix,Linux,Microsoft Windows,r1
+Lenguaje,"ASCII significa pos sus siglas en inglés ""_________ Standard Code for Information Interchange""",Media,multiple,Association,African,American,Audio,r3
+Hardware,Parte de la computadora que interpreta las instrucciones y procesa los datos de los programas de computadora,Media,multiple,CPU,Memoria RAM,Tarjeta Madre,Disco duro,r1
+Hardware,La CPU usa la RAM como área de almacenamiento __________.,Media,multiple,Permanente ,Primario,Secundario,Temporal,r4
+Hardware,La velocidad del reloj interno de un procesador se mide en la unidad denominada:,Media,multiple,GHz,Mb,Segundos,Gb,r1
+Hardware,Un iPod Touch de Apple almacena música y datos usando:,Media,multiple,SD Card,Memoria flash,Memoria USB,Lector de tarjetas,r2
+Hardware,La forma de píxel de la pantalla LCD es,Media,multiple,Rectangular,Circular,Cuadrada,Oblicua,r3
+Hardware,"Consiste en tres capas de un material semiconductor, cada una capaz de transportar una corriente",Media,multiple,Transitor,Modem,Router,Tarjeta madre,r1
+Hardware,Cuál de los siguientes retiene la información que está almacenando cuando se apaga el sistema,Media,multiple,CPU,ROM,DRAM,RAM,r4
+Hardware,"Qué significa ""LCD"" por sus siglas en inglés",Media,multiple,"Living, Crying, Dying",Liquid Crystal Display,Listen Closely Dude,Light Circuit Display,r2
+Hardware,¿Qué son los acelerómetros?,Media,multiple,Sensores que detectan condiciones del mundo real,Sensores que detectan cambios de movimiento rápidos para que las unidades permanezcan protegidas,Datos a la computadora,Convierte señales analógicas en datos digitales,r2
+Hardware,La placa de circuito que contiene la CPU de una computadora se conoce como:,Media,multiple,Tarjeta central,Tarjeta madre,Tarjeta completa,Ninguna de las anteriories,r2
+Hardware,¿Qué se considera que hay entre el procesador y la RAM?,Media,multiple,Ranuras de expansión,Buses,Tarjetas de expansión,Bahías,r2
+Hardware,Una __ es un identificador único (también conocido como una combinación de números y letras) asignado a una sola computadora de Apple,Media,multiple,PDA,Codificación de caracteres,Dirección MAC,OCR,r3
+Hardware,"Qué significa ""CPU"" por sus siglas en inglés",Media,multiple,Central Processing Unit,Central Printing Unit,Collaborative Processing Unit,Collaborative Processing Unit,r1
+Hardware,"Qué significa ""RAM"" por sus siglas en inglés",Media,multiple,Retrieve Alternate Memory,Random Access Memory,Read Always Memory,Roosters At Midnight,r2
+Hardware,¿Qué memoria se borra al apagar el ordenador?:,Media,multiple,ROM,RAM,USB,Ninguna es correcta,r2
+Hardware,¿Cuál es la memoria que contiene las instrucciones para el arranque inicial del ordenador?,Media,multiple,ROM,RAM,USB,Disco duro,r1
+Hardware,El ordenador puede funcionar sin memoria RAM,Media,booleana,Verdadero,Falso,,,r2
+Hardware,La BIOS es...,Media,multiple,Un periférico nuevo,La memoria que contiene el arranque del ordenador,La rama de la Biologia en computación,Un diminutivo de Biosfera,r2
+Hardware,La velocidad de internet se mide en,Media,multiple,MB/s (Megas por segundo),GigaHerzios,Km/h (Kilómetros por hora),Hz/s (Herzios por segundo),r1
+Hardware,La memoria RAM contiene,Media,multiple,El arranque del ordenador,Los datos de los programas que tenemos abiertos,Las aplicaciones que tenemos descargadas,Ninguna respuesta es correcta,r2
+Hardware,Los puertos HDMI son de ...,Media,multiple,Vídeo,Audio,Conexión a internet,Carga eléctrica,r1
+Hardware,Cuál de las siguintes es la unidad más grande,Media,multiple,Kilobyte,MegaByte,Terabyte,Gigabyte,r3
+Hardware,Cuál de las siguintes es la unidad más grande,Media,multiple,Petabyte,Terabyte,Zettabyte,Exabyte,r3
+Hardware,"Los componentes de Entrada/salida (discos duros, CD's, DVD's...) necesitan...",Media,multiple,"Electricidad, datos y ventilación para evitar sofocos",Electricidad y datos,"Solo datos, por IDE o por SATA",Ninguna respuesta es correcta,r2
+Software,¿Qué hace el procesamiento paralelo?,Media,multiple,Grupos de separación de información,Procesamiento que se ha utilizado en servidores y estaciones de trabajo de alta gama,Calcular la suma de cálculos complejos de operaciones financieras,Manejo de cientos de millones de consultas de búsqueda al día.,r2
+Software,Es el tipo de programas por lo que requires hacer el pago de una licencia para usarlos,Media,multiple,Software libre,Software Comercial,Antivirus,Android,r2
+Software,"Software en el que los usuarios tienen permiso para copiar, usar y modificar sin penalización",Media,multiple,Software comercial,Software privado,Software libre,Software freewere,r3
+Software,"Se puede usar, distribuir y hasta modificar pero con limitaciones",Media,multiple,Software Semi-libre,Software libre,Freeware,Shareware,r1
+Software,"Autoriza el uso del software de forma libre y gratuita, aunque con capacidades limitadas.",Media,multiple,Freeware,Shareware,Software Semi-libre,Software Libre,r1
+Software,Son las licencias temporales que te permiten probar y evaluar un programa,Media,multiple,Freeware,Shareware,Semi-libre,Libre,r2
+Software,Núcleo del sistema operativo GNU/Linux creado por LinusTorvalds en 1991.,Media,multiple,Ubuntu,Fedora,Linux,Android,r3
+Software,Sistema operativo de código abierto creado a partir de la combinación Linux y el proyecto GNU,Media,multiple,Ubuntu,Suse,GNU/Linux,Mac OS,r3
+Software,"Sistema con funciones de escritorio patrocinado por canonical Ltd, es libre y de código abierto",Media,multiple,Ubuntu,Fedora,Suse,Mandrivia,r1
+Software,Modo de ejecución desde CD o USB para probar el Sistema operativo,Media,multiple,Modo live,Máquina Virtual,Partición de disco duro,Como aplicación en windows,r1
+Software,Modo de ejecución de ubuntu que divide el disco duro,Media,multiple,Modo live,Partición de disco duro,Máquina Virtual,Aplicación desde windows,r2
+Software,El sistema operativo,Media,multiple,Es el programa principal del ordenador,Actúa como traductor entre el usuario y el ordenador,Permite el funcionamiento básico del ordenador,Todas son correctas,r4
+Software,El Sistema Operativo más utilizado comercialmente es ...,Media,multiple,Windows,Linux,Mac OS,Unix,r1
+Software,El Sistema Operativo libre es...,Media,multiple,Windows,Linux,Mac OS,Unix,r2
+Software,Indica qué Sistema Operativo es gratuito,Media,multiple,Windows,Mac OS,Linux,Unix,r3
+Software,Indica qué Sistema Operativo se utiliza mucho para diseño,Media,multiple,Windows,Mac OS,Linux,Unix,r2
+Software,¿Qué significa software de código abierto?,Media,multiple,Que cualquiera lo puede utilizar,Que cualquiera lo puede adquirir,Que cualquiera lo puede modificar,Nunguna de las anteriores,r3
+Software,Indica cuál de estos Sistemas Operativos es de código abierto,Media,multiple,Windows,Mac OS,Linux,Unix,r3
+Software,¿Cuál de estos caracteres no se puede utilizar para nombrar un archivo?,Media,multiple,ñ,-,á,Ninguno de ellos,r4
+Software,.rar es la extensión de un archivo de ...,Media,multiple,Audio,Comprimido,Imagen,Vídeo,r2
+Software,.exe es la extensión de un archivo de ...,Media,multiple,Audio,Comprimido,Imagen,Ejecutable,r4
