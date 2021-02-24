@@ -1,9 +1,14 @@
 :root{
     --blueButton: #08244F;
+    --blueLight: #2BCAFC;
     --blueButtonHover: #0e3671;
     --buttonGradient:  linear-gradient(180deg, #7BF7FF 0%, #4A2AA7 100%);
     --menuBckGradient:linear-gradient(138.26deg, #2BCAFC 11.6%, rgba(6, 42, 166, 0.89) 88.55%);
     --whiteText:#ffffff;
+    --playerOne: #e41212;
+    --playerTwo: #12a4ff;
+    --playerTree: #34df00;
+    --playerFour: #6e00ce;
 }
 @font-face{
     font-family: 'McLaren';
@@ -146,16 +151,16 @@ body{
     margin-bottom: 20px;
 }
 #player1 > .playerImg{
-  border:8px solid #ad0322;
+  border:8px solid var(--playerOne);
 }
 #player2 > .playerImg{
-  border:8px solid #030fad;
+  border:8px solid var(--playerTwo);
 }
 #player3 > .playerImg{
-  border:8px solid #2aad03;
+  border:8px solid var(--playerTree);
 }
 #player4 > .playerImg{
-  border:8px solid #5d03ad;
+  border:8px solid var(--playerFour);
 }
 .playerImg{
     background-color: var(--whiteText);
@@ -165,7 +170,7 @@ body{
     position:relative;
     top:10px;
     left:10px;
-    border:8px solid #2BCAFC;
+    border:8px solid var(--blueLight);
     overflow: hidden;
 }
 .playerImg > img{
@@ -173,16 +178,16 @@ body{
   height:62px;
 }
 .playerImg:hover, .playerImg:focus{
-  border: 8px solid #00d5fb;
+  border: 8px solid var(--blueLight);
   transition: border 0.3s ease;
   cursor: pointer
 }
 .playerTxt{
-    border:4px solid #2BCAFC;
+    border:4px solid var(--blueLight);
     border-radius: 10px;
     color: var(--blueButton);
-    font-family: font-family: 'McLaren';
-    font-size: 30px;
+    font-family: 'McLaren';
+    font-size: 25px;
     left: 110px;
     position: relative;
     text-align: center;
@@ -190,7 +195,7 @@ body{
     width: 230px;
 }
 .playerTxt:hover, .playerTxt:focus{
-  border: 4px solid #00d5fb;
+  border: 4px solid var(--blueLight);
   outline: none;
   transition: border 0.3s ease;
 }
@@ -226,11 +231,17 @@ body{
 }
 .charImgs:hover{
   cursor: pointer;
-  border:8px solid #4A2AA7;
+  border:8px solid var(--blueButtonHover);
   transition: border 0.3s ease;
 }
 .charImgs.selected{
-  border:8px solid #2BCAFC;
+  border:8px solid var(--blueLight);
+}
+.characterBorder{
+  position:relative;
+  top:5%;
+  height: 90vh;
+  align-items:center ;
 }
 #characterContainer{
     margin: auto;
@@ -241,27 +252,56 @@ body{
 #charImg > img{
     width:300px;
     overflow: hidden;
-    position: relative;
+    position: absolute;
     z-index: 600;
-    bottom: 50px;
-    left: 150px;
+    top:-60%;
+    left:15%;
+    margin: auto;
 }
 #scene{
+  width: 500px;
+  height: 400px;
+  position: relative;
+  margin: auto;
+  top:30vh;
+}
+#sceneBase{
     background-color: var(--blueButtonHover);
-    width: 400px;
+    width: 500px;
     height:150px;
+    margin: auto;
     position: relative;
-    margin: 0 auto;
-    top: 400px;
+    top:5%;
     border-radius: 50%;
     z-index: 0;
+}
+#sceneColor{
+  width: 400px;
+  height: 100px;
+  position: absolute;
+  margin: auto;
+  top:8%;
+  left: 6%;
+  border-radius: 50%;
+  border: 5px solid var(--blueLight);
+  z-index: 200;
+}
+#sceneBox{
+  width:500px;
+  height:160px;
+  background-color: var(--blueButton);
+  border-radius: 0% 0% 50% 50%;
+  position: absolute;
+  top:22%;
+  z-index: -1;
 }
 #charAñadir{
     border-radius: 50%;
     height:60px;
     width: 60px;
     background-color:var(--blueButton);
-    position: relative;
+    position: absolute;
+    top:-30%;
     left: 400px;
     z-index: 800;
 }
@@ -276,31 +316,32 @@ body{
     left:25%;
 }
 #divElegir{
-  width: fit-content;
-    max-width: 550px;
+    width: fit-content;
+    max-width: 620px;
     height: 50px;
     display: flex;
     flex-direction: row;
     align-items: flex-end;
     flex-wrap: nowrap;
     justify-content: flex-end;
-    position: relative;
-    top: 580px;
-    right: 0;
-    background-color: var(--blueButton);
-    padding: 0;
-    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    background:var(--blueButtonHover);
+    border-radius: 10px 0% 0% 10px;
+    margin: auto;
     color: var(--whiteText);
-    z-index: 1500;
+    z-index: 80000;
 }
 #divElegir > p{
+  width: 120px;
   position: relative;
   top: -10.5px;
-  font-size: 25px;
+  font-size: 20px;
   padding: 0 10px;
   margin: 0;
 }
 .btn-elegir{
+  align-items: center;
   width: 80px;
   height: 50px;
   background-color: #5f4271;
@@ -332,19 +373,19 @@ body{
   display: none;
 }
 #btn-P1:hover{
-  box-shadow: 0 0 10px #ff0000;
+  box-shadow: 0 0 10px var(--playerOne);
   transition: 0.3 ease;
 }
 #btn-P2:hover{
-  box-shadow: 0 0 10px #0029ff;
+  box-shadow: 0 0 10px var(--playerTwo);
   transition: 0.3 ease;
 }
 #btn-P3:hover{
-  box-shadow: 0 0 10px #14ff00;
+  box-shadow: 0 0 10px var(--playerTree);
   transition: 0.3 ease;
 }
 #btn-P4:hover{
-  box-shadow: 0 0 10px #bd00ff;
+  box-shadow: 0 0 10px var(--playerFour);
   transition: 0.3 ease;
 }
 .infoSquare{
