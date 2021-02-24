@@ -5,18 +5,13 @@
     --casillaMorada: rgb(133, 28, 165);
     --casillaInicio: rgb(249, 231, 255);
 }
-#board{
-    position: absolute;
-    top:10%;
-    left:32%;
-}
-.azul, .verde, .rojo, .morado, .inicio{
+.azul, .verde, .rojo, .morado, .inicial{
     border-radius: 50%;
     border: 2px solid var(--casillaInicio);
 }
-.vacio,.azul, .verde, .rojo, .morado, .inicio{
+.vacio,.azul, .verde, .rojo, .morado, .inicial{
     width:40px;
-    height:40px;
+    height:30px;
 }
 .azul{
     background-color: var(--casillaAzul);
@@ -30,7 +25,7 @@
 .morado{
     background-color: var(--casillaMorada);
 }
-.inicio{
+.inicial{
     background-color: var(--casillaInicio);
 }
 .boardRow{
@@ -44,4 +39,72 @@
     width: 40px;
     height: 40px;
     margin: 5px;
+}
+#playersContainer{
+    position: absolute;
+    top:0%;
+    height: 100vh;
+    width:30%;
+}
+#boardContainer{
+    position: absolute;
+    top:0%;
+    left:30%;
+    height: 100vh;
+    width: 70%;
+}
+#gameScreen{
+    border: 15px solid #000;
+    border-radius: 5%;
+    height:600px;
+    width: 700px;
+    position: absolute;
+    margin: auto;
+    top:calc(50vh - 310px);
+    left:calc(50% - 350px);
+}
+#board{
+    position: relative;
+    top:calc(50% - 220px);
+    left:calc(50% - 250px); 
+}
+#playerCards{
+    width:300px;
+    position: absolute;
+    left:calc(50% - 150px); 
+    top:calc(50vh - 310px);
+}
+#playerCards > div{
+    width: 300px;
+    margin-bottom: 60px;
+}
+.nickname,.points{
+    color: aliceblue;
+    position: relative;
+    left:35%;
+}
+.nickname{
+    top:-80%;
+    font-size: 20px;
+}
+.points{
+    font-size: 20px;
+    top:-90%;
+}
+.corona{
+    width: 50px;
+    height: 30px;
+    clip-path: polygon(72% 32%, 51% 0%, 27% 32%, 0% 0%, 16% 100%, 82% 100%, 100% 0%);
+    position: absolute;
+    top:-8%;
+    left:8%;
+}
+.coronaGris{
+    background-color: rgb(211, 211, 211);
+}
+.coronaDorado{
+    background-color: rgb(248, 222, 25);
+}
+.coronaBronce{
+    background-color: rgb(171, 34, 0);
 }
