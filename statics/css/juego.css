@@ -4,14 +4,18 @@
     --casillaRojo: rgb(179, 4, 4);
     --casillaMorada: rgb(133, 28, 165);
     --casillaInicio: rgb(249, 231, 255);
+    --bordeCasilla:rgb(235, 225, 187);
+}
+body{
+    overflow-x: hidden;
 }
 .azul, .verde, .rojo, .morado, .inicial{
     border-radius: 50%;
-    border: 2px solid var(--casillaInicio);
+    border: 2px solid var(--bordeCasilla);
 }
 .vacio,.azul, .verde, .rojo, .morado, .inicial{
     width:40px;
-    height:30px;
+    height:40px;
 }
 .azul{
     background-color: var(--casillaAzul);
@@ -27,6 +31,11 @@
 }
 .inicial{
     background-color: var(--casillaInicio);
+}
+.fichaImg{
+    width: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--bordeCasilla);
 }
 .boardRow{
     display: flex;
@@ -54,7 +63,7 @@
     width: 70%;
 }
 #gameScreen{
-    border: 15px solid #000;
+    border: 15px solid rgb(5, 19, 39);
     border-radius: 5%;
     height:600px;
     width: 700px;
@@ -62,21 +71,45 @@
     margin: auto;
     top:calc(50vh - 310px);
     left:calc(50% - 350px);
+    background-image: url("../img/Board7.png");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 #board{
+    width: 750px;
+    height: 650px;
     position: relative;
     top:calc(50% - 220px);
     left:calc(50% - 250px); 
 }
 #playerCards{
-    width:300px;
+    width:100%;
     position: absolute;
-    left:calc(50% - 150px); 
+    left:calc(50% - 120px); 
     top:calc(50vh - 310px);
 }
 #playerCards > div{
-    width: 300px;
+    width: 70%;
     margin-bottom: 60px;
+}
+#jugadorTurno,#jugadorDado{
+    width: 400px;
+    height: 20px;
+    position: absolute;
+    color: var(--casillaInicio);
+    font-size: 30px;
+    align-items: center;
+}
+#jugadorTurno{
+    top:calc(50% - 360px);
+    left:calc(50% - 320px); 
+}
+#jugadorDado{
+    top:calc(50% - 390px);
+    left:calc(50% + 150px); 
+}
+#jugadorTurno p{
+    margin: auto;
 }
 .nickname,.points{
     color: aliceblue;
