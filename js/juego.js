@@ -349,7 +349,9 @@ function jugar(numJugadores){
         primerLugar = mayorPuntaje(puntajes);
         if(primerLugar >= 100){
             clearInterval(movingInterval);
-            alert("Ganó el jugador \"1\"")
+            setTimeout(()=>{
+                alert("Ganó el jugador \"1\"")
+            },3000);
         }
     },tiempo);
  /*        for(var i = 1; i <= numJugadores; i++){
