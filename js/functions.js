@@ -118,7 +118,8 @@ function descPersonajes(obj){
     })
     $("#charOpts").append(charImg);
   });
-};
+}
+
 /* Cambia el contenido de el menú a partir de las opciones
 Parámetros:
 -target: elemento detonador

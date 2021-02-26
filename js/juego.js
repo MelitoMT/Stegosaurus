@@ -25,14 +25,14 @@ var gameBoardStart = [0,5,1,1,2,1,3,1,4,1,/* Primera Fila */
  
  */
 var gameBoardStart = [0,5,1,1,2,1,3,1,4,1,/* Primera Fila */
-                    0,0,3,0,0,0,0,0,0,2,/* Segunda Fila */
-                    0,0,1,0,0,0,0,0,0,1,/* Tercera Fila */
-                    3,4,3,0,0,0,0,0,0,2,/* Cuarta Fila */
-                    2,0,0,0,0,0,0,0,0,3,/* Quinta Fila */
-                    1,0,0,0,0,0,0,0,0,1,/* Sexta Fila */
-                    4,0,0,0,0,0,0,0,0,1,/* Séptima Fila */
-                    3,0,0,0,0,0,0,0,0,3,/* Octava Fila */
-                    1,1,2,4,2,3,1,1,2,1/* Novena Fila */];                
+    0,0,3,0,0,0,0,0,0,2,/* Segunda Fila */
+    0,0,1,0,0,0,0,0,0,1,/* Tercera Fila */
+    3,4,3,0,0,0,0,0,0,2,/* Cuarta Fila */
+    2,0,0,0,0,0,0,0,0,3,/* Quinta Fila */
+    1,0,0,0,0,0,0,0,0,1,/* Sexta Fila */
+    4,0,0,0,0,0,0,0,0,1,/* Séptima Fila */
+    3,0,0,0,0,0,0,0,0,3,/* Octava Fila */
+    1,1,2,4,2,3,1,1,2,1/* Novena Fila */];                
 /* Crea una copia del tablero para guardar el estado */
 var gameBoardStatus=gameBoardStart.slice();
 /* Función que actualiza el estado del tablero
@@ -65,16 +65,16 @@ var gameBoardDirec = [0,1,1,1,1,1,1,1,1,4,/* Primera Fila */
                     3,2,2,2,2,2,2,2,2,2/* Novena Fila */];    
 
 /* ARREGLOOOO PROVISIONAAAAAAAL */                    
-
 var gameBoardDirec = [0,1,1,1,1,1,1,1,1,4,/* Primera Fila */
-                    0,0,3,0,0,0,0,0,0,4,/* Segunda Fila */
-                    0,0,3,0,0,0,0,0,0,4,/* Tercera Fila */
-                    1,1,3,0,0,0,0,0,0,4,/* Cuarta Fila */
-                    3,0,0,0,0,0,0,0,0,4,/* Quinta Fila */
-                    3,0,0,0,0,0,0,0,0,4,/* Sexta Fila */
-                    3,0,0,0,0,0,0,0,0,4,/* Séptima Fila */
-                    3,0,0,0,0,0,0,0,0,4,/* Octava Fila */
-                    3,2,2,2,2,2,2,2,2,2/* Novena Fila */];    
+    0,0,3,0,0,0,0,0,0,4,/* Segunda Fila */
+    0,0,3,0,0,0,0,0,0,4,/* Tercera Fila */
+    1,1,3,0,0,0,0,0,0,4,/* Cuarta Fila */
+    3,0,0,0,0,0,0,0,0,4,/* Quinta Fila */
+    3,0,0,0,0,0,0,0,0,4,/* Sexta Fila */
+    3,0,0,0,0,0,0,0,0,4,/* Séptima Fila */
+    3,0,0,0,0,0,0,0,0,4,/* Octava Fila */
+    3,2,2,2,2,2,2,2,2,2/* Novena Fila */];
+    
 /* Genera un número pseudoaleatorio entre 1 y 6 */
 function girarDado(){
     var i = Math.floor(Math.random() * Math.floor(5)+1);
@@ -172,73 +172,6 @@ function elegirCamino(dir1,dir2,playerPlace, jugador,key){
         playerPlace = actualizarPos(4,playerPlace,jugador-1);
     }
 }
-/* Mueve al jugador
--jugador: Jugador que se quiere mover (1-4) 
--movDir: primera dirección
-movDirOpt: segunda dirección si aplica
-casillasValidNum: número de casillas válidas*/
-function moverJugador(jugador,countPlayers,srcFichas,puntajes){
-    var num=girarDado();
-    $("#jugadorTurno p").html("Turno del jugador: "+jugador);
-    $("#jugadorDado p").html("Dado: "+ num);
-    /* Mueve al jugador una casilla el número de veces indicado */
-    for(var j = 1; j <= num; j++){
-        gameBoardStatus=actualizarEstado(playerPlace,gameBoardStatus,countPlayers);
-        generarTablero(gameBoardStatus,srcFichas)
-
-            console.log(jugador)
-            console.log(playerPlace[jugador-1])
-            var casillasValid=verifCasillas(playerPlace[jugador-1]);
-            var casillasValidNum = 0;
-            var movDir;
-            var movDirOpt;
-            /* Cuenta las casillas válidas y guarda sus direcciones */
-            for(var i = 0; i <= 4;i++){
-                if(casillasValid[i]==true){
-                    if(casillasValidNum > 1){
-                        movDirOpt = i+1;
-                    }
-                    casillasValidNum += 1;
-                    movDir = i+1;
-                }
-            }    
-            if(casillasValidNum == 1){
-                playerPlace = actualizarPos(movDir,playerPlace,jugador-1);
-            }
-            else{
-                document.addEventListener('keypress', elegirCamino(movDir,movDirOpt,playerPlace,jugador));
-            }
-            gameBoardStatus=actualizarEstado(playerPlace,gameBoardStatus,countPlayers);
-            generarTablero(gameBoardStatus,srcFichas)
-            puntajes[jugador-1] += 10;
-            $("#points"+i+1).html(puntajes[jugador-1]);
-            console.log("El jugador"+jugador+"se movió"+j+"casillas");
-    }
-}
-/* Dibuja las fichas correspondientes a la posición de cad jugador
--i: coordenada y
--j: coordenada x */
-function dibujarFicha(i,j,jFichas){
-    var src="";
-    /* Si la casilla indicada contiene j(1-4) obtiene la dirección de ficha de ese jugador */
-    if(typeof gameBoardStatus[j*10+i]!= 'number'){
-        switch(gameBoardStatus[j*10+i]){
-            case "j1":
-                src=jFichas[0];
-                break;
-            case "j2":
-                src=jFichas[1];
-                break;
-            case "j3":
-                src=jFichas[2];
-                break;
-            case "j4":
-                src=jFichas[3];
-                break;            
-        }
-    }
-    return src;
-}
 /* Genera el tablero a partir de un arreglo dado
 -tablero:arreglo que contiene el tablero, los números diferentes de 0 son casillas
 -color: color de la casilla correspondiente 
@@ -285,6 +218,82 @@ function generarTablero(tablero,srcFichas){
     }
     $("#board").html(boardHtml);
 }
+/* Mueve al jugador
+-jugador: Jugador que se quiere mover (1-4) 
+-movDir: primera dirección
+movDirOpt: segunda dirección si aplica
+casillasValidNum: número de casillas válidas*/
+function moverJugador(jugador,countPlayers,srcFichas,puntajes,num){
+    var j = 1;
+    $("#jugadorTurno p").html("Turno del jugador: "+jugador);
+    $("#jugadorDado p").html("Dado: "+ num);
+    /* Mueve al jugador una casilla el número de veces indicado */
+    var moverJugadorInterval=setInterval(()=>{
+        if(j>num){
+            clearInterval(moverJugadorInterval)
+        }
+        else{
+            gameBoardStatus=actualizarEstado(playerPlace,gameBoardStatus,countPlayers);
+            generarTablero(gameBoardStatus,srcFichas)
+                var casillasValid=verifCasillas(playerPlace[jugador-1]);
+                var casillasValidNum = 0;
+                var movDir;
+                var movDirOpt;
+                /* Cuenta las casillas válidas y guarda sus direcciones */
+                for(var i = 0; i <= 4;i++){
+                    if(casillasValid[i]==true){
+                        if(casillasValidNum > 1){
+                            movDirOpt = i+1;
+                        }
+                        casillasValidNum += 1;
+                        movDir = i+1;
+                    }
+                }    
+                if(casillasValidNum == 1){
+                    playerPlace = actualizarPos(movDir,playerPlace,jugador-1);
+                }
+                else{
+                    document.addEventListener("keypress",(key)=>{
+                        elegirCamino(movDir,movDirOpt,playerPlace,jugador,key);
+                    })
+                }
+                gameBoardStatus=actualizarEstado(playerPlace,gameBoardStatus,countPlayers);
+                generarTablero(gameBoardStatus,srcFichas)
+                console.log("El jugador"+jugador+"se movió"+j+"casillas");
+                j += 1;
+        }
+    },1000);
+    puntajes[jugador-1] += 10;
+    $("#points"+ jugador).html(puntajes[jugador-1]);
+/*     for(var j = 1; j <= num; j++){
+
+    } */
+}
+/* Dibuja las fichas correspondientes a la posición de cad jugador
+-i: coordenada y
+-j: coordenada x */
+function dibujarFicha(i,j,jFichas){
+    var src="";
+    /* Si la casilla indicada contiene j(1-4) obtiene la dirección de ficha de ese jugador */
+    if(typeof gameBoardStatus[j*10+i]!= 'number'){
+        switch(gameBoardStatus[j*10+i]){
+            case "j1":
+                src=jFichas[0];
+                break;
+            case "j2":
+                src=jFichas[1];
+                break;
+            case "j3":
+                src=jFichas[2];
+                break;
+            case "j4":
+                src=jFichas[3];
+                break;            
+        }
+    }
+    return src;
+}
+
 /* Regresa el mayor puntaje de un arreglo de puntajes
 -puntaje: arreglo de puntajes de todos los jugadores */
 function mayorPuntaje(puntaje){
@@ -299,7 +308,8 @@ function mayorPuntaje(puntaje){
 /* Crea las tarjetas con los nicknames, fotos y puntos */
 function tarjetasJugadores(numJugadores,avatar,nickname,pts){
     for(var i = 0; i<numJugadores;i++){
-        $("#playerCards").append("<div class=\"player\"><div class=\"corona\"></div><div class=\"playerImg\"><img src=\""+avatar[i]+"\" alt=\"\"></img></div><p class=\"nickname\">"+nickname[i]+"</p><p class=\"points\" id=\"points"+i+1+"\">"+pts[i]+"</p></div>")
+        var puntoJ= i+1;
+        $("#playerCards").append("<div class=\"player\"><div class=\"corona\"></div><div class=\"playerImg\"><img src=\""+avatar[i]+"\" alt=\"\"></img></div><p class=\"nickname\">"+nickname[i]+"</p><p class=\"points\" id=\"points"+puntoJ+"\">"+pts[i]+"</p></div>")
     }
 }
 /* Inicializa el juego
@@ -322,17 +332,31 @@ function jugar(numJugadores){
     console.log(gameBoardStatus);
     generarTablero(gameBoardStatus,srcFichas);
     primerLugar = mayorPuntaje(puntajes);
-    /* Mientras los jugadores tengan menos de 100 puntos el ciclo de turnos se repite  */
+    /* Mientras los jugadores tengan menos de 100 puntos el ciclo de turnos se repite */    
 /*     while(primerLugar < 100){
-        for(var i = 0; i < numJugadores; i++){
-            console.log("El jugador"+i+"se movió")
-            setTimeout(()=>{
-                moverJugador(i,numJugadores,srcFichas);
-            },40);    
-                primerLugar = mayorPuntaje(puntajes);
+ */ var num=girarDado();    
+    var i = 1;
+    var tiempo = (num+1)*1000;
+    var movingInterval = setInterval(()=>{
+        var num=girarDado();
+        tiempo = (num+1)*1000;
+        if (i> numJugadores){
+            i = 1;
         }
-    }  */
-}
+        moverJugador(i,numJugadores,srcFichas,puntajes,num);
+        i += 1;
+        console.log("El jugador"+i+"se movió")
+        primerLugar = mayorPuntaje(puntajes);
+        if(primerLugar >= 100){
+            clearInterval(movingInterval);
+            alert("Ganó el jugador \"1\"")
+        }
+    },tiempo);
+ /*        for(var i = 1; i <= numJugadores; i++){
+            console.log("El jugador"+i+"se movió")
+        } */
+}  
+/* } */
 $(document).ready(()=>{
     $(".inicio").click(()=>{
         window.location.href = "../index.html"
