@@ -92,9 +92,9 @@ function busquedaPreg (categoria, dificultad, arreglo, callback){
     return arrFin[index];//Regresa el objeto elegido
   });
 }
-function mostrarPreg() {
+function mostrarPreg(idPreg) {
   //Añade el modal de pregunta
-  var pregunta = generarPregunta("Hardware", "Facil")
+  var pregunta = obtenerPregPorId(window.preguntas, idPreg)
   $(".modal-background").show();
   var modal = $("<div id='p-"+pregunta.id+"' class='modal'>");
   modal.append($("<div class='modal-title'>"+pregunta.Pregunta+"</div>"))
@@ -134,14 +134,14 @@ function mostrarPreg() {
   // Añade evento a las respuestas
   $.each($(".resp"),(index, elem)=>{
     elem.onclick= ()=>{
-      responder(pregunta.id, "r"+((elem.id).substr(5,1)))
+      responder(pregunta.id, ((elem.id).substr(5,1)))
     }
   });
 }
 function responder(idpreg, respuesta){
   var preg = obtenerPregPorId(window.preguntas, idpreg)
   var resCorr = preg.rCorrecta
-  console.log(resCorr +"=="+ respuesta);
+  resCorr = resCorr.match(/\d/gmi);
   if (resCorr == respuesta) {
     console.log("Es la correcta");
   }else{
