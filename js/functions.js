@@ -3,11 +3,14 @@ Parámetros:
 tiempo:Cada cuánto se cambia la palabra*/
 function generarFrasesCarga(tiempo){
     var frasesCarga = ['Elige sabiamente tu personaje...','Enseñando magia al Cangumago...', 'Michibot escribiendo su primer "Hola Mundo...','Eligiendo preguntas...' ];
+    /* Elige una frase de forma pseudoaleatoria para desplegar */
     setInterval(()=>{
         var i = Math.floor(Math.random() * Math.floor(frasesCarga.length + 1));
         $("#frases").html(frasesCarga[i]);
     },tiempo);
 }
+/* Revisa si el número de jugadores es el máximo para ocultar la opción de agregar nuevos
+-numPlay:cantidad de jugadores hasta el momento */
 function checkMaxPlayer(numPlay){
     if(numPlay==4){
         $("#newPlayer").css("display","none");
@@ -135,6 +138,16 @@ function cambiarPags(target, ruta){
                 nuevoJugador(persElegibles);
                 descPersonajes(persElegibles);
                 cambiarAvatar(persElegibles);
+                $(".generalButtonOut").hover(()=>{
+                  $(".generalButtonOut").css("","")
+                });
+                $(".generalButtonIn").hover(()=>{
+                  $(".generalButtonOut").css("","")
+                });
+                $(".generalButtonIn span").hover(()=>{
+                  $(".generalButtonOut").css("","")
+                });
+
                 actualizarImg(1,"Cangumago",persElegibles);
                 regresarInicio();
             }

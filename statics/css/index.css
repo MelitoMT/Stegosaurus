@@ -3,6 +3,7 @@
     --blueLight: #2BCAFC;
     --blueButtonHover: #0e3671;
     --buttonGradient:  linear-gradient(180deg, #7BF7FF 0%, #4A2AA7 100%);
+    --buttonGradientHover:  linear-gradient(180deg, #4A2AA7 0%,  #7BF7FF 100%);
     --menuBckGradient:linear-gradient(138.26deg, #2BCAFC 11.6%, rgba(6, 42, 166, 0.89) 88.55%);
     --whiteText:#ffffff;
     --playerOne: #e41212;

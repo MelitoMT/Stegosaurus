@@ -22,17 +22,20 @@ var persElegibles = [
    descripcion:"Gato-robot UwU Recargado"
   },
 ];
-/* Botones de menú principal */
-var jugarButton = $("#jugar");
-var instruccionesButton = $("#instrucciones");
-var personajesButton = $("#personajes");
-var creditosButton = $("#creditos");
 /**/
 generarFrasesCarga(400);
 $(document).ready(()=>{
+  /* Botones de menú principal */
+    var jugarButton = $("#jugar");
+    var instruccionesButton = $("#instrucciones");
+    var personajesButton = $("#personajes");
+    var creditosButton = $("#creditos");
     setTimeout(()=>{
         console.log($(window));
         title.css("display","none");
         cambiarPags(jugarButton,'./templates/charOpts.html');
+        cambiarPags(instruccionesButton,'./templates/charOpts.html');
+        cambiarPags(creditosButton,'./templates/charOpts.html');
+        cambiarPags(personajesButton,'./templates/charOpts.html');
     }, 4000);
 })
