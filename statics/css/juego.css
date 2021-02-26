@@ -5,6 +5,9 @@
     --casillaMorada: rgb(133, 28, 165);
     --casillaInicio: rgb(249, 231, 255);
 }
+body{
+    overflow-x: hidden;
+}
 .azul, .verde, .rojo, .morado, .inicial{
     border-radius: 50%;
     border: 2px solid var(--casillaInicio);
@@ -74,13 +77,13 @@
     left:calc(50% - 250px); 
 }
 #playerCards{
-    width:300px;
+    width:100%;
     position: absolute;
-    left:calc(50% - 150px); 
+    left:calc(50% - 120px); 
     top:calc(50vh - 310px);
 }
 #playerCards > div{
-    width: 300px;
+    width: 70%;
     margin-bottom: 60px;
 }
 .nickname,.points{

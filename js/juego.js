@@ -275,6 +275,12 @@ function mayorPuntaje(puntaje){
     }
     return mayor
 }
+/* Crea las tarjetas con los nicknames, fotos y puntos */
+function tarjetasJugadores(numJugadores,avatar,nickname,pts){
+    for(var i = 0; i<numJugadores;i++){
+        $("#playerCards").append("<div class=\"player\"><div class=\"corona\"></div><div class=\"playerImg\"><img src=\""+avatar[i]+"\" alt=\"\"></img></div><p class=\"nickname\">"+nickname[i]+"</p><p class=\"points\" id=\"points"+i+1+"\">"+pts[i]+"</p></div>")
+    }
+}
 /* Inicializa el juego
 -numJugadores: número de jugadores en tablero
 puntajes:arreglo con los puntajes de todos los jugadores
@@ -283,11 +289,14 @@ primerLugar:jugador con mayor puntaje
 */
 function jugar(numJugadores){
     var puntajes = [];
+    var avatares = ["../statics/img/AjoloteAvatar.png","../statics/img/CangumagoAvatar.png","../statics/img/FireoatAvatar.png","../statics/img/MichibotAvatar.png"];
+    var nicknames = ["Juan","Lali","TutsiPop","Ola"];
     /* Coloca las posiciones de acuerdo al número de jugadores */
     for(var i = 1; i <= numJugadores; i++){
         playerPlace.push([1,0]);
         puntajes.push(0);
     }
+    tarjetasJugadores(3,avatares,nicknames,puntajes)
     srcFichas = ["../statics/img/fichaAjolote.png","../statics/img/fichaCangumago.png","../statics/img/fichaFireoat.png","../statics/img/fichaMichibot.png"];
     gameBoardStatus = actualizarEstado(playerPlace,gameBoardStatus,numJugadores)
     console.log(gameBoardStatus);
@@ -301,11 +310,15 @@ function jugar(numJugadores){
                 moverJugador(i,numJugadores,srcFichas);
             },40);    
                 puntajes[i] += 10;
+                $("#points"+i+1).html(puntajes[i]);
                 primerLugar = mayorPuntaje(puntajes);
         }
     } 
 }
 $(document).ready(()=>{
+    $(".inicio").click(()=>{
+        window.location.href = "../index.html"
+    })
     jugar(3);
 })
 
