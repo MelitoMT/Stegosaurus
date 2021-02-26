@@ -2,6 +2,7 @@
 Al inicio 1,0 es la posición predeterminada*/
 var playerPlace = [];
 var srcFichas = [];
+var puntajes = [];
 /* Guarda el tablero al inicio
 0: no hay casilla
 1: azul
@@ -18,6 +19,20 @@ var gameBoardStart = [0,5,1,1,2,1,3,1,4,1,/* Primera Fila */
                 4,0,0,0,3,4,1,2,1,1,/* Séptima Fila */
                 3,0,0,0,0,0,0,0,0,3,/* Octava Fila */
                 1,1,2,4,2,3,1,1,2,1/* Novena Fila */];
+ /* 
+ 
+ ARREGLO PROVISIONAL, POR PROBLEMA DE DOS CASILLAS
+ 
+ */
+var gameBoardStart = [0,5,1,1,2,1,3,1,4,1,/* Primera Fila */
+                    0,0,3,0,0,0,0,0,0,2,/* Segunda Fila */
+                    0,0,1,0,0,0,0,0,0,1,/* Tercera Fila */
+                    3,4,3,0,0,0,0,0,0,2,/* Cuarta Fila */
+                    2,0,0,0,0,0,0,0,0,3,/* Quinta Fila */
+                    1,0,0,0,0,0,0,0,0,1,/* Sexta Fila */
+                    4,0,0,0,0,0,0,0,0,1,/* Séptima Fila */
+                    3,0,0,0,0,0,0,0,0,3,/* Octava Fila */
+                    1,1,2,4,2,3,1,1,2,1/* Novena Fila */];                
 /* Crea una copia del tablero para guardar el estado */
 var gameBoardStatus=gameBoardStart.slice();
 /* Función que actualiza el estado del tablero
@@ -49,6 +64,17 @@ var gameBoardDirec = [0,1,1,1,1,1,1,1,1,4,/* Primera Fila */
                     3,0,0,0,0,0,0,0,0,4,/* Octava Fila */
                     3,2,2,2,2,2,2,2,2,2/* Novena Fila */];    
 
+/* ARREGLOOOO PROVISIONAAAAAAAL */                    
+
+var gameBoardDirec = [0,1,1,1,1,1,1,1,1,4,/* Primera Fila */
+                    0,0,3,0,0,0,0,0,0,4,/* Segunda Fila */
+                    0,0,3,0,0,0,0,0,0,4,/* Tercera Fila */
+                    1,1,3,0,0,0,0,0,0,4,/* Cuarta Fila */
+                    3,0,0,0,0,0,0,0,0,4,/* Quinta Fila */
+                    3,0,0,0,0,0,0,0,0,4,/* Sexta Fila */
+                    3,0,0,0,0,0,0,0,0,4,/* Séptima Fila */
+                    3,0,0,0,0,0,0,0,0,4,/* Octava Fila */
+                    3,2,2,2,2,2,2,2,2,2/* Novena Fila */];    
 /* Genera un número pseudoaleatorio entre 1 y 6 */
 function girarDado(){
     var i = Math.floor(Math.random() * Math.floor(5)+1);
@@ -69,17 +95,7 @@ function ordenarJugadores(numJugadores){
 -gameBoardDirec: arreglo con las direcciones de todas las casillas*/
 function verifCasillas(pos){
     var casillasValidas=[false,false,false,false];
-    /* Casillas dobles por default tienen dos válidas */
-    if(pos==[9,6]){
-        casillasValidas=[false,true,false,true];
-    }
-    else if(pos==[4,4]){
-        casillasValidas=[true,true,false,false];
-    }
-    else if(pos==[6,2]){
-        casillasValidas=[true,false,true,false];
-    }
-    else{
+
         console.log("Soy la posición"+pos)
         if(pos[1]!=0){
             if(gameBoardDirec[pos[1]*10+pos[0]]==3){
@@ -111,7 +127,7 @@ function verifCasillas(pos){
                 } 
             }
         }       
-    }
+    
     return(casillasValidas) 
 }
 /* Actualiza la posición de un jugador
@@ -161,11 +177,10 @@ function elegirCamino(dir1,dir2,playerPlace, jugador,key){
 -movDir: primera dirección
 movDirOpt: segunda dirección si aplica
 casillasValidNum: número de casillas válidas*/
-function moverJugador(jugador,countPlayers,srcFichas){
+function moverJugador(jugador,countPlayers,srcFichas,puntajes){
     var num=girarDado();
     /* Mueve al jugador una casilla el número de veces indicado */
     for(var j = 1; j <= num; j++){
-        setTimeout(()=>{
             console.log(jugador)
             console.log(playerPlace[jugador-1])
             var casillasValid=verifCasillas(playerPlace[jugador-1]);
@@ -190,8 +205,9 @@ function moverJugador(jugador,countPlayers,srcFichas){
             }
             gameBoardStatus=actualizarEstado(playerPlace,gameBoardStatus,countPlayers);
             generarTablero(gameBoardStatus,srcFichas)
+            puntajes[jugador-1] += 10;
+            $("#points"+i+1).html(puntajes[jugador-1]);
             console.log("El jugador"+jugador+"se movió"+j+"casillas");
-        },6000)
     }
 }
 /* Dibuja las fichas correspondientes a la posición de cad jugador
@@ -288,7 +304,6 @@ srcFichas:arreglo con ruta de ficha de cada jugador
 primerLugar:jugador con mayor puntaje
 */
 function jugar(numJugadores){
-    var puntajes = [];
     var avatares = ["../statics/img/AjoloteAvatar.png","../statics/img/CangumagoAvatar.png","../statics/img/FireoatAvatar.png","../statics/img/MichibotAvatar.png"];
     var nicknames = ["Juan","Lali","TutsiPop","Ola"];
     /* Coloca las posiciones de acuerdo al número de jugadores */
@@ -303,17 +318,15 @@ function jugar(numJugadores){
     generarTablero(gameBoardStatus,srcFichas);
     primerLugar = mayorPuntaje(puntajes);
     /* Mientras los jugadores tengan menos de 100 puntos el ciclo de turnos se repite  */
-    while(primerLugar < 100){
+/*     while(primerLugar < 100){
         for(var i = 0; i < numJugadores; i++){
             console.log("El jugador"+i+"se movió")
             setTimeout(()=>{
                 moverJugador(i,numJugadores,srcFichas);
             },40);    
-                puntajes[i] += 10;
-                $("#points"+i+1).html(puntajes[i]);
                 primerLugar = mayorPuntaje(puntajes);
         }
-    } 
+    }  */
 }
 $(document).ready(()=>{
     $(".inicio").click(()=>{
