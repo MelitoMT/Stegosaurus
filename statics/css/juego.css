@@ -92,6 +92,25 @@ body{
     width: 70%;
     margin-bottom: 60px;
 }
+#jugadorTurno,#jugadorDado{
+    width: 400px;
+    height: 20px;
+    position: absolute;
+    color: var(--casillaInicio);
+    font-size: 30px;
+    align-items: center;
+}
+#jugadorTurno{
+    top:calc(50% - 360px);
+    left:calc(50% - 320px); 
+}
+#jugadorDado{
+    top:calc(50% - 390px);
+    left:calc(50% + 150px); 
+}
+#jugadorTurno p{
+    margin: auto;
+}
 .nickname,.points{
     color: aliceblue;
     position: relative;

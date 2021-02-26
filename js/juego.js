@@ -179,8 +179,13 @@ movDirOpt: segunda dirección si aplica
 casillasValidNum: número de casillas válidas*/
 function moverJugador(jugador,countPlayers,srcFichas,puntajes){
     var num=girarDado();
+    $("#jugadorTurno p").html("Turno del jugador: "+jugador);
+    $("#jugadorDado p").html("Dado: "+ num);
     /* Mueve al jugador una casilla el número de veces indicado */
     for(var j = 1; j <= num; j++){
+        gameBoardStatus=actualizarEstado(playerPlace,gameBoardStatus,countPlayers);
+        generarTablero(gameBoardStatus,srcFichas)
+
             console.log(jugador)
             console.log(playerPlace[jugador-1])
             var casillasValid=verifCasillas(playerPlace[jugador-1]);
