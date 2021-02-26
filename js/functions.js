@@ -139,15 +139,15 @@ function cambiarPags(target, ruta){
                 nuevoJugador(persElegibles);
                 descPersonajes(persElegibles);
                 cambiarAvatar(persElegibles);
-                $(".generalButtonOut").hover(()=>{
-                  $(".generalButtonOut").css("","")
-                });
-                $(".generalButtonIn").hover(()=>{
-                  $(".generalButtonOut").css("","")
-                });
-                $(".generalButtonIn span").hover(()=>{
-                  $(".generalButtonOut").css("","")
-                });
+                // $(".generalButtonOut").hover(()=>{
+                //   $(".generalButtonOut").css("","")
+                // });
+                // $(".generalButtonIn").hover(()=>{
+                //   $(".generalButtonOut").css("","")
+                // });
+                // $(".generalButtonIn span").hover(()=>{
+                //   $(".generalButtonOut").css("","")
+                // });
 
                 actualizarImg(1,"Cangumago",persElegibles);
                 regresarInicio();
