@@ -13,7 +13,7 @@ function tsvOBJ(tsv){
 
 	  var obj = {};
 	  var currentline=lines[i].split("\t"); //Separa los distintos valores por tabulacion
-
+    obj["id"] = i;//Se le añade un id a cada objeto para su mejor manejo
 	  for(var j=0;j<headers.length;j++){
 		  obj[headers[j]] = currentline[j];//Crea un objeto de cada linea
 	  }
@@ -54,6 +54,15 @@ function obtenerDificultades(arr){
   }
   return dificultades;
 }
+function obtenerPregPorId(arr, id){
+  var dificultades = [];
+  for (var i = 0; i < arr.length; i++) {
+    if(arr[i].id == id){
+      var preg = arr[i];
+    }
+  }
+  return preg;
+}
 // obtenerCategorias(window.preguntas);
 function generarPregunta(cat, dif) {
   // Regresa el valor de la funcion busquedaPreg
@@ -83,7 +92,67 @@ function busquedaPreg (categoria, dificultad, arreglo, callback){
     return arrFin[index];//Regresa el objeto elegido
   });
 }
-
+function mostrarPreg() {
+  //Añade el modal de pregunta
+  var pregunta = generarPregunta("Hardware", "Facil")
+  $(".modal-background").show();
+  var modal = $("<div id='p-"+pregunta.id+"' class='modal'>");
+  modal.append($("<div class='modal-title'>"+pregunta.Pregunta+"</div>"))
+  modal.append($("<div class='modal-img'><img src='./statics/img/default-quest.png' alt='default'></div>"))
+  var modalCont = $("<div class='modal-cont'>");
+  console.log(pregunta);
+  var contIzq = $("<div class='contIzq'>");
+  var contDer = $("<div class='contDer'>");
+  if (pregunta.Tipo=="multiple") {
+    for (var i = 1; i < 5; i++) {
+      var preg = $("<div id=Resp_"+i+" class='resp multiple'><p>"+pregunta["r"+i]+"</p></div>");
+      if ((i == 1)||(i == 3)) {
+        contIzq.append(preg)
+      }
+      if ((i == 2)||(i == 4)) {
+        contDer.append(preg)
+      }
+    }
+    modalCont.append(contIzq, contDer)
+  }else if (pregunta.Tipo=="booleana") {
+    for (var i = 1; i < 3; i++) {
+      var preg = $("<div id=Resp_"+i+" class='resp boolean'><p>"+pregunta["r"+i]+"</p></div>");
+      preg.click(()=>{
+        console.log(pregunta["r"+i]);
+      })
+      if (i == 1) {
+        contIzq.append(preg)
+      }
+      if (i == 2) {
+        contDer.append(preg)
+      }
+    }
+    modalCont.append(contIzq, contDer)
+  }
+  modal.append(modalCont)
+  $("body").append(modal)
+  // Añade evento a las respuestas
+  $.each($(".resp"),(index, elem)=>{
+    elem.onclick= ()=>{
+      responder(pregunta.id, "r"+((elem.id).substr(5,1)))
+    }
+  });
+}
+function responder(idpreg, respuesta){
+  var preg = obtenerPregPorId(window.preguntas, idpreg)
+  var resCorr = preg.rCorrecta
+  console.log(resCorr +"=="+ respuesta);
+  if (resCorr == respuesta) {
+    console.log("Es la correcta");
+  }else{
+    console.log("No lo es :c");
+  }
+  ocultarPreg(idpreg)
+}
+function ocultarPreg(id) {
+  $(".modal-background").hide();
+  $("#p-"+id).remove();
+}
 
 var nombreArchivoCSV = "Preguntas_computacion";
 
