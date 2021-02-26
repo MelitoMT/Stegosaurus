@@ -14,6 +14,8 @@ var gameBoardStart = [0,5,1,1,2,1,3,1,4,1,/* Primera Fila */
                 4,0,0,0,3,4,1,2,1,1,/* Séptima Fila */
                 3,0,0,0,0,0,0,0,0,3,/* Octava Fila */
                 1,1,2,4,2,3,1,1,2,1/* Novena Fila */];
+/* Crea una copia del tablero para guardar el estado */
+var gameBoardStatus=gameBoardStart.slice();                
 /* Guarda las direcciones de giro de todo el tablero
 1: derecha
 2: izquierda
@@ -36,6 +38,7 @@ var playerPlace = [];
 for(var i = 1; i <= 4; i++){
     playerPlace.push([1,0]);
 }
+var srcFichas = ["alo","alo","alo","alo"];
 /* Genera un número pseudoaleatorio entre 1 y 6 */
 function girarDado(){
     var i = Math.floor(Math.random() * Math.floor(5)+1);
@@ -163,12 +166,37 @@ function moverJugador(jugador){
         else{
             document.addEventListener('keypress', elegirCamino(movDir,movDirOpt,playerPlace,jugador));
         }
+        gameBoardStatus[playerPlace[jugador-1][0]*10+playerPlace[jugador-1][1]]="j"+jugador;
     }
     console.log(playerPlace[jugador-1]);
+}
+/* Dibuja las fichas correspondientes a la posición de cad jugador
+-i: coordenada y
+-j: coordenada x */
+function dibujarFicha(i,j,jFichas){
+    if(typeof gameBoardStatus[i*10+j]!= 'number'){
+        var src="";
+        switch(gameBoardStatus[i*10+j]){
+            case "j1":
+                src=jFichas[0];
+                break;
+            case "j2":
+                src=jFichas[1];
+                break;
+            case "j3":
+                src=jFichas[2];
+                break;
+            case "j4":
+                src=jFichas[3];
+                break;            
+        }
+    }
+    return src;
 }
 /* Genera el tablero a partir de un arreglo dado
 -tablero:arreglo que contiene el tablero, los números diferentes de 0 son casillas
 -color: color de la casilla correspondiente */
+
 function generarTablero(tablero){
     for(var j = 0; j < 9; j++){
         var row = "<div class=\"boardRow\">";
@@ -188,12 +216,18 @@ function generarTablero(tablero){
                     color= "morado";
                     break;
                 case 5:
-                    color = "inicio";
-                    break; 
+                    color = "inicial";
+                    break;               
                 default:
                     color = "vacio"       
             }
-            row  += "<div class=\"boardCol\"><div class=\""+color+"\"></div></div>";
+            src = dibujarFicha(i,j,srcFichas);
+            if(src == ""){
+                row  += "<div class=\"boardCol\"><div class=\""+color+"\"></div></div>";
+            }
+            else{
+                row  += "<div class=\"boardCol\"><div class=\""+color+"\"><img src=\""+src+"\" class\"fichaImg\"></div></div>";  
+            }
         }
         row += "</div>"
         $("#board").append(row);
