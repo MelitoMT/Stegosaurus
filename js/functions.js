@@ -20,8 +20,7 @@ function checkMaxPlayer(numPlay){
 };
 /* Agrega Nuevos Jugadores
 count: cuenta de jugadores al momento */
-function nuevoJugador(obj){
-    var count = 1;
+function nuevoJugador(obj,count){
     let divCont = $("#botonesJugadores");
     $("#newPlayer").click(()=>{
         count+=1;
@@ -42,6 +41,7 @@ function nuevoJugador(obj){
         divPlayer.append(imgPlayer, ['<input type="text" class="playerTxt" maxlength="8" placeholder="Player '+count+'" value="">', close]);
         divCont.append(divPlayer);
     })
+    return count;
 }
 function getIndexByName(nombre, obj){
   var index;
@@ -96,6 +96,8 @@ function captarInfo(obj){
         }
       }
       console.log(jugadores);
+      var nicknamesStr= JSON.stringify(jugadores);
+      document.cookie="jugadores"+"="+nicknamesStr;
     })
 }
 function regresarInicio() {
@@ -119,7 +121,11 @@ function descPersonajes(obj){
     $("#charOpts").append(charImg);
   });
 }
-
+function crearNicknameDefault(){
+  var defaultNicknames= ["TutsiPanda", "DarthPop", "T-rex","BlackHunter"]
+  var i = Math.floor(Math.random() * Math.floor(defaultNicknames.length + 1));
+  return defaultNicknames[i];
+}
 /* Cambia el contenido de el menú a partir de las opciones
 Parámetros:
 -target: elemento detonador
@@ -136,7 +142,7 @@ function cambiarPags(target, ruta){
             $("#OTHER").html(html);
             if(target="jugarButton"){
                 captarInfo(persElegibles);
-                nuevoJugador(persElegibles);
+                count = nuevoJugador(persElegibles,count);
                 descPersonajes(persElegibles);
                 cambiarAvatar(persElegibles);
                 // $(".generalButtonOut").hover(()=>{

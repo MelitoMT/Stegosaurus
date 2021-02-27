@@ -1,8 +1,22 @@
+function getCookie(cookie) {
+    var target = cookie + "=";
+    var cookieResult;
+    var cookieList = document.cookie.split(';');
+    for(var i = 0; i < cookieList.length; i++) {
+      if (cookieList[i].indexOf(target) == 0) {
+        cookieResult = cookieList[i].substring(target.length, cookieList[i].length);
+      }
+    }
+    return cookieResult;
+  }
 /* Guarda posición del jugador 
 Al inicio 1,0 es la posición predeterminada*/
 var playerPlace = [];
 var srcFichas = [];
+var nicknames = [];
+var avatares = [];
 var puntajes = [];
+var jugadores = JSON.parse(getCookie("jugadores"));
 /* Guarda el tablero al inicio
 0: no hay casilla
 1: azul
@@ -318,16 +332,12 @@ puntajes:arreglo con los puntajes de todos los jugadores
 srcFichas:arreglo con ruta de ficha de cada jugador
 primerLugar:jugador con mayor puntaje
 */
-function jugar(numJugadores){
-    var avatares = ["../statics/img/AjoloteAvatar.png","../statics/img/CangumagoAvatar.png","../statics/img/FireoatAvatar.png","../statics/img/MichibotAvatar.png"];
-    var nicknames = ["Juan","Lali","TutsiPop","Ola"];
-    /* Coloca las posiciones de acuerdo al número de jugadores */
+function jugar(numJugadores,avatares,nicknames,srcFichas){
     for(var i = 1; i <= numJugadores; i++){
         playerPlace.push([1,0]);
         puntajes.push(0);
     }
-    tarjetasJugadores(3,avatares,nicknames,puntajes)
-    srcFichas = ["../statics/img/fichaAjolote.png","../statics/img/fichaCangumago.png","../statics/img/fichaFireoat.png","../statics/img/fichaMichibot.png"];
+    tarjetasJugadores(numJugadores,avatares,nicknames,puntajes)
     gameBoardStatus = actualizarEstado(playerPlace,gameBoardStatus,numJugadores)
     console.log(gameBoardStatus);
     generarTablero(gameBoardStatus,srcFichas);
@@ -359,10 +369,16 @@ function jugar(numJugadores){
         } */
 }  
 /* } */
+
 $(document).ready(()=>{
     $(".inicio").click(()=>{
         window.location.href = "../index.html"
     })
-    jugar(3);
+    for(var j = 0;j<jugadores.length;j++){
+        nicknames.push(jugadores[j].nickname);
+        srcFichas.push("../statics/img/ficha"+jugadores[j].avatar+".png")
+        avatares.push("../statics/img/"+jugadores[j].avatar+"Avatar.png")
+    }
+    jugar(jugadores.length,avatares,nicknames,srcFichas);
 })
 
