@@ -4,12 +4,15 @@ div.roulette_container {
 	margin:auto;
 }
 #RuletaCateg{
-	/* display: none; */
+	display: none;
+	transition: display 0.2s ease;
 	height: 450px;
 	background:var(--menuBckGradient);
   z-index: 100;
   position: absolute;
   width: 600px;
+	left: 30%;
+	top: 20%;
 }
 #RuletaCateg > .titulo{
 	padding: 25px;
@@ -35,6 +38,59 @@ div.roulette_container {
 }
 
 #RuletaCateg > .girar > .respRul{
+	color: white;
+  font-size: 40px;
+	margin: 10px;
+  text-align: center;
+	text-shadow: 1px 1px 10px black;
+}
+
+
+
+
+
+
+
+
+#Dado{
+	display: none;
+	transition: display 0.2s ease;
+	height: 450px;
+	background:var(--menuBckGradient);
+  z-index: 100;
+  position: absolute;
+  width: 600px;
+	left: 30%;
+	top: 20%;
+}
+#Dado .roulette img{
+	width: 200px;
+	height: 200px;
+}
+#Dado > .titulo{
+	padding: 25px;
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+	color: white;
+  text-shadow: 1px 1px 10px black;
+}
+#Dado > .Tirar > button{
+	background: var(--blueButton);
+    color: white;
+    font-size: 30px;
+    position: relative;
+    text-align: center;
+    width: 20%;
+    left: 40%;
+		margin: 20px 0;
+    height: 50px;
+}
+#Dado > .Tirar > button:hover{
+	cursor: pointer;
+}
+
+#Dado > .Tirar > .respRul{
 	color: white;
   font-size: 40px;
 	margin: 10px;
