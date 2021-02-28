@@ -1,0 +1,43 @@
+div.roulette_container {
+	width: fit-content;
+	height:fit-content;
+	margin:auto;
+}
+#RuletaCateg{
+	/* display: none; */
+	height: 450px;
+	background:var(--menuBckGradient);
+  z-index: 100;
+  position: absolute;
+  width: 600px;
+}
+#RuletaCateg > .titulo{
+	padding: 25px;
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+	color: white;
+  text-shadow: 1px 1px 10px black;
+}
+#RuletaCateg > .girar > button{
+	background: var(--blueButton);
+    color: white;
+    font-size: 30px;
+    position: relative;
+    text-align: center;
+    width: 20%;
+    left: 40%;
+		margin: 20px 0;
+    height: 50px;
+}
+#RuletaCateg > .girar > button:hover{
+	cursor: pointer;
+}
+
+#RuletaCateg > .girar > .respRul{
+	color: white;
+  font-size: 40px;
+	margin: 10px;
+  text-align: center;
+	text-shadow: 1px 1px 10px black;
+}

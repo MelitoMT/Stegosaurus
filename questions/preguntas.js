@@ -131,9 +131,12 @@ function mostrarPreg(idPreg) {
   }
   modal.append(modalCont)
   $("body").append(modal)
+  contar = true;
+  cuentaRegre(10, pregunta.id)
   // Añade evento a las respuestas
   $.each($(".resp"),(index, elem)=>{
     elem.onclick= ()=>{
+      contar = false;
       responder(pregunta.id, ((elem.id).substr(5,1)))
     }
   });
@@ -144,17 +147,90 @@ function responder(idpreg, respuesta){
   resCorr = resCorr.match(/\d/gmi);
   if (resCorr == respuesta) {
     console.log("Es la correcta");
+    $("#Resp_"+respuesta).css("color", "#00da30");
   }else{
+    $("#Resp_"+respuesta).css("color", "#da0000");
+    $("#Resp_"+resCorr).css("color", "#00da30");
     console.log("No lo es :c");
   }
-  ocultarPreg(idpreg)
+  setTimeout(()=>{
+    ocultarPreg(idpreg)
+  }, 1500)
 }
 function ocultarPreg(id) {
   $(".modal-background").hide();
   $("#p-"+id).remove();
 }
-
+var contar = true;
+function cuentaRegre(seg, idpPreg){
+  console.log(seg);
+    if (seg>0 && contar) {
+      setTimeout(()=> {
+        cuentaRegre(seg-1, idpPreg)
+      }, 1000);
+    }else if (contar) {
+      var preg = obtenerPregPorId(window.preguntas, idpPreg)
+      var resCorr = preg.rCorrecta
+      console.log(resCorr);
+      $.each($(".resp"),(index, elem)=>{
+        elem.onclick= "";
+      });
+      resCorr = resCorr.match(/\d/gmi);
+      for (var i = 1; i < 5; i++) {
+        if (resCorr!=i) {
+          $("#Resp_"+i).css("color", "#da0000");
+        }
+      }
+      $("#Resp_"+resCorr).css("color", "#00da30");
+      setTimeout(()=>{
+        ocultarPreg(idpPreg)
+      }, 1500)
+    }
+}
 var nombreArchivoCSV = "Preguntas_computacion";
+
+/*No aqui*/
+function RuletaCat(){
+  genRulCat(()=>{
+    var rouletter = $('#RuletaCateg div.roulette');
+    var option = {
+      speed : 15,
+      duration : 3,
+      stopImageNumber : -1,//Numero elige aleatorio
+      stopCallback : function($stopElm)/*Que hace al acabar de girar*/ {
+        console.log($stopElm[0].alt);
+        $("#RuletaCateg .girar").append("<p class='respRul'>"+$stopElm[0].alt+"</p>");
+        var pregunta = generarPregunta($stopElm[0].alt,"Facil");
+        console.log(pregunta);
+        setTimeout(()=>{
+          $("#RuletaCateg").hide();
+          mostrarPreg(pregunta.id)
+        }, 1500);
+      }
+    }
+    rouletter.roulette(option);//Creo la ruleta
+  })
+}
+function resetRulCat (){
+  $("#RuletaCateg .girar .respRul").remove();
+  $("#RuletaCateg .girar button").show();
+  $("#RuletaCateg").show();
+}
+function genRulCat(callback){
+  var categorias = obtenerCategorias(window.preguntas);//Obtengo las categorias
+  $.each(categorias,(index, elem)=>{
+    var img = $("<img src='./statics/img/"+elem+".png' alt='"+elem+"'>")
+    $("#RuletaCateg .roulette_container .roulette").append(img);//Agrego cada imagen
+  });
+  var buttonGirar = $('<button type="button" name="girar">Girar</button>')
+  buttonGirar.click(()=>{
+    $('#RuletaCateg div.roulette').roulette("start");
+    buttonGirar.hide()
+  })
+  $("#RuletaCateg .girar").append(buttonGirar)
+  callback();//hago el callback
+}
+
 
 fetch("./questions/"+nombreArchivoCSV+".tsv")
 .then((response)=>{
@@ -162,6 +238,7 @@ fetch("./questions/"+nombreArchivoCSV+".tsv")
 })
 .then((tsvText)=>{
    window.preguntas = tsvOBJ(tsvText); //Declaro esta variable globalmente
+   RuletaCat()
 })
 .catch(error => {
   console.error('Fallo el obtener las preguntas', error);
