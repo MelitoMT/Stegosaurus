@@ -395,7 +395,7 @@ srcFichas:arreglo con ruta de ficha de cada jugador
 primerLugar:jugador con mayor puntaje
 */
 function jugar(numJugadores,avatares,nicknames,srcFichas){
-    for(var i = 1; i <= numJugadores; i++){
+    for(var f = 1; f <= numJugadores; f++){
         playerPlace.push([1,0]);
         puntajes.push(0);
     }
@@ -404,6 +404,28 @@ function jugar(numJugadores,avatares,nicknames,srcFichas){
     console.log(gameBoardStatus);
     generarTablero(gameBoardStatus,srcFichas);
     primerLugar = mayorPuntaje(puntajes);
+    /* Mientras los jugadores tengan menos de 100 puntos el ciclo de turnos se repite */    
+/*     var num=girarDado();    
+    var i = 1;
+    var tiempo = (num+1)*1000;
+    var movingInterval = setInterval(()=>{
+        var num=girarDado();
+        tiempo = (num+1)*1000;
+        if (i> numJugadores){
+            i = 1;
+        }
+        moverJugador(i,numJugadores,srcFichas,puntajes,num);
+        i += 1;
+        console.log("El jugador"+i+"se movió")
+        primerLugar = mayorPuntaje(puntajes);
+        if(primerLugar >= 100){
+            clearInterval(movingInterval);
+            setTimeout(()=>{
+                alert("Ganó el jugador \"1\"")
+            },3000);
+        }
+    },tiempo); */
+}  
     /* Mientras los jugadores tengan menos de 100 puntos el ciclo de turnos se repite */
 /*     while(primerLugar < 100){
 
@@ -431,7 +453,7 @@ function jugar(numJugadores,avatares,nicknames,srcFichas){
  /*        for(var i = 1; i <= numJugadores; i++){
             console.log("El jugador"+i+"se movió")
         } */
-}
+//}
 /* } */
 
 $(document).ready(()=>{

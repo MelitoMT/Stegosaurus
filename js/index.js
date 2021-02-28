@@ -31,13 +31,11 @@ $(document).ready(()=>{
     var jugarButton = $("#jugar");
     var instruccionesButton = $("#instrucciones");
     var personajesButton = $("#personajes");
-    var creditosButton = $("#creditos");
     setTimeout(()=>{
         console.log($(window));
         title.css("display","none");
         cambiarPags(jugarButton,'./templates/charOpts.html');
-        cambiarPags(instruccionesButton,'./templates/charOpts.html');
-        cambiarPags(creditosButton,'./templates/charOpts.html');
-        cambiarPags(personajesButton,'./templates/charOpts.html');
+        cambiarPags(instruccionesButton,'./templates/instrucciones.html');
+        cambiarPags(personajesButton,'./templates/personajes.html');
     }, 4000);
 })

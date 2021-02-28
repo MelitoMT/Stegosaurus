@@ -4,12 +4,14 @@
     --blueButtonHover: #0e3671;
     --buttonGradient:  linear-gradient(180deg, #7BF7FF 0%, #4A2AA7 100%);
     --buttonGradientHover:  linear-gradient(180deg, #4A2AA7 0%,  #7BF7FF 100%);
+    --buttonGradientHover2:   linear-gradient(180deg, #a8f9ff 0%, #5b3ac1 100%);
     --menuBckGradient:linear-gradient(138.26deg, #2BCAFC 11.6%, rgba(6, 42, 166, 0.89) 88.55%);
     --whiteText:#ffffff;
     --playerOne: #e41212;
     --playerTwo: #12a4ff;
     --playerTree: #34df00;
     --playerFour: #6e00ce;
+    --cardsGradient:linear-gradient(280deg, #154793 0%, #0e3671 70%);
 }
 @font-face{
     font-family: 'McLaren';
@@ -25,6 +27,7 @@ body{
     padding: 0%;
     border: 0%;
     overflow-y: hidden;
+    overflow-x: hidden;
 }
 /* Pantalla de carga */
 #title{
@@ -87,7 +90,7 @@ body{
     height: 80vh;
     position: relative;
     left:65%;
-    top:70px;
+    top:100px;
 }
 #subTitleOut{
     width:60%;
@@ -547,4 +550,182 @@ body{
 }
 #aviso:hover{
   cursor: pointer;
+}
+/* Créditos */
+.cardProfile{
+  background-color: var(--blueButton);
+  width:560px;
+  height: 250px;
+  border-radius: 15px;
+  position: absolute;
+}
+.profileImg{
+  border-radius: 50%;
+}
+.profileImg{
+  background-size: cover;
+  height: 150px;
+  width: 150px;
+  margin-left: 20px;
+  position: relative;
+  top:calc(50% - 75px);
+  border: 5px solid var(--blueButtonHover);
+  display: inline-block;
+}
+.profileImg > img{
+  display: block;
+  max-height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.profileRight{
+  background-color:var(--blueButtonHover);
+  position: absolute;
+  top:0%;
+  right: 0%;
+  border-radius: 0 10px 10px 0px;
+  width:360px;
+  height: 250px;
+}
+.profileTxt >span{
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50px;
+  left: 20px;
+}
+.profileTxt > p{
+  position: absolute;
+  width: 300px;
+  left: 25px;
+  top: 80px;
+  color: white;
+}
+.diagonal{
+  clip-path: polygon(100% 100%, 100% 0%, 0% 100%);
+  width:360px;
+  height: 250px;
+  background:var(--cardsGradient);
+  border-radius: 0 10px 10px 0px;
+}
+#cardsContainer{
+  margin: auto;
+  width:1200px;
+  height: 600px;
+}
+#cangumagoCard,#michibotCard{
+  left: calc(50% - 580px);
+}
+#ajoloteCard,#fireoatCard{
+  right:calc(50% - 580px);
+}
+#cangumagoCard,#ajoloteCard{
+  top:calc(50% + 30px);
+}
+#michibotCard, #fireoatCard{
+  top:calc(50% - 250px);
+}
+#cangumagoCard > .profileImg{
+  background-image: url("../img/CangumagoAvatar.png");
+}
+#michibotCard > .profileImg{
+  background-image: url("../img/MichibotAvatar.png");
+}
+#fireoatCard > .profileImg{
+  background-image: url("../img/FireoatAvatar.png");
+}
+#ajoloteCard > .profileImg{
+  background-image: url("../img/AjoloteAvatar.png");
+}
+/* INSTRUCCIONES */
+#instruccionesSpan{
+  color: white;
+  position: absolute;
+  top:calc(50% - 350px);
+  left:calc(50% - 180px);
+  font-size: 40px;
+}
+#instruccionesContainer{
+  border-radius: 15px;
+  border: 5px solid var(--blueButtonHover);
+  width: 900px;
+  position: absolute;
+  top:calc(50% - 260px);
+  left: calc(50% - 450px);
+  height:600px;
+  background-color: var(--blueButton);
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+}
+#instructTxt{
+  margin: auto;
+  color: white;
+  width:100%;
+  height:1000px;
+}
+.instructRow{
+  width:calc(100% - 100px);
+  height: 370px;
+  padding: 50px;
+}
+.instructRow:nth-of-type(even){
+  background-color: var(--blueButtonHover);
+}
+#instructRight{
+  position: relative;
+  top: -80%;
+  left:40%;
+}
+.leftTxt{
+  width: 90%;
+}
+.rightTxt{
+  width:90%;
+  position: relative;
+  left:25%;
+}
+.instrucSub{
+  font-size: 25px;
+  font-weight: 500;
+}
+#instructLeft{
+  width: 50%;
+}
+#instructRight{
+  width: 50%;
+}
+.imgInstruct,.imgins2{
+  padding: 20px;
+  width: 300px;
+}
+.imgins2{
+  vertical-align: middle;
+}
+.imgInstruct{
+  position: relative;
+  left:25%;
+}
+.middleTxt{
+  width: 90%;
+  text-align: center;
+  margin: auto;
+}
+
+#instruccionesContainer::-webkit-scrollbar {
+  border: 5px solid var(--blueButtonHover);
+  height: 10px;
+}
+#instruccionesContainer::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  cursor:pointer;
+   background: var(--buttonGradient);
+}
+#instruccionesContainer::-webkit-scrollbar-thumb:hover {
+  background: var(--buttonGradientHover2);
+}
+#instruccionesContainer::-webkit-scrollbar-track {
+  background: rgb(202, 202, 202);
+  border-radius: 8px;
 }
