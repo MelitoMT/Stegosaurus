@@ -299,20 +299,17 @@ body{
   top:22%;
   z-index: -1;
 }
-#charAñadir{
+.charAñadir{
     border-radius: 50%;
     height:60px;
     width: 60px;
     background-color:var(--blueButton);
     position: absolute;
-    top:-30%;
-    left: 400px;
-    z-index: 80;
 }
-#charAñadir:hover{
+.charAñadir:hover{
   cursor: pointer;
 }
-#charAñadir > span{
+.charAñadir > span{
     color: var(--whiteText);
     font-size: 60px;
     position: relative;
@@ -403,6 +400,11 @@ body{
 #newPlayer:hover{
   cursor: pointer;
   text-shadow: 0px 0px 5px var(--blueButton);
+}
+#newPlayer > span{
+  position: relative;
+  top:8px;
+  left: 20%;
 }
 .inicio{
   background: var(--blueButton);
