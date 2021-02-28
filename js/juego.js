@@ -88,54 +88,14 @@ var gameBoardDirec = [0,1,1,1,1,1,1,1,1,4,/* Primera Fila */
     }
   }
   rouletter.roulette(option);//Creo la ruleta
-/**/
-// $("#Dado .Tirar button").click(()=>{
-//   giraDado();
-// })
-function resetDado() {
-  $("#Dado .Tirar .respRul").remove();
-  $("#Dado .Tirar button").show();
-  $("#Dado").show();
-}
+
 $("#Dado .Tirar button").click(()=>{
   $("#Dado .Tirar button").hide();
   $('#Dado div.roulette').roulette("start");
 })
 
 
-/* Se ejecuta al inicio donde cada jugador tira un dado y el mayor inicia */
-function ordenarJugadores(numJug) {
-  $(".modal-background").show();
-  aviso("Jugador "+numJug+" <br> te toca tirar", (callback)=>{
-    resetDado();
-  });
-}
-function aviso(txt, callback){
-  var aviso = $("<div id='aviso'><p>"+txt+"</p></div>");
-  aviso.click(()=>{
-    aviso.remove();
-    callback();
-  })
-  $("body").append(aviso);
-}
-function tiraDado(){
-  resetDado();
-  $("#Dado .Tirar button").click(()=>{
-    console.log();
-  })
-}
-function valortiro(val, jug){
-  console.log("Eljugador"+jug+" saco "+val);
-  var tiro = {};
-  tirosInit.push({tiro:val, jugador:jug});
-  console.log(tirosInit);
-  if (numJugTiro<4) {
-    numJugTiro++;
-    ordenarJugadores(numJugTiro)
-  }else{
-    console.log(tirosInit.sort((a, b) => b.tiro - a.tiro ));
-  }
-}
+
 var numJugTiro = 1;
 var tirosInit =[];
 ordenarJugadores(numJugTiro)
@@ -146,28 +106,26 @@ ordenarJugadores(numJugTiro)
 -movDir: primera dirección
 movDirOpt: segunda dirección si aplica
 casillasValidNum: número de casillas válidas*/
-function moverJugador(jugador,countPlayers,srcFichas,puntajes,num){
+function moverJugador(jugador,countPlayers,srcFichas,puntajes,num,tablero1,tablero2,tablero3){
     var j = 1;
     $("#jugadorTurno p").html("Turno del jugador: "+jugador);
     $("#jugadorDado p").html("Dado: "+ num);
     /* Mueve al jugador una casilla el número de veces indicado */
-    var moverJugadorInterval=setInterval(()=>{
+/*     var moverJugadorInterval=setInterval(()=>{
         if(j>num){
             clearInterval(moverJugadorInterval)
         }
-        else{
-            gameBoardStatus=actualizarEstado(playerPlace,gameBoardStatus,countPlayers,gameBoardStart);
-            generarTablero(gameBoardStatus,srcFichas)
-                var casillasValid=verifCasillas(playerPlace[jugador-1],gameBoardDirec);
+        else{ */
+                var casillasValid=verifCasillas(playerPlace[jugador-1],tablero3);
                 var casillasValidNum = 0;
                 var movDir;
                 var movDirOpt;
                 /* Cuenta las casillas válidas y guarda sus direcciones */
                 for(var i = 0; i <= 4;i++){
                     if(casillasValid[i]==true){
-                        if(casillasValidNum > 1){
+                        /* if(casillasValidNum > 1){
                             movDirOpt = i+1;
-                        }
+                        } */
                         casillasValidNum += 1;
                         movDir = i+1;
                     }
@@ -175,17 +133,17 @@ function moverJugador(jugador,countPlayers,srcFichas,puntajes,num){
                 if(casillasValidNum == 1){
                     playerPlace = actualizarPos(movDir,playerPlace,jugador-1);
                 }
-                else{
+/*                 else{
                     document.addEventListener("keypress",(key)=>{
                         elegirCamino(movDir,movDirOpt,playerPlace,jugador,key);
                     })
-                }
-                gameBoardStatus=actualizarEstado(playerPlace,gameBoardStatus,countPlayers,gameBoardStart);
-                generarTablero(gameBoardStatus,srcFichas)
+                } */
+                tablero1=actualizarEstado(playerPlace,tablero1,countPlayers,tablero2);
+                generarTablero(tablero1,srcFichas)
                 console.log("El jugador"+jugador+"se movió"+j+"casillas");
-                j += 1;
+/*                 j += 1;
         }
-    },1000);
+    },1000); */
     puntajes[jugador-1] += 10;
     $("#points"+ jugador).html(puntajes[jugador-1]);
 }
@@ -203,7 +161,6 @@ primerLugar:jugador con mayor puntaje
 function jugar(numJugadores,avatares,nicknames,srcFichas){
     tarjetasJugadores(numJugadores,avatares,nicknames,puntajes)
     gameBoardStatus = actualizarEstado(playerPlace,gameBoardStatus,numJugadores,gameBoardStart)
-    console.log(gameBoardStatus);
     generarTablero(gameBoardStatus,srcFichas);
     primerLugar = mayorPuntaje(puntajes);
     /* Mientras los jugadores tengan menos de 100 puntos el ciclo de turnos se repite */    
@@ -228,35 +185,6 @@ function jugar(numJugadores,avatares,nicknames,srcFichas){
         }
     },tiempo); */
 }  
-    /* Mientras los jugadores tengan menos de 100 puntos el ciclo de turnos se repite */
-/*     while(primerLugar < 100){
-
- */
-    // var num=girarDado();
-    // var i = 1;
-    // var tiempo = (num+1)*1000;
-    // var movingInterval = setInterval(()=>{
-    //     var num=girarDado();
-    //     tiempo = (num+1)*1000;
-    //     if (i> numJugadores){
-    //         i = 1;
-    //     }
-    //     moverJugador(i,numJugadores,srcFichas,puntajes,num);
-    //     i += 1;
-    //     console.log("El jugador"+i+"se movió")
-    //     primerLugar = mayorPuntaje(puntajes);
-    //     if(primerLugar >= 100){
-    //         clearInterval(movingInterval);
-    //         setTimeout(()=>{
-    //             alert("Ganó el jugador \"1\"")
-    //         },3000);
-    //     }
-    // },tiempo);
- /*        for(var i = 1; i <= numJugadores; i++){
-            console.log("El jugador"+i+"se movió")
-        } */
-//}
-/* } */
 
 $(document).ready(()=>{
     /* Permite crear las condiciones iniciales para jugar */

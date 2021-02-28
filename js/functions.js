@@ -307,7 +307,6 @@ function actualizarPos(movDir, playerPlace, index){
   switch (movDir){
       case 1:
           playerPlace[index][0] += 1;
-          console.log("Sume 1 en x")
           break;
       case 2:
           playerPlace[index][0] -= 1;
@@ -317,7 +316,6 @@ function actualizarPos(movDir, playerPlace, index){
           break;
       case 4:
           playerPlace[index][1] += 1;
-          console.log("Sume 1 en y")
           break;
   }
   return playerPlace;
@@ -397,5 +395,55 @@ function elegirCamino(dir1,dir2,playerPlace, jugador,key){
   }
   if(dir1== 4||dir2== 4&& key.keyCode == '40'){
       playerPlace = actualizarPos(4,playerPlace,jugador-1);
+  }
+}
+
+
+/* DADO */
+
+/**/
+function resetDado() {
+  $("#Dado .Tirar .respRul").remove();
+  $("#Dado .Tirar button").show();
+  $("#Dado").show();
+}
+
+/* Se ejecuta al inicio donde cada jugador tira un dado y el mayor inicia */
+function ordenarJugadores(numJug) {
+  $(".modal-background").show();
+  aviso("Jugador "+numJug+" <br> te toca tirar", (callback)=>{
+    resetDado();
+  });
+}
+
+
+function aviso(txt, callback){
+  var aviso = $("<div id='aviso'><p>"+txt+"</p></div>");
+  aviso.click(()=>{
+    aviso.remove();
+    callback();
+  })
+  $("body").append(aviso);
+}
+
+
+function tiraDado(){
+  resetDado();
+  $("#Dado .Tirar button").click(()=>{
+    console.log();
+  })
+}
+
+
+function valortiro(val, jug){
+  console.log("Eljugador"+jug+" saco "+val);
+  var tiro = {};
+  tirosInit.push({tiro:val, jugador:jug});
+  console.log(tirosInit);
+  if (numJugTiro<4) {
+    numJugTiro++;
+    ordenarJugadores(numJugTiro)
+  }else{
+    console.log(tirosInit.sort((a, b) => b.tiro - a.tiro ));
   }
 }
