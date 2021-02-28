@@ -162,7 +162,7 @@ function valortiro(val, jug){
 }
 var numJugTiro = 1;
 var tirosInit =[];
-ordenarJugadores(numJugTiro)
+aviso("Los 4 jugadores tiraran para elegir el orden", ordenarJugadores(numJugTiro))
 
 
 /*Revisa todas las casillas colindantes con la dada y revisa si es válido moverse a ellas
@@ -404,8 +404,8 @@ function jugar(numJugadores,avatares,nicknames,srcFichas){
     console.log(gameBoardStatus);
     generarTablero(gameBoardStatus,srcFichas);
     primerLugar = mayorPuntaje(puntajes);
-    /* Mientras los jugadores tengan menos de 100 puntos el ciclo de turnos se repite */    
-/*     var num=girarDado();    
+    /* Mientras los jugadores tengan menos de 100 puntos el ciclo de turnos se repite */
+/*     var num=girarDado();
     var i = 1;
     var tiempo = (num+1)*1000;
     var movingInterval = setInterval(()=>{
@@ -425,7 +425,7 @@ function jugar(numJugadores,avatares,nicknames,srcFichas){
             },3000);
         }
     },tiempo); */
-}  
+}
     /* Mientras los jugadores tengan menos de 100 puntos el ciclo de turnos se repite */
 /*     while(primerLugar < 100){
 
