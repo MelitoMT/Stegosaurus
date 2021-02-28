@@ -526,3 +526,25 @@ body{
 #Resp_4:hover{
   background-color: #0e9620;
 }
+#aviso{
+  width: 400px;
+  height: 300px;
+  border-radius: 20px;
+  position: absolute;
+  left: 35%;
+  top: 23%;
+  background-color: white;
+  z-index: 500;
+  font-size: 40px;
+  font-size: bolder;
+}
+#aviso > p {
+  display: table-cell;
+  width: 400px;
+  height: 300px;
+  vertical-align: middle;
+  text-align: center;
+}
+#aviso:hover{
+  cursor: pointer;
+}
