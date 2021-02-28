@@ -333,7 +333,7 @@ srcFichas:arreglo con ruta de ficha de cada jugador
 primerLugar:jugador con mayor puntaje
 */
 function jugar(numJugadores,avatares,nicknames,srcFichas){
-    for(var i = 1; i <= numJugadores; i++){
+    for(var f = 1; f <= numJugadores; f++){
         playerPlace.push([1,0]);
         puntajes.push(0);
     }
@@ -343,8 +343,7 @@ function jugar(numJugadores,avatares,nicknames,srcFichas){
     generarTablero(gameBoardStatus,srcFichas);
     primerLugar = mayorPuntaje(puntajes);
     /* Mientras los jugadores tengan menos de 100 puntos el ciclo de turnos se repite */    
-/*     while(primerLugar < 100){
- */ var num=girarDado();    
+    var num=girarDado();    
     var i = 1;
     var tiempo = (num+1)*1000;
     var movingInterval = setInterval(()=>{
@@ -364,11 +363,7 @@ function jugar(numJugadores,avatares,nicknames,srcFichas){
             },3000);
         }
     },tiempo);
- /*        for(var i = 1; i <= numJugadores; i++){
-            console.log("El jugador"+i+"se movió")
-        } */
 }  
-/* } */
 
 $(document).ready(()=>{
     $(".inicio").click(()=>{
