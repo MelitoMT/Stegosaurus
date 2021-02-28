@@ -103,9 +103,10 @@ function mostrarPreg(idPreg) {
   var pregunta = obtenerPregPorId(window.preguntas, idPreg)//Obtiene la pregunta
   $(".modal-background").show();
   var modal = $("<div id='p-"+pregunta.id+"' class='modal'>");//Crea el modal
+  modal.append($("<div class='tiempo'>"))
   modal.append($("<div class='modal-title'>"+pregunta.Pregunta+"</div>"))//Añade la pregunta
   if (pregunta.img != "")/*Checa si hay alguna imagen de referencia*/ {
-    modal.append($("<div class='modal-img'><img src='../statics/img/"+img+"' alt='default'></div>"))//Añade la imagen al modal
+    modal.append($("<div class='modal-img'><img src='../statics/img/"+pregunta.img+"' alt='default'></div>"))//Añade la imagen al modal
   }else{
     modal.append($("<div class='modal-img'><img src='../statics/img/default-quest.png' alt='default'></div>"))//Añade imagen default al modal
   }
@@ -138,7 +139,7 @@ function mostrarPreg(idPreg) {
   modal.append(modalCont)//añade al modal las preguntas
   $("body").append(modal)//añade el modal
   contar = true;//variable si indica seguir contando
-  cuentaRegre(10, pregunta.id)//comienza la cuenta regresiva para contestar
+  cuentaRegre(20, pregunta.id)//comienza la cuenta regresiva para contestar
   // Añade evento a las respuestas
   $.each($(".resp"),(index, elem)=>{
     elem.onclick= ()=>{
@@ -171,6 +172,8 @@ var contar = true;//Valor default de contar
 /*Cuenta regresiva para ejercer cierta precion a contestar*/
 function cuentaRegre(seg/*segundo para responder*/, idpPreg/*id de la pregunta a responder*/){
   console.log(seg);
+  $(".tiempo").empty();
+  $(".tiempo").append(seg);
     if (seg>0/*tiempo restante mayor a 0*/ && contar/*checa si seguir contado*/) {
       //deja transcurrir un segundo
       setTimeout(()=> {
@@ -201,7 +204,6 @@ function cuentaRegre(seg/*segundo para responder*/, idpPreg/*id de la pregunta a
 /*Crea la ruleta y sus configuración*/
 function RuletaCat(){
   genRulCat(()=>{
-    var rouletter = $('#RuletaCateg div.roulette');//Obtiene el modal
     var option /*Configuracion e la ruleta*/ = {
       speed : 15,
       duration : 3,
@@ -216,7 +218,10 @@ function RuletaCat(){
         }, 1500);
       }
     }
-    rouletter.roulette(option);//Creo la ruleta
+    $('#RuletaCateg div.roulette').roulette(option);//Creo la ruleta
+    setTimeout(()=>{
+      $("#RuletaCateg").hide();//Muestra el modal
+    },100)
   })
 }
 function resetRulCat (){
@@ -247,6 +252,7 @@ fetch("../questions/"+nombreArchivoCSV+".tsv")
 })
 .then((tsvText)=>{
    window.preguntas = tsvOBJ(tsvText); //Declaro esta variable globalmente
+
    RuletaCat()//Creo la ruleta de categorias
 })
 .catch(error => {

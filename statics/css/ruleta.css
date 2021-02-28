@@ -4,7 +4,7 @@ div.roulette_container {
 	margin:auto;
 }
 #RuletaCateg{
-	display: none;
+	/* display: none; */
 	transition: display 0.2s ease;
 	height: 450px;
 	background:var(--menuBckGradient);

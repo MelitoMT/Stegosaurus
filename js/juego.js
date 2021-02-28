@@ -83,7 +83,10 @@ var gameBoardDirec = [0,1,1,1,1,1,1,1,1,4,/* Primera Fila */
           valortiro($stopElm[0].alt, numJugTiroInit)//Ejectuta el analizis del tiro
           $("#Dado").hide();//Oculta el modal del dado
         }else if (true) /*Avanze jugador*/{
-
+          console.log("Jugador avanza "+$stopElm[0].alt);
+          moverJugador(1,4,srcFichas,puntajes, $stopElm[0].alt)
+          $("#Dado").hide();//Oculta el modal del dado
+          $(".modal-background").hide();//Oculta el fondo
         }
       }, 1500)
     }
@@ -105,12 +108,12 @@ $("#Dado .Tirar button").click(()=>{
 
 /* Se ejecuta al inicio donde cada jugador tira un dado y el mayor inicia */
 function ordenarJugadores(numJug) {
-  $(".modal-background").show();//se ponde el fondo modal
   aviso("Jugador "+numJug+" <br> te toca tirar", ()=>{
     resetDado();//cuando se hace click al aviso muestra el modal
   });
 }
 function aviso(txt, callback){
+  $(".modal-background").show();//se ponde el fondo modal
   var aviso = $("<div id='aviso'><p>"+txt+"</p></div>");//Se muestra a hacer un aviso
   aviso.click(()=>{
     aviso.remove();//Se elimina el aviso
@@ -119,6 +122,7 @@ function aviso(txt, callback){
   $("body").append(aviso);//Se añade el aviso
 }
 function avisoLg(txt, callback) {
+  $(".modal-background").show();//se ponde el fondo modal
   var aviso = $("<div id='avisoLg'><p>"+txt+"</p></div>");//Se muestra a hacer un aviso
   aviso.click(()=>{
     aviso.remove();//Se elimina el aviso
@@ -139,7 +143,12 @@ function valortiro(val, jug){
         }
         tirosInit = tirosInit.sort((a, b) => b.tiro - a.tiro )/*Se ordenan los resultados de mayor tiro a menor tiro, en caso de que dos sean iguales tirara primero el jugador con num de jugador menor*/;
         avisoLg("El orden de tiro es <br> 1° "+jugadores[(tirosInit[0].jugador)-1].nickname+"<br> 2° "+jugadores[(tirosInit[1].jugador)-1].nickname+"<br> 3° "+jugadores[(tirosInit[2].jugador)-1].nickname+"<br> 4° "+jugadores[(tirosInit[3].jugador)-1].nickname, ()=>{
-          console.log("Iniciar juego");
+          $(".modal-background").hide();
+          setTimeout(()=>{
+            seleccionOrden = false;
+            console.log("Iniciar juego");
+            jugando(jugadorActual);
+          }, 1500)
         })
       })
     }else{
@@ -147,15 +156,32 @@ function valortiro(val, jug){
     }
   }else{
     tirosInit = tirosInit.sort((a, b) => b.tiro - a.tiro )/*Se ordenan los resultados de mayor tiro a menor tiro, en caso de que dos sean iguales tirara primero el jugador con num de jugador menor*/;
+    avisoLg("El orden de tiro es <br> 1° "+jugadores[(tirosInit[0].jugador)-1].nickname+"<br> 2° "+jugadores[(tirosInit[1].jugador)-1].nickname+"<br> 3° "+jugadores[(tirosInit[2].jugador)-1].nickname+"<br> 4° "+jugadores[(tirosInit[3].jugador)-1].nickname, ()=>{
+      $(".modal-background").hide();
+      //Pequeño descanso antes de inciar
+      setTimeout(()=>{
+        seleccionOrden = false;
+        console.log("Iniciar juego");
+        jugando(jugadorActual);
+      }, 1500)
+    })
   }
 }
 var numJugTiroInit = 1;//Numero de jugador que se usa para elegir quien tira primera
 var tirosInit =[]; //Orden en el que los jugadores jugaran
 var seleccionOrden = true;//variable que indica que funcion seguir al tirar los dados
-aviso("Los 4 jugadores tiraran para elegir el orden", ()=>{
-  ordenarJugadores(numJugTiroInit)
-})//Comienza a ejecutar el ordenamiento de jugadores
-
+var jugadorActual = 1;
+function jugando(numJugador) {
+  var nomJug = jugadores[(tirosInit[(numJugador-1)].jugador)-1].nickname
+  aviso(nomJug+" te toca tirar", ()=>{
+    console.log("tirar dados");
+    resetDado();
+    if (nomJug.match(/Bot\d/i)) {
+      $("#Dado .Tirar button").hide();
+      $('#Dado div.roulette').roulette("start");
+    }
+  })
+}
 
 /* Mueve al jugador
 -jugador: Jugador que se quiere mover (1-4)
@@ -169,7 +195,10 @@ function moverJugador(jugador,countPlayers,srcFichas,puntajes,num){
     /* Mueve al jugador una casilla el número de veces indicado */
     var moverJugadorInterval=setInterval(()=>{
         if(j>num){
-            clearInterval(moverJugadorInterval)
+          clearInterval(moverJugadorInterval)
+          setTimeout(()=>{
+            resetRulCat ()
+          }, 500)
         }
         else{
             gameBoardStatus=actualizarEstado(playerPlace,gameBoardStatus,countPlayers,gameBoardStart);
@@ -202,15 +231,22 @@ function moverJugador(jugador,countPlayers,srcFichas,puntajes,num){
                 j += 1;
         }
     },1000);
-    puntajes[jugador-1] += 10;
-    $("#points"+ jugador).html(puntajes[jugador-1]);
 }
 
+/*Añadir al terminar pregunta
+  puntajes[jugador-1] += 10;
+  $("#points"+ jugador).html(puntajes[jugador-1]);
+*/
 
 
 
+/* Inicializa el juego*/
+setTimeout(()=>{
+  aviso("Los 4 jugadores tiraran para elegir el orden", ()=>{
+    ordenarJugadores(numJugTiroInit)
+  })//Comienza a ejecutar el ordenamiento de jugadores
+},1000)/*
 
-/* Inicializa el juego
 -numJugadores: número de jugadores en tablero
 puntajes:arreglo con los puntajes de todos los jugadores
 srcFichas:arreglo con ruta de ficha de cada jugador
@@ -275,6 +311,9 @@ function jugar(numJugadores,avatares,nicknames,srcFichas){
 /* } */
 
 $(document).ready(()=>{
+  $(".inicio").click(()=>{
+    window.location = "../"
+  })
     /* Permite crear las condiciones iniciales para jugar */
     for(var j = 0;j<jugadores.length;j++){
         nicknames.push(jugadores[j].nickname);

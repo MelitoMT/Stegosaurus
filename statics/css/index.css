@@ -414,6 +414,7 @@ body{
   position: absolute;
   top: 30px;
   left: 30px;
+  z-index: 999;
 }
 .inicio:hover{
   cursor: pointer;
@@ -464,6 +465,20 @@ body{
 }
 .modal-img > img{
   height: 100%;
+}
+.tiempo{
+  border-radius: 50%;
+  position: relative;
+  left: 97%;
+  top: -15px;
+  border: 5px solid var(--blueLight);
+  width: 40px;
+  height: 40px;
+  color: white;
+  font-size: 18px;
+  background: var(--blueButtonHover);
+  text-align: center;
+  padding-top: 8px;
 }
 .modal-cont{
   display: grid;
