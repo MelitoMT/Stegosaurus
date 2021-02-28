@@ -1,3 +1,10 @@
+/**********************************************/
+/****** INGRESAR NOMBRE DEL ARCHIVO .tsv ******/
+/**********************************************/
+var nombreArchivoCSV = "Preguntas_computacion";
+
+
+
 // La variable es el texto del tsv
 function tsvOBJ(tsv){
 
@@ -25,43 +32,42 @@ function tsvOBJ(tsv){
 }
 
 function obtenerCategorias(arr){
-  var categorias = [];
-  for (var i = 0; i < arr.length; i++) {
+  var categorias = [];/*Arreglo que se devuelve*/
+  for (var i = 0; i < arr.length; i++)/*Ejecuta todo con cada pregunta*/ {
     var agregar = true;
-    for (var j = 0; j < categorias.length; j++) {
-      if (arr[i].Categoria == categorias[j]) {
-        agregar =false;
+    for (var j = 0; j < categorias.length; j++){
+      if (arr[i].Categoria == categorias[j])/*Checa si ya existe la categoria*/ {
+        agregar =false;/*Si existe indica no agregarla*/
       }
     }
-    if (agregar) {
-      categorias.push(arr[i].Categoria)
+    if (agregar)/*Checa si se agrega o no la categoria*/ {
+      categorias.push(arr[i].Categoria)//Se añade la categoria
     }
   }
-  return categorias;
+  return categorias;//Devuleve todas las categorias
 }
 function obtenerDificultades(arr){
-  var dificultades = [];
-  for (var i = 0; i < arr.length; i++) {
+  var dificultades = [];/*Arreglo que se devuelve*/
+  for (var i = 0; i < arr.length; i++) /*Ejecuta todo con cada pregunta*/ {
     var agregar = true;
-    for (var j = 0; j < dificultades.length; j++) {
-      if (arr[i].Dificultad == dificultades[j]) {
-        agregar =false;
+    for (var j = 0; j < dificultades.length; j++){
+      if (arr[i].Dificultad == dificultades[j])/*Checa si ya existe la dificultad*/ {
+        agregar =false;/*Si existe indica no agregarla*/
       }
     }
-    if (agregar) {
-      dificultades.push(arr[i].Dificultad)
+    if (agregar)/*Checa si se agrega o no la dificultad*/ {
+      dificultades.push(arr[i].Dificultad)//Se añade la dificultad
     }
   }
-  return dificultades;
+  return dificultades;//Devuleve todas las dificultad
 }
 function obtenerPregPorId(arr, id){
-  var dificultades = [];
-  for (var i = 0; i < arr.length; i++) {
-    if(arr[i].id == id){
-      var preg = arr[i];
+  for (var i = 0; i < arr.length; i++)/*Cehca en todas las preguntas*/ {
+    if(arr[i].id == id)/*Checa que id sea el mismo al solicitado*/{
+      var preg = arr[i];//guarda la pregunta concidiente
     }
   }
-  return preg;
+  return preg;//Devuleve el objeto
 }
 // obtenerCategorias(window.preguntas);
 function generarPregunta(cat, dif) {
@@ -94,117 +100,119 @@ function busquedaPreg (categoria, dificultad, arreglo, callback){
 }
 function mostrarPreg(idPreg) {
   //Añade el modal de pregunta
-  var pregunta = obtenerPregPorId(window.preguntas, idPreg)
+  var pregunta = obtenerPregPorId(window.preguntas, idPreg)//Obtiene la pregunta
   $(".modal-background").show();
-  var modal = $("<div id='p-"+pregunta.id+"' class='modal'>");
-  modal.append($("<div class='modal-title'>"+pregunta.Pregunta+"</div>"))
-  modal.append($("<div class='modal-img'><img src='./statics/img/default-quest.png' alt='default'></div>"))
-  var modalCont = $("<div class='modal-cont'>");
-  console.log(pregunta);
-  var contIzq = $("<div class='contIzq'>");
-  var contDer = $("<div class='contDer'>");
-  if (pregunta.Tipo=="multiple") {
-    for (var i = 1; i < 5; i++) {
-      var preg = $("<div id=Resp_"+i+" class='resp multiple'><p>"+pregunta["r"+i]+"</p></div>");
+  var modal = $("<div id='p-"+pregunta.id+"' class='modal'>");//Crea el modal
+  modal.append($("<div class='modal-title'>"+pregunta.Pregunta+"</div>"))//Añade la pregunta
+  if (pregunta.img != "")/*Checa si hay alguna imagen de referencia*/ {
+    modal.append($("<div class='modal-img'><img src='../statics/img/"+img+"' alt='default'></div>"))//Añade la imagen al modal
+  }else{
+    modal.append($("<div class='modal-img'><img src='../statics/img/default-quest.png' alt='default'></div>"))//Añade imagen default al modal
+  }
+  var modalCont = $("<div class='modal-cont'>");//Contenerdor de las respuestas
+  var contIzq = $("<div class='contIzq'>");//Parte izquierda
+  var contDer = $("<div class='contDer'>");//Parte derecha
+  if (pregunta.Tipo=="multiple") /*Cehca si son 4 o dos preguntas*/{
+    for (var i = 1; i < 5; i++) /*Añade las 4 preguntas*/{
+      var preg = $("<div id=Resp_"+i+" class='resp multiple'><p>"+pregunta["r"+i]+"</p></div>");//Crea las preguntas
       if ((i == 1)||(i == 3)) {
-        contIzq.append(preg)
+        contIzq.append(preg)//Añade la pregunta a su contenedor destinado
       }
       if ((i == 2)||(i == 4)) {
-        contDer.append(preg)
+        contDer.append(preg)//Añade la pregunta a su contenedor destinado
       }
     }
-    modalCont.append(contIzq, contDer)
-  }else if (pregunta.Tipo=="booleana") {
-    for (var i = 1; i < 3; i++) {
-      var preg = $("<div id=Resp_"+i+" class='resp boolean'><p>"+pregunta["r"+i]+"</p></div>");
-      preg.click(()=>{
-        console.log(pregunta["r"+i]);
-      })
+    modalCont.append(contIzq, contDer)//Añade los contenedores
+  }else if (pregunta.Tipo=="booleana") /*Cehca si son dos preguntas*/{
+    for (var i = 1; i < 3; i++) /*Añade las dos preguntas*/{
+      var preg = $("<div id=Resp_"+i+" class='resp boolean'><p>"+pregunta["r"+i]+"</p></div>");//Crea las preguntas
       if (i == 1) {
-        contIzq.append(preg)
+        contIzq.append(preg)//Añade la pregunta a su contenedor destinado
       }
       if (i == 2) {
-        contDer.append(preg)
+        contDer.append(preg)//Añade la pregunta a su contenedor destinado
       }
     }
-    modalCont.append(contIzq, contDer)
+    modalCont.append(contIzq, contDer)//Añade los contenedores
   }
-  modal.append(modalCont)
-  $("body").append(modal)
-  contar = true;
-  cuentaRegre(10, pregunta.id)
+  modal.append(modalCont)//añade al modal las preguntas
+  $("body").append(modal)//añade el modal
+  contar = true;//variable si indica seguir contando
+  cuentaRegre(10, pregunta.id)//comienza la cuenta regresiva para contestar
   // Añade evento a las respuestas
   $.each($(".resp"),(index, elem)=>{
     elem.onclick= ()=>{
-      contar = false;
-      responder(pregunta.id, ((elem.id).substr(5,1)))
+      contar = false;//Cancela el contar
+      responder(pregunta.id, ((elem.id).substr(5,1)/*Manda solo el numero de la respuesta*/))//Manda la respuesta
     }
   });
 }
 function responder(idpreg, respuesta){
-  var preg = obtenerPregPorId(window.preguntas, idpreg)
-  var resCorr = preg.rCorrecta
-  resCorr = resCorr.match(/\d/gmi);
-  if (resCorr == respuesta) {
+  var preg = obtenerPregPorId(window.preguntas, idpreg)//se guarda la pregunta
+  var resCorr = preg.rCorrecta//se guarda la respuesta correcta de la pregunta
+  resCorr = resCorr.match(/\d/gmi);//otiene el numero de la respuesta correcta
+  if (resCorr == respuesta) /*Checa si ambos numero son iguales*/{
     console.log("Es la correcta");
-    $("#Resp_"+respuesta).css("color", "#00da30");
+    $("#Resp_"+respuesta).css("color", "#00da30");//cambia el color de la respuesta correcta a verde
   }else{
-    $("#Resp_"+respuesta).css("color", "#da0000");
-    $("#Resp_"+resCorr).css("color", "#00da30");
-    console.log("No lo es :c");
+    $("#Resp_"+respuesta).css("color", "#da0000");//cambia el color de la respuesta seleccionada a rojo
+    $("#Resp_"+resCorr).css("color", "#00da30");//cambia el color de la respuesta correcta a verde
   }
+  /*Da tiempo a poder leer el resultado*/
   setTimeout(()=>{
-    ocultarPreg(idpreg)
+    ocultarPreg(idpreg)//Elimina el modal
   }, 1500)
 }
 function ocultarPreg(id) {
-  $(".modal-background").hide();
-  $("#p-"+id).remove();
+  $(".modal-background").hide();//Oculta el fondo del modal
+  $("#p-"+id).remove();//Elimina el modal
 }
-var contar = true;
-function cuentaRegre(seg, idpPreg){
+var contar = true;//Valor default de contar
+/*Cuenta regresiva para ejercer cierta precion a contestar*/
+function cuentaRegre(seg/*segundo para responder*/, idpPreg/*id de la pregunta a responder*/){
   console.log(seg);
-    if (seg>0 && contar) {
+    if (seg>0/*tiempo restante mayor a 0*/ && contar/*checa si seguir contado*/) {
+      //deja transcurrir un segundo
       setTimeout(()=> {
-        cuentaRegre(seg-1, idpPreg)
+        cuentaRegre(seg-1, idpPreg)//vuelve a llamarse con un segundo menos
       }, 1000);
-    }else if (contar) {
-      var preg = obtenerPregPorId(window.preguntas, idpPreg)
-      var resCorr = preg.rCorrecta
-      console.log(resCorr);
+    }else if (contar)/*cuando se acaba el tiempo pero no resondio */{
+      var preg = obtenerPregPorId(window.preguntas, idpPreg)//obtiene la pregunta
+      var resCorr = preg.rCorrecta//obtiene la respcorrecta pregunta
+      /*Elimina el evento de responder en las respuestas*/
       $.each($(".resp"),(index, elem)=>{
         elem.onclick= "";
       });
-      resCorr = resCorr.match(/\d/gmi);
+      resCorr = resCorr.match(/\d/gmi);//obtiene numero respuesat correcta
       for (var i = 1; i < 5; i++) {
         if (resCorr!=i) {
-          $("#Resp_"+i).css("color", "#da0000");
+          $("#Resp_"+i).css("color", "#da0000");//todas las incorrectas se cambia el color a rojo
         }
       }
-      $("#Resp_"+resCorr).css("color", "#00da30");
+      $("#Resp_"+resCorr).css("color", "#00da30");//la correcta se pone verde
+      //da tiempo a leer los reultados
       setTimeout(()=>{
-        ocultarPreg(idpPreg)
+        ocultarPreg(idpPreg)//Elimina el modal
       }, 1500)
     }
 }
-var nombreArchivoCSV = "Preguntas_computacion";
 
 /*No aqui*/
+/*Crea la ruleta y sus configuración*/
 function RuletaCat(){
   genRulCat(()=>{
-    var rouletter = $('#RuletaCateg div.roulette');
-    var option = {
+    var rouletter = $('#RuletaCateg div.roulette');//Obtiene el modal
+    var option /*Configuracion e la ruleta*/ = {
       speed : 15,
       duration : 3,
       stopImageNumber : -1,//Numero elige aleatorio
       stopCallback : function($stopElm)/*Que hace al acabar de girar*/ {
-        console.log($stopElm[0].alt);
-        $("#RuletaCateg .girar").append("<p class='respRul'>"+$stopElm[0].alt+"</p>");
-        var pregunta = generarPregunta($stopElm[0].alt,"Facil");
-        console.log(pregunta);
+        $("#RuletaCateg .girar").append("<p class='respRul'>"+$stopElm[0].alt+"</p>");//Agrega respuesta al modal
+        var pregunta = generarPregunta($stopElm[0].alt,"Facil");//Genera una pregunta con los parametros dados
+        /*Da un pequeño tiempo para leer la respuesta*/
         setTimeout(()=>{
-          $("#RuletaCateg").hide();
-          mostrarPreg(pregunta.id)
+          $("#RuletaCateg").hide();//Oculta el carrusel
+          mostrarPreg(pregunta.id)//Muestra la pregunta
         }, 1500);
       }
     }
@@ -212,33 +220,34 @@ function RuletaCat(){
   })
 }
 function resetRulCat (){
-  $("#RuletaCateg .girar .respRul").remove();
-  $("#RuletaCateg .girar button").show();
-  $("#RuletaCateg").show();
+  $("#RuletaCateg .girar .respRul").remove();//Quita respuestas previas
+  $("#RuletaCateg .girar button").show();//muestra el boton de nuevo
+  $("#RuletaCateg").show();//Muestra el modal
 }
 function genRulCat(callback){
   var categorias = obtenerCategorias(window.preguntas);//Obtengo las categorias
   $.each(categorias,(index, elem)=>{
-    var img = $("<img src='./statics/img/"+elem+".png' alt='"+elem+"'>")
+    var img = $("<img src='../statics/img/"+elem+".png' alt='"+elem+"'>")
     $("#RuletaCateg .roulette_container .roulette").append(img);//Agrego cada imagen
   });
-  var buttonGirar = $('<button type="button" name="girar">Girar</button>')
+  var buttonGirar = $('<button type="button" name="girar">Girar</button>')//agrego el boton para girar
+  //Añado evento al boton
   buttonGirar.click(()=>{
-    $('#RuletaCateg div.roulette').roulette("start");
-    buttonGirar.hide()
+    $('#RuletaCateg div.roulette').roulette("start");//Gira la ruleta
+    buttonGirar.hide()//Oculta el boton
   })
-  $("#RuletaCateg .girar").append(buttonGirar)
-  callback();//hago el callback
+  $("#RuletaCateg .girar").append(buttonGirar)//Agrega el boton a la ruleta
+  callback();//hago el callback Cuando se acabe de crear la ruleta
 }
 
-
-fetch("./questions/"+nombreArchivoCSV+".tsv")
+/*Solicita las preguntas*/
+fetch("../questions/"+nombreArchivoCSV+".tsv")
 .then((response)=>{
   return response.text();
 })
 .then((tsvText)=>{
    window.preguntas = tsvOBJ(tsvText); //Declaro esta variable globalmente
-   RuletaCat()
+   RuletaCat()//Creo la ruleta de categorias
 })
 .catch(error => {
   console.error('Fallo el obtener las preguntas', error);

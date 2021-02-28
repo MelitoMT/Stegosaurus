@@ -14,14 +14,14 @@ var jugadores = JSON.parse(getCookie("jugadores"));
 3:rojo
 4:morado
 5:inicio*/
-/* var gameBoardStart = [0,5,1,1,2,1,3,1,4,1,// Primera Fila 
-                0,0,3,0,0,0,1,0,0,2,// Segunda Fila 
-                0,0,1,0,0,0,4,3,3,1,// Tercera Fila 
-                3,4,3,0,0,0,1,0,0,2,// Cuarta Fila 
-                2,0,2,3,1,1,2,0,0,3,// Quinta Fila 
-                1,0,0,0,1,0,0,0,0,1,// Sexta Fila 
-                4,0,0,0,3,4,1,2,1,1,// Séptima Fila 
-                3,0,0,0,0,0,0,0,0,3,// Octava Fila 
+/* var gameBoardStart = [0,5,1,1,2,1,3,1,4,1,// Primera Fila
+                0,0,3,0,0,0,1,0,0,2,// Segunda Fila
+                0,0,1,0,0,0,4,3,3,1,// Tercera Fila
+                3,4,3,0,0,0,1,0,0,2,// Cuarta Fila
+                2,0,2,3,1,1,2,0,0,3,// Quinta Fila
+                1,0,0,0,1,0,0,0,0,1,// Sexta Fila
+                4,0,0,0,3,4,1,2,1,1,// Séptima Fila
+                3,0,0,0,0,0,0,0,0,3,// Octava Fila
                 1,1,2,4,2,3,1,1,2,1// Novena Fila]; */
  /*
  ARREGLO PROVISIONAL, POR PROBLEMA DE DOS CASILLAS
@@ -44,14 +44,14 @@ var gameBoardStatus=gameBoardStart.slice();
 3: arriba
 4: abajo
 combinaciones cuando hay dos direcciones*/
-/* var gameBoardDirec = [0,1,1,1,1,1,1,1,1,4,// Primera Fila 
-                    0,0,3,0,0,0,3,0,0,4,// Segunda Fila 
-                    0,0,3,0,0,0,13,1,1,4,// Tercera Fila 
-                    1,1,3,0,0,0,3,0,0,4,// Cuarta Fila 
-                    3,0,3,2,12,1,3,0,0,4,// Quinta Fila 
-                    3,0,0,0,3,0,0,0,0,4,// Sexta Fila 
-                    3,0,0,0,3,2,2,2,2,24,// Séptima Fila 
-                    3,0,0,0,0,0,0,0,0,4,// Octava Fila 
+/* var gameBoardDirec = [0,1,1,1,1,1,1,1,1,4,// Primera Fila
+                    0,0,3,0,0,0,3,0,0,4,// Segunda Fila
+                    0,0,3,0,0,0,13,1,1,4,// Tercera Fila
+                    1,1,3,0,0,0,3,0,0,4,// Cuarta Fila
+                    3,0,3,2,12,1,3,0,0,4,// Quinta Fila
+                    3,0,0,0,3,0,0,0,0,4,// Sexta Fila
+                    3,0,0,0,3,2,2,2,2,24,// Séptima Fila
+                    3,0,0,0,0,0,0,0,0,4,// Octava Fila
                     3,2,2,2,2,2,2,2,2,2// Novena Fila]; */
 
 /* ARREGLOOOO PROVISIONAAAAAAAL */
@@ -66,37 +66,37 @@ var gameBoardDirec = [0,1,1,1,1,1,1,1,1,4,/* Primera Fila */
     3,2,2,2,2,2,2,2,2,2/* Novena Fila */];
 
 /* Crea la ruleta de dado*/
-  var rouletter = $('#Dado div.roulette');
-  var option = {
+  var rouletter = $('#Dado div.roulette');//Se selecciona el modal
+  var option = /*Se configura la ruleta del dado*/{
     speed : 15,
     duration : 1,//duracion en segundos
     stopImageNumber : -1,//Numero elige aleatorio
-    startCallback : function() {
-      console.log("Inico");
+    startCallback : function()/*Que hace al iniciar de girar*/  {
     },
-    slowDownCallback : function() {
-      console.log("bajando");
+    slowDownCallback : function()/*Que hace al bajar velocidad*/  {
     },
     stopCallback : function($stopElm)/*Que hace al acabar de girar*/ {
-      console.log("Fin");
-      $("#Dado .Tirar").append("<p class='respRul'>¡¡ "+$stopElm[0].alt+" !!</p>");
+      $("#Dado .Tirar").append("<p class='respRul'>¡¡ "+$stopElm[0].alt+" !!</p>");//Añade el mennsaje de respuesta
+      /*Da un tiempo para que el jugador puede ver el resultado*/
       setTimeout(()=>{
-        console.log("timeout");
-        valortiro($stopElm[0].alt, numJugTiro)
-        $("#Dado").hide();
+        if (seleccionOrden)/*Ordenar tiro*/ {
+          valortiro($stopElm[0].alt, numJugTiroInit)//Ejectuta el analizis del tiro
+          $("#Dado").hide();//Oculta el modal del dado
+        }else if (true) /*Avanze jugador*/{
+
+        }
       }, 1500)
     }
   }
   rouletter.roulette(option);//Creo la ruleta
-/**/
-// $("#Dado .Tirar button").click(()=>{
-//   giraDado();
-// })
+
+
 function resetDado() {
-  $("#Dado .Tirar .respRul").remove();
-  $("#Dado .Tirar button").show();
-  $("#Dado").show();
+  $("#Dado .Tirar .respRul").remove();//Quita el mennsaje de respuesta
+  $("#Dado .Tirar button").show();//Muestra el boton de girar nuevamente
+  $("#Dado").show();//Muestra el modal del dado
 }
+/*Evento de click al buton del dado*/
 $("#Dado .Tirar button").click(()=>{
   $("#Dado .Tirar button").hide();
   $('#Dado div.roulette').roulette("start");
@@ -105,40 +105,33 @@ $("#Dado .Tirar button").click(()=>{
 
 /* Se ejecuta al inicio donde cada jugador tira un dado y el mayor inicia */
 function ordenarJugadores(numJug) {
-  $(".modal-background").show();
-  aviso("Jugador "+numJug+" <br> te toca tirar", (callback)=>{
-    resetDado();
-  });
+  $(".modal-background").show();//se ponde el fondo modal
+  aviso("Jugador "+numJug+" <br> te toca tirar", (()=>{
+    resetDado();//cuando se hace click al aviso muestra el modal
+  }));
 }
 function aviso(txt, callback){
-  var aviso = $("<div id='aviso'><p>"+txt+"</p></div>");
+  var aviso = $("<div id='aviso'><p>"+txt+"</p></div>");//Se muestra a hacer un aviso
   aviso.click(()=>{
-    aviso.remove();
-    callback();
+    aviso.remove();//Se elimina el aviso
+    callback();//Se ejecuta el callback
   })
-  $("body").append(aviso);
-}
-function tiraDado(){
-  resetDado();
-  $("#Dado .Tirar button").click(()=>{
-    console.log();
-  })
+  $("body").append(aviso);//Se añade el aviso
 }
 function valortiro(val, jug){
-  console.log("Eljugador"+jug+" saco "+val);
   var tiro = {};
   tirosInit.push({tiro:val, jugador:jug});
-  console.log(tirosInit);
-  if (numJugTiro<4) {
-    numJugTiro++;
-    ordenarJugadores(numJugTiro)
+  if (numJugTiroInit<4) {
+    numJugTiroInit++;
+    ordenarJugadores(numJugTiroInit)
   }else{
-    console.log(tirosInit.sort((a, b) => b.tiro - a.tiro ));
+    tirosInit = tirosInit.sort((a, b) => b.tiro - a.tiro )/*Se ordenan los resultados de mayor tiro a menor tiro, en caso de que dos sean iguales tirara primero el jugador con num de jugador menor*/;
   }
 }
-var numJugTiro = 1;
-var tirosInit =[];
-aviso("Los 4 jugadores tiraran para elegir el orden", ordenarJugadores(numJugTiro))
+var numJugTiroInit = 1;//Numero de jugador que se usa para elegir quien tira primera
+var tirosInit =[]; //Orden en el que los jugadores jugaran
+var seleccionOrden = true;//variable que indica que funcion seguir al tirar los dados
+aviso("Los 4 jugadores tiraran para elegir el orden", ordenarJugadores(numJugTiroInit))//Comienza a ejecutar el ordenamiento de jugadores
 
 
 /* Mueve al jugador
