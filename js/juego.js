@@ -106,12 +106,20 @@ $("#Dado .Tirar button").click(()=>{
 /* Se ejecuta al inicio donde cada jugador tira un dado y el mayor inicia */
 function ordenarJugadores(numJug) {
   $(".modal-background").show();//se ponde el fondo modal
-  aviso("Jugador "+numJug+" <br> te toca tirar", (()=>{
+  aviso("Jugador "+numJug+" <br> te toca tirar", ()=>{
     resetDado();//cuando se hace click al aviso muestra el modal
-  }));
+  });
 }
 function aviso(txt, callback){
   var aviso = $("<div id='aviso'><p>"+txt+"</p></div>");//Se muestra a hacer un aviso
+  aviso.click(()=>{
+    aviso.remove();//Se elimina el aviso
+    callback();//Se ejecuta el callback
+  })
+  $("body").append(aviso);//Se añade el aviso
+}
+function avisoLg(txt, callback) {
+  var aviso = $("<div id='avisoLg'><p>"+txt+"</p></div>");//Se muestra a hacer un aviso
   aviso.click(()=>{
     aviso.remove();//Se elimina el aviso
     callback();//Se ejecuta el callback
@@ -123,7 +131,20 @@ function valortiro(val, jug){
   tirosInit.push({tiro:val, jugador:jug});
   if (numJugTiroInit<4) {
     numJugTiroInit++;
-    ordenarJugadores(numJugTiroInit)
+    var expresion = "Bot"+numJugTiroInit;
+    if (jugadores[numJugTiroInit-1].nickname.match(/Bot\d/i)) {
+      aviso("Generando tiros del resto de jugadores ...", ()=>{
+        for (var i = numJugTiroInit-1; i < 4; i++) {
+          tirosInit.push({tiro:(Math.floor(Math.random() * 5)+1), jugador:numJugTiroInit});//Da valores aleatorios al resto de jugadores
+        }
+        tirosInit = tirosInit.sort((a, b) => b.tiro - a.tiro )/*Se ordenan los resultados de mayor tiro a menor tiro, en caso de que dos sean iguales tirara primero el jugador con num de jugador menor*/;
+        avisoLg("El orden de tiro es <br> 1° "+jugadores[(tirosInit[0].jugador)-1].nickname+"<br> 2° "+jugadores[(tirosInit[1].jugador)-1].nickname+"<br> 3° "+jugadores[(tirosInit[2].jugador)-1].nickname+"<br> 4° "+jugadores[(tirosInit[3].jugador)-1].nickname, ()=>{
+          console.log("Iniciar juego");
+        })
+      })
+    }else{
+      ordenarJugadores(numJugTiroInit)
+    }
   }else{
     tirosInit = tirosInit.sort((a, b) => b.tiro - a.tiro )/*Se ordenan los resultados de mayor tiro a menor tiro, en caso de que dos sean iguales tirara primero el jugador con num de jugador menor*/;
   }
@@ -131,7 +152,9 @@ function valortiro(val, jug){
 var numJugTiroInit = 1;//Numero de jugador que se usa para elegir quien tira primera
 var tirosInit =[]; //Orden en el que los jugadores jugaran
 var seleccionOrden = true;//variable que indica que funcion seguir al tirar los dados
-aviso("Los 4 jugadores tiraran para elegir el orden", ordenarJugadores(numJugTiroInit))//Comienza a ejecutar el ordenamiento de jugadores
+aviso("Los 4 jugadores tiraran para elegir el orden", ()=>{
+  ordenarJugadores(numJugTiroInit)
+})//Comienza a ejecutar el ordenamiento de jugadores
 
 
 /* Mueve al jugador

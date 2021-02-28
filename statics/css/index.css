@@ -553,6 +553,28 @@ body{
 #aviso:hover{
   cursor: pointer;
 }
+#avisoLg{
+  width: 600px;
+  height: 450px;
+  border-radius: 20px;
+  position: absolute;
+  left: 30%;
+  top: 20%;
+  background-color: white;
+  z-index: 500;
+  font-size: 40px;
+  font-size: bolder;
+}
+#avisoLg > p {
+  display: table-cell;
+  width: 600px;
+  height: 450px;
+  vertical-align: middle;
+  text-align: center;
+}
+#avisoLg:hover{
+  cursor: pointer;
+}
 /* Créditos */
 .cardProfile{
   background-color: var(--blueButton);
