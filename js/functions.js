@@ -256,6 +256,7 @@ function dibujarFicha(i,j,jFichas,tablero){
 -color: color de la casilla correspondiente
 Si tiene como valor "j(1-4)" imprime una ficha de jugador*/
 function generarTablero(tablero,srcFichas){
+  console.log("estoy generando")
   var boardHtml = "";
   /* Crea el tablero a partir de filas y columnas */
   for(var j = 0; j < 9; j++){
@@ -304,6 +305,9 @@ playerPlace: número de jugador(1-4)
 index: coordenada a actualizar (x o y)
 movDir: dirección a la que se busca actualizar la coordenada */
 function actualizarPos(movDir, playerPlace, index){
+  console.log("Recibí la dirección"+ movDir)
+  console.log(playerPlace)
+  console.log(index)
   switch (movDir){
       case 1:
           playerPlace[index][0] += 1;
@@ -353,7 +357,7 @@ function verifCasillas(pos,tablero){
       }
       if(pos[0]!=9){
           if(tablero[pos[1]*10+pos[0]]==1){
-              if([pos[1]*10+pos[0]+1]!= 2){
+              if(tablero[pos[1]*10+pos[0]+1]!= 2){
                   casillasValidas[0]=true;
               }
           }
@@ -399,51 +403,124 @@ function elegirCamino(dir1,dir2,playerPlace, jugador,key){
 }
 
 
+/* Mueve al jugador
+-jugador: Jugador que se quiere mover (1-4)
+-movDir: primera dirección
+movDirOpt: segunda dirección si aplica
+casillasValidNum: número de casillas válidas*/
+function moverJugador(jugador,countPlayers,srcFichas,puntajes,num,tablero1,tablero2,tablero3){
+  $("#jugadorTurno p").html("Turno del jugador: "+jugador);
+  $("#jugadorDado p").html("Dado: "+ num);
+  var j = 1;
+  var movimientoInterval = setInterval(()=>{
+      if(j <= num){
+          var casillasValid=verifCasillas(playerPlace[jugador-1],tablero3);
+          var casillasValidNum = 0;
+          var movDir;
+          var movDirOpt;
+          for(var i = 0; i <= 4;i++){
+              if(casillasValid[i]==true){
+                  if(casillasValidNum > 1){
+                      movDirOpt = i+1;
+                  }
+                  casillasValidNum += 1;
+                  movDir = i+1;
+              }
+          }
+          if(casillasValidNum == 1){
+              playerPlace = actualizarPos(movDir,playerPlace,jugador-1);
+          }
+          tablero1=actualizarEstado(playerPlace,tablero1,countPlayers,tablero2);
+          generarTablero(tablero1,srcFichas)
+  
+      }
+      else{
+          clearInterval(movimientoInterval);
+      }
+      j++;
+  },1000);
+  puntajes[jugador-1] += 10;
+  $("#points"+ jugador).html(puntajes[jugador-1]);
+}
+
 /* DADO */
 
 /**/
 function resetDado() {
-  $("#Dado .Tirar .respRul").remove();
-  $("#Dado .Tirar button").show();
-  $("#Dado").show();
+  $("#Dado .Tirar .respRul").remove();//Quita el mennsaje de respuesta
+  $("#Dado .Tirar button").show();//Muestra el boton de girar nuevamente
+  $("#Dado").show();//Muestra el modal del dado
 }
 
 /* Se ejecuta al inicio donde cada jugador tira un dado y el mayor inicia */
 function ordenarJugadores(numJug) {
-  $(".modal-background").show();
-  aviso("Jugador "+numJug+" <br> te toca tirar", (callback)=>{
-    resetDado();
+  aviso("Jugador "+numJug+" <br> te toca tirar", ()=>{
+    resetDado();//cuando se hace click al aviso muestra el modal
   });
 }
-
-
 function aviso(txt, callback){
-  var aviso = $("<div id='aviso'><p>"+txt+"</p></div>");
+  $(".modal-background").show();//se ponde el fondo modal
+  var aviso = $("<div id='aviso'><p>"+txt+"</p></div>");//Se muestra a hacer un aviso
   aviso.click(()=>{
-    aviso.remove();
-    callback();
+    aviso.remove();//Se elimina el aviso
+    callback();//Se ejecuta el callback
   })
-  $("body").append(aviso);
+  $("body").append(aviso);//Se añade el aviso
 }
-
-
-function tiraDado(){
-  resetDado();
-  $("#Dado .Tirar button").click(()=>{
-    console.log();
+function avisoLg(txt, callback) {
+  $(".modal-background").show();//se ponde el fondo modal
+  var aviso = $("<div id='avisoLg'><p>"+txt+"</p></div>");//Se muestra a hacer un aviso
+  aviso.click(()=>{
+    aviso.remove();//Se elimina el aviso
+    callback();//Se ejecuta el callback
   })
+  $("body").append(aviso);//Se añade el aviso
 }
-
-
 function valortiro(val, jug){
-  console.log("Eljugador"+jug+" saco "+val);
   var tiro = {};
   tirosInit.push({tiro:val, jugador:jug});
-  console.log(tirosInit);
-  if (numJugTiro<4) {
-    numJugTiro++;
-    ordenarJugadores(numJugTiro)
+  if (numJugTiroInit<4) {
+    numJugTiroInit++;
+    var expresion = "Bot"+numJugTiroInit;
+    if (jugadores[numJugTiroInit-1].nickname.match(/Bot\d/i)) {
+      aviso("Generando tiros del resto de jugadores ...", ()=>{
+        for (var i = numJugTiroInit-1; i < 4; i++) {
+          tirosInit.push({tiro:(Math.floor(Math.random() * 5)+1), jugador:numJugTiroInit});//Da valores aleatorios al resto de jugadores
+        }
+        tirosInit = tirosInit.sort((a, b) => b.tiro - a.tiro )/*Se ordenan los resultados de mayor tiro a menor tiro, en caso de que dos sean iguales tirara primero el jugador con num de jugador menor*/;
+        avisoLg("El orden de tiro es <br> 1° "+jugadores[(tirosInit[0].jugador)-1].nickname+"<br> 2° "+jugadores[(tirosInit[1].jugador)-1].nickname+"<br> 3° "+jugadores[(tirosInit[2].jugador)-1].nickname+"<br> 4° "+jugadores[(tirosInit[3].jugador)-1].nickname, ()=>{
+          $(".modal-background").hide();
+          setTimeout(()=>{
+            seleccionOrden = false;
+            console.log("Iniciar juego");
+            jugando(jugadorActual);
+          }, 1500)
+        })
+      })
+    }else{
+      ordenarJugadores(numJugTiroInit)
+    }
   }else{
-    console.log(tirosInit.sort((a, b) => b.tiro - a.tiro ));
+    tirosInit = tirosInit.sort((a, b) => b.tiro - a.tiro )/*Se ordenan los resultados de mayor tiro a menor tiro, en caso de que dos sean iguales tirara primero el jugador con num de jugador menor*/;
+    avisoLg("El orden de tiro es <br> 1° "+jugadores[(tirosInit[0].jugador)-1].nickname+"<br> 2° "+jugadores[(tirosInit[1].jugador)-1].nickname+"<br> 3° "+jugadores[(tirosInit[2].jugador)-1].nickname+"<br> 4° "+jugadores[(tirosInit[3].jugador)-1].nickname, ()=>{
+      $(".modal-background").hide();
+      //Pequeño descanso antes de inciar
+      setTimeout(()=>{
+        seleccionOrden = false;
+        console.log("Iniciar juego");
+        jugando(jugadorActual);
+      }, 1500)
+    })
   }
+}
+function jugando(numJugador) {
+  var nomJug = jugadores[(tirosInit[(numJugador-1)].jugador)-1].nickname
+  aviso(nomJug+" te toca tirar", ()=>{
+    console.log("tirar dados");
+    resetDado();
+    if (nomJug.match(/Bot\d/i)) {
+      $("#Dado .Tirar button").hide();
+      $('#Dado div.roulette').roulette("start");
+    }
+  })
 }
