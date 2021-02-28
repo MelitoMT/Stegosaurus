@@ -68,16 +68,23 @@ var gameBoardDirec = [0,1,1,1,1,1,1,1,1,4,/* Primera Fila */
 /* Crea la ruleta de dado*/
   var rouletter = $('#Dado div.roulette');
   var option = {
-    speed : 30,
+    speed : 15,
     duration : 1,//duracion en segundos
     stopImageNumber : -1,//Numero elige aleatorio
+    startCallback : function() {
+      console.log("Inico");
+    },
+    slowDownCallback : function() {
+      console.log("bajando");
+    },
     stopCallback : function($stopElm)/*Que hace al acabar de girar*/ {
+      console.log("Fin");
       $("#Dado .Tirar").append("<p class='respRul'>¡¡ "+$stopElm[0].alt+" !!</p>");
-      valortiro($stopElm[0].alt)
-      moverJugador(1,numJugadores,srcFichas,puntajes,$stopElm[0].alt);
       setTimeout(()=>{
-        $("#Dado .Tirar").css("display","none");
-      },3000);-
+        console.log("timeout");
+        valortiro($stopElm[0].alt, numJugTiro)
+        $("#Dado").hide();
+      }, 1500)
     }
   }
   rouletter.roulette(option);//Creo la ruleta
@@ -90,28 +97,24 @@ function resetDado() {
   $("#Dado .Tirar button").show();
   $("#Dado").show();
 }
-/* Genera un número pseudoaleatorio entre 1 y 6 */
-function giraDado(){
-    $('#Dado div.roulette').roulette("start");
-    $("#Dado .Tirar button").hide();
-}
+$("#Dado .Tirar button").click(()=>{
+  $("#Dado .Tirar button").hide();
+  $('#Dado div.roulette').roulette("start");
+})
+
+
 /* Se ejecuta al inicio donde cada jugador tira un dado y el mayor inicia */
 function ordenarJugadores(numJug) {
   $(".modal-background").show();
   aviso("Jugador "+numJug+" <br> te toca tirar", (callback)=>{
     resetDado();
-    $("#Dado .Tirar button").click(()=>{
-      var result = callback()
-    })
   });
 }
 function aviso(txt, callback){
   var aviso = $("<div id='aviso'><p>"+txt+"</p></div>");
   aviso.click(()=>{
     aviso.remove();
-    callback(()=>{
-      giraDado();
-    })
+    callback();
   })
   $("body").append(aviso);
 }
@@ -121,10 +124,21 @@ function tiraDado(){
     console.log();
   })
 }
-function valortiro(val){
-  console.log("Eljugador");
+function valortiro(val, jug){
+  console.log("Eljugador"+jug+" saco "+val);
+  var tiro = {};
+  tirosInit.push({tiro:val, jugador:jug});
+  console.log(tirosInit);
+  if (numJugTiro<4) {
+    numJugTiro++;
+    ordenarJugadores(numJugTiro)
+  }else{
+    console.log(tirosInit.sort((a, b) => b.tiro - a.tiro ));
+  }
 }
-ordenarJugadores(1)
+var numJugTiro = 1;
+var tirosInit =[];
+ordenarJugadores(numJugTiro)
 
 
 /* Mueve al jugador
