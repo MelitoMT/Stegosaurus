@@ -164,3 +164,69 @@ body{
 .coronaBronce{
     background-color: rgb(171, 34, 0);
 }
+/* PODIUM */
+#podiumBck{
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.762);
+    position: absolute;
+    z-index: 50000;
+}
+#podiumCont{
+    height: 400px;
+    width: 600px;
+    position: absolute;
+    left: calc(50% - 300px);
+    top:calc(50vh - 200px);
+    color:white;
+    font-weight: 600;
+    font-size: 40px;
+}
+#menuButtonEnd{
+    text-decoration: none;
+    color: white;
+    position: absolute;
+    left:calc(50% - 115px);
+    bottom:-165px;
+    font-size: 30px;
+    background: var(--buttonGradient);
+    padding: 5px;
+    border-radius: 10px;
+    display: inline-block;
+}
+#menuButtonEnd:hover{
+    background: var(--buttonGradientHover2);
+}
+#podiumCont h3{
+    position: absolute;
+    left:calc(50% - 160px);
+    top:-130px;
+}
+#ganadorNick{
+    width:300px;
+    height: 100px;
+    position: absolute;
+    left:calc(50% - 150px);
+    bottom:-90px;
+}
+#ganadorNick p{
+    text-align: center;
+}
+#winnerContainer{
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    background-image:url(../img/fichaAjolote.png);
+    background-size: cover;
+    position: absolute;
+    left: calc(50% - 150px);
+    top:calc(50% - 180px);
+    border: 10px solid var(--blueButton);
+    box-shadow: 3px 3px 3em rgb(101, 255, 237), -3px -3px 3em rgb(101, 255, 237);
+}
+#winnerContainer img{
+    width: 400px;
+    position: absolute;
+    left:calc(50% - 200px);
+    bottom: -35px;
+}

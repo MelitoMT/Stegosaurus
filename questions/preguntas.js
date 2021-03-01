@@ -241,12 +241,18 @@ function puntuar(correct, idPreg) {
   }
   var fin = false;
   maxPuntaje = mayorPuntaje(puntajes);
-  if(maxPuntaje >= 50){
+  if(maxPuntaje >= 2){
+    console.log(maxPuntaje)
     fin = true;
   }
   /*Checa si aguien ya gano*/
-  if (maxPuntaje) {
-    $("body").append('<div id="podium">PODIUM </div>')
+  if (fin) {
+    var ganador = puntajes.indexOf(maxPuntaje);
+    console.log(ganador);
+    var avatarGanador= "../statics/img/ficha"+jugadores[ganador].avatar+".png"  
+    $("body").append("<div id=\"podiumBck\"><div id=\"podiumCont\"><h3>¡FELICIDADES!</h3><div id=\"winnerContainer\"><div><img src=\"../statics/img/hojas.svg\"></div><div id=\"ganadorNick\"></div><a id=\"menuButtonEnd\"href=\"../\">Volver a Menú</a></div></div></div>")
+    $("#winnerContainer").css("background-image","url("+avatarGanador+")");
+    $("#ganadorNick").html("<p>"+jugadores[ganador].nickname+"</p>")
   }else{
     setTimeout(()=>{
       $(".modal-background").show();//Oculta el fondo del modal
