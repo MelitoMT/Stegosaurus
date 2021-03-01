@@ -94,7 +94,7 @@ combinaciones cuando hay dos direcciones*/
           console.log("Jugador avanza "+$stopElm[0].alt);
           gameBoardStatus = actualizarEstado(playerPlace,gameBoardStatus,jugadores.length,gameBoardStart)
           generarTablero(gameBoardStatus,srcFichas);
-          moverJugador(1,4,srcFichas,puntajes, $stopElm[0].alt,gameBoardStatus,gameBoardStart,gameBoardDirec)
+          moverJugador(jugadorActual,4,srcFichas,puntajes, $stopElm[0].alt,gameBoardStatus,gameBoardStart,gameBoardDirec)
           $("#Dado").hide();//Oculta el modal del dado
           $(".modal-background").hide();//Oculta el fondo
         }
@@ -115,11 +115,11 @@ $("#Dado .Tirar button").click(()=>{
 })
 
 /* Inicializa el juego*/
-/* setTimeout(()=>{
+ setTimeout(()=>{
   aviso("Los 4 jugadores tiraran para elegir el orden", ()=>{
     ordenarJugadores(numJugTiroInit)
   })//Comienza a ejecutar el ordenamiento de jugadores
-},1000) */
+},1000) 
 /*
 
 -numJugadores: número de jugadores en tablero
