@@ -222,15 +222,16 @@ function puntuar(correct, idPreg) {
   var preg = obtenerPregPorId(window.preguntas, idPreg)
   if (correct) {
     if (preg.Dificultad == "Facil") {
-      console.log("Más 3");
+      puntajes[jugadorActual-1] +=3;
     }else if (preg.Dificultad == "Media") {
-      console.log("Más 5");
+      puntajes[jugadorActual-1] +=5;
     }else if (preg.Dificultad == "Dificil") {
+      puntajes[jugadorActual-1] +=10;
       //Añadir valor
-      console.log("Más 10");
     }else{
       console.log("Ninguno?");
     }
+    $("#points"+ jugadorActual).html(puntajes[jugadorActual-1]);
   }else{
     console.log("No puntuo");
   }
@@ -238,9 +239,14 @@ function puntuar(correct, idPreg) {
   if (jugadorActual>4) {
     jugadorActual=1;
   }
+  var fin = false;
+  maxPuntaje = mayorPuntaje(puntajes);
+  if(maxPuntaje >= 50){
+    fin = true;
+  }
   /*Checa si aguien ya gano*/
-  if (false) {
-
+  if (maxPuntaje) {
+    $("body").append('<div id="podium">PODIUM </div>')
   }else{
     setTimeout(()=>{
       $(".modal-background").show();//Oculta el fondo del modal
@@ -257,8 +263,24 @@ function RuletaCat(){
       duration : 3,
       stopImageNumber : -1,//Numero elige aleatorio
       stopCallback : function($stopElm)/*Que hace al acabar de girar*/ {
+        console.log(playerPlace)
+        switch(gameBoardStart[playerPlace[jugadorActual-1][1]*10+playerPlace[jugadorActual-1][0]]){
+          case 2:
+              difCasilla= "Facil";
+              break;
+          case 3:
+              difCasilla= "Media";
+              break;
+          case 4:
+              difCasilla= "Dificil";
+              break;
+          default:
+              difCasilla = "";
+              break;
+        }    
         $("#RuletaCateg .girar").append("<p class='respRul'>"+$stopElm[0].alt+"</p>");//Agrega respuesta al modal
-        var pregunta = generarPregunta($stopElm[0].alt,"Facil");//Genera una pregunta con los parametros dados
+        console.log(difCasilla)
+        var pregunta = generarPregunta($stopElm[0].alt,difCasilla);//Genera una pregunta con los parametros dados
         /*Da un pequeño tiempo para leer la respuesta*/
         setTimeout(()=>{
           $("#RuletaCateg").hide();//Oculta el carrusel

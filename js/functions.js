@@ -22,6 +22,7 @@ function checkMaxPlayer(numPlay){
 };
 
 
+
 /* Agrega Nuevos Jugadores
 count: cuenta de jugadores al momento */
 function nuevoJugador(obj,count){
@@ -265,7 +266,7 @@ function generarTablero(tablero,srcFichas){
           /* Dependiendo del número de la casilla le asigna un color que más tarde significará la dificultad */
           switch(tablero[j*10+i]){
               case 1:
-                  color= "azul";
+                  color= "inicial";
                   break;
               case 2:
                   color= "verde";
@@ -275,9 +276,6 @@ function generarTablero(tablero,srcFichas){
                   break;
               case 4:
                   color= "morado";
-                  break;
-              case 5:
-                  color = "inicial";
                   break;
               case "f3":
                   color = "flechaArriba";
@@ -489,8 +487,6 @@ function moverJugador(jugador,countPlayers,srcFichas,puntajes,num,tablero1,table
       }
       j++;
   },1000);
-  // puntajes[jugador-1] += 10;
-  // $("#points"+ jugador).html(puntajes[jugador-1]);
 }
 
 function dobleCasilla(key,movDir,movDirOpt,playerPlace, jugador,srcFichas,puntajes,num,tablero1,tablero2,tablero3,countPlayers){
