@@ -256,7 +256,6 @@ function dibujarFicha(i,j,jFichas,tablero){
 -color: color de la casilla correspondiente
 Si tiene como valor "j(1-4)" imprime una ficha de jugador*/
 function generarTablero(tablero,srcFichas){
-  console.log("estoy generando")
   var boardHtml = "";
   /* Crea el tablero a partir de filas y columnas */
   for(var j = 0; j < 9; j++){
@@ -280,6 +279,18 @@ function generarTablero(tablero,srcFichas){
               case 5:
                   color = "inicial";
                   break;
+              case "f3":
+                  color = "flechaArriba";
+                  break;    
+              case "f1":
+                color = "flechaDerecha";
+                break;  
+              case "f2":
+                color = "flechaIzquierda";
+                break;
+              case "f4":
+                color = "flechaAbajo";
+                break;                     
               default:
                   color = "vacio"
           }
@@ -305,9 +316,6 @@ playerPlace: número de jugador(1-4)
 index: coordenada a actualizar (x o y)
 movDir: dirección a la que se busca actualizar la coordenada */
 function actualizarPos(movDir, playerPlace, index){
-  console.log("Recibí la dirección"+ movDir)
-  console.log(playerPlace)
-  console.log(index)
   switch (movDir){
       case 1:
           playerPlace[index][0] += 1;
@@ -332,37 +340,50 @@ function actualizarPos(movDir, playerPlace, index){
 -gameBoardDirec: arreglo con las direcciones de todas las casillas*/
 function verifCasillas(pos,tablero){
   var casillasValidas=[false,false,false,false];
-
-      console.log("Soy la posición"+pos)
-      if(pos[1]!=0){
-          if(tablero[pos[1]*10+pos[0]]==3){
-              if(tablero[(pos[1]-1)*10+pos[0]]!= 4){
-                  casillasValidas[2]=true;
-              }
+  var casillaDoble = true;
+  switch(tablero[pos[1]*10+pos[0]]){
+    case 5:
+      var casillasValidas=[false,true,false,true];
+      break;
+    case 6:
+      var casillasValidas=[true,true,false,false];
+      break;
+    case 7: 
+      var casillasValidas=[true,false,true,false]; 
+      break;
+    default: 
+      casillaDoble = false; 
+  }   
+  if(!casillaDoble){
+    if(pos[1]!=0){
+      if(tablero[pos[1]*10+pos[0]]==3){
+          if(tablero[(pos[1]-1)*10+pos[0]]!= 4){
+              casillasValidas[2]=true;
           }
       }
-      if(pos[1]!=8){
-          if(tablero[pos[1]*10+pos[0]]==4){
-              if(tablero[(pos[1]+1)*10+pos[0]]!= 3){
-                  casillasValidas[3]=true;
-              }
-          }
-      }
-      if(pos[0]!=0){
-          if(tablero[pos[1]*10+pos[0]]==2){
-              if(tablero[pos[1]*10+pos[0]-1]!= 1){
-                  casillasValidas[1]=true;
-              }
-          }
-      }
-      if(pos[0]!=9){
-          if(tablero[pos[1]*10+pos[0]]==1){
-              if(tablero[pos[1]*10+pos[0]+1]!= 2){
-                  casillasValidas[0]=true;
-              }
-          }
-      }
-
+    }
+    if(pos[1]!=8){
+        if(tablero[pos[1]*10+pos[0]]==4){
+            if(tablero[(pos[1]+1)*10+pos[0]]!= 3){
+                casillasValidas[3]=true;
+            }
+        }
+    }
+    if(pos[0]!=0){
+        if(tablero[pos[1]*10+pos[0]]==2){
+            if(tablero[pos[1]*10+pos[0]-1]!= 1){
+                casillasValidas[1]=true;
+            }
+        }
+    }
+    if(pos[0]!=9){
+        if(tablero[pos[1]*10+pos[0]]==1){
+            if(tablero[pos[1]*10+pos[0]+1]!= 2){
+                casillasValidas[0]=true;
+            }
+        }
+    }
+  } 
   return(casillasValidas)
 }
 
@@ -388,18 +409,22 @@ dir2: segunda dirección válida
 jugador: jugador a mover
 key: tecla presionada */
 function elegirCamino(dir1,dir2,playerPlace, jugador,key){
-  if(dir1== 2||dir2== 2&& key.keyCode == '37'){
+  console.log(key.keyCode)
+  console.log(dir1)
+  console.log(dir2)
+  if((dir1== 2||dir2== 2)&& key.keyCode == '97'){
       playerPlace = actualizarPos(2,playerPlace,jugador-1);
   }
-  if(dir1== 1||dir2== 1&& key.keyCode == '39'){
+  if(dir1== 1||dir2== 1&& key.keyCode == '100'){
       playerPlace = actualizarPos(1,playerPlace,jugador-1);
   }
-  if(dir1== 3||dir2== 3&& key.keyCode == '38'){
+  if(dir1== 3||dir2== 3&& key.keyCode == '115'){
       playerPlace = actualizarPos(3,playerPlace,jugador-1);
   }
-  if(dir1== 4||dir2== 4&& key.keyCode == '40'){
+  if(dir1== 4||dir2== 4&& key.keyCode == '119'){
       playerPlace = actualizarPos(4,playerPlace,jugador-1);
   }
+  return playerPlace;
 }
 
 
@@ -417,22 +442,45 @@ function moverJugador(jugador,countPlayers,srcFichas,puntajes,num,tablero1,table
           var casillasValid=verifCasillas(playerPlace[jugador-1],tablero3);
           var casillasValidNum = 0;
           var movDir;
-          var movDirOpt;
-          for(var i = 0; i <= 4;i++){
+          var movDirOpt = 0;
+          console.log(casillasValid)
+          for(var i = 0; i < casillasValid.length;i++){
               if(casillasValid[i]==true){
-                  if(casillasValidNum > 1){
-                      movDirOpt = i+1;
+                  if(casillasValidNum >= 1){
+                    movDirOpt = i+1;
+                  }
+                  else{
+                    movDir = i+1;
                   }
                   casillasValidNum += 1;
-                  movDir = i+1;
               }
           }
           if(casillasValidNum == 1){
               playerPlace = actualizarPos(movDir,playerPlace,jugador-1);
           }
+          else{
+            $("body").append('<div id="flechasCamino"></div>')
+            clearInterval(movimientoInterval);
+            console.log(playerPlace)
+            document.addEventListener("keypress",(key)=>{
+              $("#flechasCamino").css("display","none");
+              num=num-j;
+              playerPlace = elegirCamino(movDir,movDirOpt,playerPlace, jugador,key,srcFichas,puntajes,num,tablero1,tablero2,tablero3);
+              tablero1=actualizarEstado(playerPlace,tablero1,countPlayers,tablero2)
+              document.removeEventListener("keypress",(key)=>{
+                $("#flechasCamino").css("display","none");
+                num=num-j;
+                playerPlace = elegirCamino(movDir,movDirOpt,playerPlace, jugador,key,srcFichas,puntajes,num,tablero1,tablero2,tablero3);
+                tablero1=actualizarEstado(playerPlace,tablero1,countPlayers,tablero2)
+                document.removeEventListener("keypress");
+                moverJugador(jugador,countPlayers,srcFichas,puntajes,num,tablero1,tablero2,tablero3);
+              });
+              moverJugador(jugador,countPlayers,srcFichas,puntajes,num,tablero1,tablero2,tablero3);
+            });  
+            j = 7;
+          }
           tablero1=actualizarEstado(playerPlace,tablero1,countPlayers,tablero2);
           generarTablero(tablero1,srcFichas)
-  
       }
       else{
           clearInterval(movimientoInterval);

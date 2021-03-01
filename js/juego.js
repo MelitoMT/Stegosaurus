@@ -14,27 +14,27 @@ var jugadores = JSON.parse(getCookie("jugadores"));
 3:rojo
 4:morado
 5:inicio*/
-/* var gameBoardStart = [0,5,1,1,2,1,3,1,4,1,// Primera Fila
-                0,0,3,0,0,0,1,0,0,2,// Segunda Fila
-                0,0,1,0,0,0,4,3,3,1,// Tercera Fila
-                3,4,3,0,0,0,1,0,0,2,// Cuarta Fila
-                2,0,2,3,1,1,2,0,0,3,// Quinta Fila
-                1,0,0,0,1,0,0,0,0,1,// Sexta Fila
-                4,0,0,0,3,4,1,2,1,1,// Séptima Fila
-                3,0,0,0,0,0,0,0,0,3,// Octava Fila
-                1,1,2,4,2,3,1,1,2,1// Novena Fila]; */
+ var gameBoardStart = [0,5,1,1,2,1,3,1,4,1,// Primera Fila
+                    0,0,3,0,0,0,1,"f3",0,2,// Segunda Fila
+                    0,"f3",1,0,0,0,4,3,3,1,// Tercera Fila
+                    3,4,3,"f2",0,"f1",1,0,"f1",2,// Cuarta Fila
+                    2,0,2,3,1,1,2,0,0,3,// Quinta Fila
+                    1,0,0,"f3",1,0,0,"f2",0,1,// Sexta Fila
+                    4,"f3",0,0,3,4,1,2,1,1,// Séptima Fila
+                    3,0,0,0,0,0,0,0,0,3,// Octava Fila
+                    1,1,2,4,2,3,1,1,2,1]// Novena Fila]; 
  /*
  ARREGLO PROVISIONAL, POR PROBLEMA DE DOS CASILLAS
  */
-var gameBoardStart = [0,5,1,1,2,1,3,1,4,1,/* Primera Fila */
-    0,0,3,0,0,0,0,0,0,2,/* Segunda Fila */
-    0,0,1,0,0,0,0,0,0,1,/* Tercera Fila */
-    3,4,3,0,0,0,0,0,0,2,/* Cuarta Fila */
-    2,0,0,0,0,0,0,0,0,3,/* Quinta Fila */
-    1,0,0,0,0,0,0,0,0,1,/* Sexta Fila */
-    4,0,0,0,0,0,0,0,0,1,/* Séptima Fila */
-    3,0,0,0,0,0,0,0,0,3,/* Octava Fila */
-    1,1,2,4,2,3,1,1,2,1/* Novena Fila */];
+/* var gameBoardStart = [0,5,1,1,2,1,3,1,4,1,// Primera Fila 
+    0,0,3,0,0,0,0,0,0,2,// Segunda Fila 
+    0,0,1,0,0,0,0,0,0,1,// Tercera Fila 
+    3,4,3,0,0,0,0,0,0,2,// Cuarta Fila 
+    2,0,0,0,0,0,0,0,0,3,// Quinta Fila 
+    1,0,0,0,0,0,0,0,0,1,// Sexta Fila 
+    4,0,0,0,0,0,0,0,0,1,// Séptima Fila 
+    3,0,0,0,0,0,0,0,0,3,// Octava Fila 
+    1,1,2,4,2,3,1,1,2,1// Novena Fila ]; */
 /* Crea una copia del tablero para guardar el estado */
 var gameBoardStatus=gameBoardStart.slice();
 
@@ -53,17 +53,25 @@ combinaciones cuando hay dos direcciones*/
                     3,0,0,0,3,2,2,2,2,24,// Séptima Fila
                     3,0,0,0,0,0,0,0,0,4,// Octava Fila
                     3,2,2,2,2,2,2,2,2,2// Novena Fila]; */
-
+ var gameBoardDirec = [0,1,1,1,1,1,1,1,1,4,// Primera Fila
+                    0,0,3,0,0,0,3,0,0,4,// Segunda Fila
+                    0,0,3,0,0,0,7,1,1,4,// Tercera Fila
+                    1,1,3,0,0,0,3,0,0,4,// Cuarta Fila
+                    3,0,3,2,6,1,3,0,0,4,// Quinta Fila
+                    3,0,0,0,3,0,0,0,0,4,// Sexta Fila
+                    3,0,0,0,3,2,2,2,2,5,// Séptima Fila
+                    3,0,0,0,0,0,0,0,0,4,// Octava Fila
+                    3,2,2,2,2,2,2,2,2,2]// Novena Fila]; 
 /* ARREGLOOOO PROVISIONAAAAAAAL */
-var gameBoardDirec = [0,1,1,1,1,1,1,1,1,4,/* Primera Fila */
-                    0,0,3,0,0,0,0,0,0,4,/* Segunda Fila */
-                    0,0,3,0,0,0,0,0,0,4,/* Tercera Fila */
-                    1,1,3,0,0,0,0,0,0,4,/* Cuarta Fila */
-                    3,0,0,0,0,0,0,0,0,4,/* Quinta Fila */
-                    3,0,0,0,0,0,0,0,0,4,/* Sexta Fila */
-                    3,0,0,0,0,0,0,0,0,4,/* Séptima Fila */
-                    3,0,0,0,0,0,0,0,0,4,/* Octava Fila */
-                    3,2,2,2,2,2,2,2,2,2/* Novena Fila */];
+/* var gameBoardDirec = [0,1,1,1,1,1,1,1,1,4,// Primera Fila 
+                    0,0,3,0,0,0,0,0,0,4,// Segunda Fila 
+                    0,0,3,0,0,0,0,0,0,4,// Tercera Fila 
+                    1,1,3,0,0,0,0,0,0,4,// Cuarta Fila 
+                    3,0,0,0,0,0,0,0,0,4,// Quinta Fila 
+                    3,0,0,0,0,0,0,0,0,4,// Sexta Fila 
+                    3,0,0,0,0,0,0,0,0,4,// Séptima Fila
+                    3,0,0,0,0,0,0,0,0,4,// Octava Fila 
+                    3,2,2,2,2,2,2,2,2,2//Novena Fila ]; */
 
 /* Crea la ruleta de dado*/
   var rouletter = $('#Dado div.roulette');//Se selecciona el modal
@@ -107,11 +115,12 @@ $("#Dado .Tirar button").click(()=>{
 })
 
 /* Inicializa el juego*/
-setTimeout(()=>{
+/* setTimeout(()=>{
   aviso("Los 4 jugadores tiraran para elegir el orden", ()=>{
     ordenarJugadores(numJugTiroInit)
   })//Comienza a ejecutar el ordenamiento de jugadores
-},1000)/*
+},1000) */
+/*
 
 -numJugadores: número de jugadores en tablero
 puntajes:arreglo con los puntajes de todos los jugadores

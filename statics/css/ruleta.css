@@ -2,6 +2,10 @@ div.roulette_container {
 	width: fit-content;
 	height:fit-content;
 	margin:auto;
+	background-color: rgb(174, 232, 245);
+	border: 10px solid var(--blueButton);
+	border-radius: 20px;
+	box-shadow: inset 0px 10px 10px rgb(85, 107, 150),inset -0px -10px 10px rgb(85, 107, 150);
 }
 #RuletaCateg{
 	/* display: none; */
@@ -66,6 +70,7 @@ div.roulette_container {
 #Dado .roulette img{
 	width: 200px;
 	height: 200px;
+	border-radius: 10px;
 }
 #Dado > .titulo{
 	padding: 25px;

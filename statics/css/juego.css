@@ -13,7 +13,7 @@ body{
     border-radius: 50%;
     border: 2px solid var(--bordeCasilla);
 }
-.vacio,.azul, .verde, .rojo, .morado, .inicial{
+.vacio,.azul, .verde, .rojo, .morado, .inicial,.flechaArriba,.flechaAbajo,.flechaDerecha,.flechaIzquierda{
     width:40px;
     height:40px;
 }
@@ -36,6 +36,21 @@ body{
     width: 40px;
     border-radius: 50%;
     border: 2px solid var(--bordeCasilla);
+}
+.flechaArriba,.flechaAbajo,.flechaDerecha,.flechaIzquierda{
+    background-color: white;
+}
+.flechaArriba,.flechaAbajo,.flechaDerecha,.flechaIzquierda{
+    clip-path: polygon(0% 42%, 24% 43%, 25% 100%, 75% 100%, 74% 40%, 100% 40%, 48% 0%);
+}
+.flechaAbajo{
+    transform: rotate(180deg);
+}
+.flechaDerecha{
+    transform: rotate(90deg);
+}
+.flechaIzquierda{
+    transform: rotate(270deg);
 }
 .boardRow{
     display: flex;
@@ -110,6 +125,14 @@ body{
 }
 #jugadorTurno p{
     margin: auto;
+}
+#flechasCamino{
+    background-color: aqua;
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    top:400px;
+    z-index: 2000;
 }
 .nickname,.points{
     color: aliceblue;
