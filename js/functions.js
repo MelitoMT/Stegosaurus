@@ -409,9 +409,6 @@ dir2: segunda dirección válida
 jugador: jugador a mover
 key: tecla presionada */
 function elegirCamino(dir1,dir2,playerPlace, jugador,key){
-  console.log(key.keyCode)
-  console.log(dir1)
-  console.log(dir2)
   if((dir1== 2||dir2== 2)&& key.keyCode == '97'){
       playerPlace = actualizarPos(2,playerPlace,jugador-1);
   }
@@ -459,14 +456,10 @@ function moverJugador(jugador,countPlayers,srcFichas,puntajes,num,tablero1,table
               playerPlace = actualizarPos(movDir,playerPlace,jugador-1);
           }
           else{
-            $("body").append('<div id="flechasCamino"></div>')
+/*             $("body").append('<div id="flechasCamino"></div>')
             clearInterval(movimientoInterval);
             console.log(playerPlace)
             document.addEventListener("keypress",(key)=>{
-              $("#flechasCamino").css("display","none");
-              num=num-j;
-              playerPlace = elegirCamino(movDir,movDirOpt,playerPlace, jugador,key,srcFichas,puntajes,num,tablero1,tablero2,tablero3);
-              tablero1=actualizarEstado(playerPlace,tablero1,countPlayers,tablero2)
               document.removeEventListener("keypress",(key)=>{
                 $("#flechasCamino").css("display","none");
                 num=num-j;
@@ -477,20 +470,36 @@ function moverJugador(jugador,countPlayers,srcFichas,puntajes,num,tablero1,table
               });
               moverJugador(jugador,countPlayers,srcFichas,puntajes,num,tablero1,tablero2,tablero3);
             });  
-            j = 7;
+            j = 7; */
           }
           tablero1=actualizarEstado(playerPlace,tablero1,countPlayers,tablero2);
           generarTablero(tablero1,srcFichas)
       }
       else{
+        setTimeout(()=>{
+           resetRulCat ();
+          var nomJug = jugadores[jugador].nickname
+          if (nomJug.match(/Bot\d/i)) {
+            console.log("Gira robotica")
+            $("#RuletaCateg .girar button").hide();
+            $('#RuletaCateg div.roulette').roulette("start");
+          } 
+        }, 200)
           clearInterval(movimientoInterval);
       }
       j++;
   },1000);
-  puntajes[jugador-1] += 10;
-  $("#points"+ jugador).html(puntajes[jugador-1]);
+  // puntajes[jugador-1] += 10;
+  // $("#points"+ jugador).html(puntajes[jugador-1]);
 }
 
+function dobleCasilla(key,movDir,movDirOpt,playerPlace, jugador,srcFichas,puntajes,num,tablero1,tablero2,tablero3,countPlayers){
+  $("#flechasCamino").css("display","none");
+  num=num-j+1;
+  playerPlace = elegirCamino(movDir,movDirOpt,playerPlace, jugador,key,srcFichas,puntajes,num,tablero1,tablero2,tablero3);
+  tablero1=actualizarEstado(playerPlace,tablero1,countPlayers,tablero2)
+
+}
 /* DADO */
 
 /**/

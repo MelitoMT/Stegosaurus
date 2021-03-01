@@ -14,7 +14,7 @@ var jugadores = JSON.parse(getCookie("jugadores"));
 3:rojo
 4:morado
 5:inicio*/
- var gameBoardStart = [0,5,1,1,2,1,3,1,4,1,// Primera Fila
+/*  var gameBoardStart = [0,5,1,1,2,1,3,1,4,1,// Primera Fila
                     0,0,3,0,0,0,1,"f3",0,2,// Segunda Fila
                     0,"f3",1,0,0,0,4,3,3,1,// Tercera Fila
                     3,4,3,"f2",0,"f1",1,0,"f1",2,// Cuarta Fila
@@ -22,11 +22,11 @@ var jugadores = JSON.parse(getCookie("jugadores"));
                     1,0,0,"f3",1,0,0,"f2",0,1,// Sexta Fila
                     4,"f3",0,0,3,4,1,2,1,1,// Séptima Fila
                     3,0,0,0,0,0,0,0,0,3,// Octava Fila
-                    1,1,2,4,2,3,1,1,2,1]// Novena Fila]; 
+                    1,1,2,4,2,3,1,1,2,1]// Novena Fila];  */
  /*
  ARREGLO PROVISIONAL, POR PROBLEMA DE DOS CASILLAS
  */
-/* var gameBoardStart = [0,5,1,1,2,1,3,1,4,1,// Primera Fila 
+ var gameBoardStart = [0,5,1,1,2,1,3,1,4,1,// Primera Fila 
     0,0,3,0,0,0,0,0,0,2,// Segunda Fila 
     0,0,1,0,0,0,0,0,0,1,// Tercera Fila 
     3,4,3,0,0,0,0,0,0,2,// Cuarta Fila 
@@ -34,7 +34,7 @@ var jugadores = JSON.parse(getCookie("jugadores"));
     1,0,0,0,0,0,0,0,0,1,// Sexta Fila 
     4,0,0,0,0,0,0,0,0,1,// Séptima Fila 
     3,0,0,0,0,0,0,0,0,3,// Octava Fila 
-    1,1,2,4,2,3,1,1,2,1// Novena Fila ]; */
+    1,1,2,4,2,3,1,1,2,1]// Novena Fila ]; 
 /* Crea una copia del tablero para guardar el estado */
 var gameBoardStatus=gameBoardStart.slice();
 
@@ -53,7 +53,7 @@ combinaciones cuando hay dos direcciones*/
                     3,0,0,0,3,2,2,2,2,24,// Séptima Fila
                     3,0,0,0,0,0,0,0,0,4,// Octava Fila
                     3,2,2,2,2,2,2,2,2,2// Novena Fila]; */
- var gameBoardDirec = [0,1,1,1,1,1,1,1,1,4,// Primera Fila
+/*  var gameBoardDirec = [0,1,1,1,1,1,1,1,1,4,// Primera Fila
                     0,0,3,0,0,0,3,0,0,4,// Segunda Fila
                     0,0,3,0,0,0,7,1,1,4,// Tercera Fila
                     1,1,3,0,0,0,3,0,0,4,// Cuarta Fila
@@ -61,9 +61,9 @@ combinaciones cuando hay dos direcciones*/
                     3,0,0,0,3,0,0,0,0,4,// Sexta Fila
                     3,0,0,0,3,2,2,2,2,5,// Séptima Fila
                     3,0,0,0,0,0,0,0,0,4,// Octava Fila
-                    3,2,2,2,2,2,2,2,2,2]// Novena Fila]; 
+                    3,2,2,2,2,2,2,2,2,2]// Novena Fila];  */
 /* ARREGLOOOO PROVISIONAAAAAAAL */
-/* var gameBoardDirec = [0,1,1,1,1,1,1,1,1,4,// Primera Fila 
+ var gameBoardDirec = [0,1,1,1,1,1,1,1,1,4,// Primera Fila 
                     0,0,3,0,0,0,0,0,0,4,// Segunda Fila 
                     0,0,3,0,0,0,0,0,0,4,// Tercera Fila 
                     1,1,3,0,0,0,0,0,0,4,// Cuarta Fila 
@@ -71,7 +71,7 @@ combinaciones cuando hay dos direcciones*/
                     3,0,0,0,0,0,0,0,0,4,// Sexta Fila 
                     3,0,0,0,0,0,0,0,0,4,// Séptima Fila
                     3,0,0,0,0,0,0,0,0,4,// Octava Fila 
-                    3,2,2,2,2,2,2,2,2,2//Novena Fila ]; */
+                    3,2,2,2,2,2,2,2,2,2]//Novena Fila ]; 
 
 /* Crea la ruleta de dado*/
   var rouletter = $('#Dado div.roulette');//Se selecciona el modal
@@ -93,7 +93,7 @@ combinaciones cuando hay dos direcciones*/
         }else if (true) /*Avanze jugador*/{
           console.log("Jugador avanza "+$stopElm[0].alt);
           gameBoardStatus = actualizarEstado(playerPlace,gameBoardStatus,jugadores.length,gameBoardStart)
-          generarTablero(gameBoardStatus,srcFichas);      
+          generarTablero(gameBoardStatus,srcFichas);
           moverJugador(1,4,srcFichas,puntajes, $stopElm[0].alt,gameBoardStatus,gameBoardStart,gameBoardDirec)
           $("#Dado").hide();//Oculta el modal del dado
           $(".modal-background").hide();//Oculta el fondo
@@ -106,7 +106,7 @@ combinaciones cuando hay dos direcciones*/
   var tirosInit =[]; //Orden en el que los jugadores jugaran
   var seleccionOrden = true;//variable que indica que funcion seguir al tirar los dados
   var jugadorActual = 1;
-  
+
 
 /*Evento de click al buton del dado*/
 $("#Dado .Tirar button").click(()=>{
