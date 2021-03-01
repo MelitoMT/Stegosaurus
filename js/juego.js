@@ -85,7 +85,7 @@ var gameBoardDirec = [0,1,1,1,1,1,1,1,1,4,/* Primera Fila */
         }else if (true) /*Avanze jugador*/{
           console.log("Jugador avanza "+$stopElm[0].alt);
           gameBoardStatus = actualizarEstado(playerPlace,gameBoardStatus,jugadores.length,gameBoardStart)
-          generarTablero(gameBoardStatus,srcFichas);      
+          generarTablero(gameBoardStatus,srcFichas);
           moverJugador(1,4,srcFichas,puntajes, $stopElm[0].alt,gameBoardStatus,gameBoardStart,gameBoardDirec)
           $("#Dado").hide();//Oculta el modal del dado
           $(".modal-background").hide();//Oculta el fondo
@@ -98,7 +98,7 @@ var gameBoardDirec = [0,1,1,1,1,1,1,1,1,4,/* Primera Fila */
   var tirosInit =[]; //Orden en el que los jugadores jugaran
   var seleccionOrden = true;//variable que indica que funcion seguir al tirar los dados
   var jugadorActual = 1;
-  
+
 
 /*Evento de click al buton del dado*/
 $("#Dado .Tirar button").click(()=>{

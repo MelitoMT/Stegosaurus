@@ -105,11 +105,7 @@ function mostrarPreg(idPreg) {
   var modal = $("<div id='p-"+pregunta.id+"' class='modal'>");//Crea el modal
   modal.append($("<div class='tiempo'>"))
   modal.append($("<div class='modal-title'>"+pregunta.Pregunta+"</div>"))//Añade la pregunta
-  if (pregunta.img != "")/*Checa si hay alguna imagen de referencia*/ {
-    modal.append($("<div class='modal-img'><img src='../statics/img/"+pregunta.img+"' alt='default'></div>"))//Añade la imagen al modal
-  }else{
-    modal.append($("<div class='modal-img'><img src='../statics/img/default-quest.png' alt='default'></div>"))//Añade imagen default al modal
-  }
+  modal.append($("<div class='modal-img'><img src='../statics/img/default-quest.png' alt='default'></div>"))//Añade imagen default al modal
   var modalCont = $("<div class='modal-cont'>");//Contenerdor de las respuestas
   var contIzq = $("<div class='contIzq'>");//Parte izquierda
   var contDer = $("<div class='contDer'>");//Parte derecha
@@ -147,15 +143,35 @@ function mostrarPreg(idPreg) {
       responder(pregunta.id, ((elem.id).substr(5,1)/*Manda solo el numero de la respuesta*/))//Manda la respuesta
     }
   });
+  //Si es bot responde automaticamente 3 segundos despues
+  var nomJug = jugadores[(tirosInit[(jugadorActual-1)].jugador)-1].nickname
+  if (nomJug.match(/Bot\d/i)) {
+    //Elimina eventode rr
+    $.each($(".resp"),(index, elem)=>{
+      elem.onclick= "";
+    });
+    if (pregunta.Tipo=="multiple") {
+      var respRandom = Math.floor((Math.random() * 3)+1);
+    }else if (pregunta.Tipo=="booleana") {
+      var respRandom = Math.floor((Math.random() * 1)+1);
+    }
+    console.log("Tipo "+pregunta.Tipo);
+    console.log("Respondi "+respRandom);
+    setTimeout(()=>{
+      contar = false;//Cancela el contar
+      responder(pregunta.id, respRandom)/*Manda respuesta aleatoria*/
+    }, 3000)
+  }
 }
 function responder(idpreg, respuesta){
   var preg = obtenerPregPorId(window.preguntas, idpreg)//se guarda la pregunta
   var resCorr = preg.rCorrecta//se guarda la respuesta correcta de la pregunta
   resCorr = resCorr.match(/\d/gmi);//otiene el numero de la respuesta correcta
   if (resCorr == respuesta) /*Checa si ambos numero son iguales*/{
-    console.log("Es la correcta");
+    puntuar(true, idpreg);
     $("#Resp_"+respuesta).css("color", "#00da30");//cambia el color de la respuesta correcta a verde
   }else{
+    puntuar(false, idpreg);
     $("#Resp_"+respuesta).css("color", "#da0000");//cambia el color de la respuesta seleccionada a rojo
     $("#Resp_"+resCorr).css("color", "#00da30");//cambia el color de la respuesta correcta a verde
   }
@@ -196,10 +212,42 @@ function cuentaRegre(seg/*segundo para responder*/, idpPreg/*id de la pregunta a
       //da tiempo a leer los reultados
       setTimeout(()=>{
         ocultarPreg(idpPreg)//Elimina el modal
+        puntuar(false, idpPreg);
       }, 1500)
     }
 }
+function puntuar(correct, idPreg) {
+  console.log("Puntuando");
+  console.log(correct);
+  var preg = obtenerPregPorId(window.preguntas, idPreg)
+  if (correct) {
+    if (preg.Dificultad == "Facil") {
+      console.log("Más 3");
+    }else if (preg.Dificultad == "Media") {
+      console.log("Más 5");
+    }else if (preg.Dificultad == "Dificil") {
+      //Añadir valor
+      console.log("Más 10");
+    }else{
+      console.log("Ninguno?");
+    }
+  }else{
+    console.log("No puntuo");
+  }
+  jugadorActual++;
+  if (jugadorActual>4) {
+    jugadorActual=1;
+  }
+  /*Checa si aguien ya gano*/
+  if (false) {
 
+  }else{
+    setTimeout(()=>{
+      $(".modal-background").show();//Oculta el fondo del modal
+      jugando(jugadorActual)
+    }, 2500)
+  }
+}
 /*No aqui*/
 /*Crea la ruleta y sus configuración*/
 function RuletaCat(){
@@ -225,6 +273,7 @@ function RuletaCat(){
   })
 }
 function resetRulCat (){
+  $(".modal-background").show();//Oculta el fondo del modal
   $("#RuletaCateg .girar .respRul").remove();//Quita respuestas previas
   $("#RuletaCateg .girar button").show();//muestra el boton de nuevo
   $("#RuletaCateg").show();//Muestra el modal

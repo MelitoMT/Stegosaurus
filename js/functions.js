@@ -432,15 +432,24 @@ function moverJugador(jugador,countPlayers,srcFichas,puntajes,num,tablero1,table
           }
           tablero1=actualizarEstado(playerPlace,tablero1,countPlayers,tablero2);
           generarTablero(tablero1,srcFichas)
-  
+
       }
       else{
+        setTimeout(()=>{
+          resetRulCat ();
+          var nomJug = jugadores[(tirosInit[(jugadorActual-1)].jugador)-1].nickname
+          if (nomJug.match(/Bot\d/i)) {
+            console.log("Gira robotica")
+            $("#RuletaCateg .girar button").hide();
+            $('#RuletaCateg div.roulette').roulette("start");
+          }
+        }, 200)
           clearInterval(movimientoInterval);
       }
       j++;
   },1000);
-  puntajes[jugador-1] += 10;
-  $("#points"+ jugador).html(puntajes[jugador-1]);
+  // puntajes[jugador-1] += 10;
+  // $("#points"+ jugador).html(puntajes[jugador-1]);
 }
 
 /* DADO */
