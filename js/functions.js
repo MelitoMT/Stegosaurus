@@ -2,7 +2,7 @@
 Parámetros:
 tiempo:Cada cuánto se cambia la palabra*/
 function generarFrasesCarga(tiempo){
-    var frasesCarga = ['Elige sabiamente tu personaje...','Enseñando magia al Cangumago...', 'Michibot escribiendo su primer "Hola Mundo...','Eligiendo preguntas...' ];
+    var frasesCarga = ['Elige sabiamente tu personaje...','Enseñando magia al Cangumago...', 'Michibot escribiendo su primer "Hola Mundo..."','Eligiendo preguntas...','Alimentando a la nutria de fuego...','Afilando las branquias del Ajolote'];
     /* Elige una frase de forma pseudoaleatoria para desplegar */
     setInterval(()=>{
         var i = Math.floor(Math.random() * Math.floor(frasesCarga.length + 1));
@@ -212,6 +212,15 @@ function mayorPuntaje(puntaje){
       }
   }
   return mayor
+}
+/* SONIDO */
+class sonido{
+  constructor(name){
+    this.sound = new Audio("../statics/media/" + name);
+  }
+  sonar(){
+    this.sound.play();
+  }
 }
 
 /* FUNCIONES PARA PARTE GRÁFICA */
@@ -464,6 +473,7 @@ function moverJugador(jugador,countPlayers,srcFichas,puntajes,num,tablero1,table
             console.log("Gira robotica")
             $("#RuletaCateg .girar button").hide();
             $('#RuletaCateg div.roulette').roulette("start");
+            ruletaSonido.play()
           }
         }, 200)
           clearInterval(movimientoInterval);

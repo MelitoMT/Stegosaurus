@@ -41,6 +41,8 @@ combinaciones cuando hay dos direcciones*/
                     3,0,0,0,0,0,0,0,0,4,// Séptima Fila
                     3,0,0,0,0,0,0,0,0,4,// Octava Fila 
                     3,2,2,2,2,2,2,2,2,2]//Novena Fila ]; 
+/* Sonidos */
+var ruletaSonido = new Audio("../statics/media/ruleta.mp3");
 
 /* Crea la ruleta de dado*/
   var rouletter = $('#Dado div.roulette');//Se selecciona el modal
@@ -49,6 +51,7 @@ combinaciones cuando hay dos direcciones*/
     duration : 1,//duracion en segundos
     stopImageNumber : -1,//Numero elige aleatorio
     startCallback : function()/*Que hace al iniciar de girar*/  {
+      ruletaSonido.play()
     },
     slowDownCallback : function()/*Que hace al bajar velocidad*/  {
     },
