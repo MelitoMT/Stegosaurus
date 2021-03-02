@@ -453,23 +453,6 @@ function moverJugador(jugador,countPlayers,srcFichas,puntajes,num,tablero1,table
           if(casillasValidNum == 1){
               playerPlace = actualizarPos(movDir,playerPlace,jugador-1);
           }
-          else{
-/*             $("body").append('<div id="flechasCamino"></div>')
-            clearInterval(movimientoInterval);
-            console.log(playerPlace)
-            document.addEventListener("keypress",(key)=>{
-              document.removeEventListener("keypress",(key)=>{
-                $("#flechasCamino").css("display","none");
-                num=num-j;
-                playerPlace = elegirCamino(movDir,movDirOpt,playerPlace, jugador,key,srcFichas,puntajes,num,tablero1,tablero2,tablero3);
-                tablero1=actualizarEstado(playerPlace,tablero1,countPlayers,tablero2)
-                document.removeEventListener("keypress");
-                moverJugador(jugador,countPlayers,srcFichas,puntajes,num,tablero1,tablero2,tablero3);
-              });
-              moverJugador(jugador,countPlayers,srcFichas,puntajes,num,tablero1,tablero2,tablero3);
-            });  
-            j = 7; */
-          }
           tablero1=actualizarEstado(playerPlace,tablero1,countPlayers,tablero2);
           generarTablero(tablero1,srcFichas)
       }
@@ -489,13 +472,6 @@ function moverJugador(jugador,countPlayers,srcFichas,puntajes,num,tablero1,table
   },1000);
 }
 
-function dobleCasilla(key,movDir,movDirOpt,playerPlace, jugador,srcFichas,puntajes,num,tablero1,tablero2,tablero3,countPlayers){
-  $("#flechasCamino").css("display","none");
-  num=num-j+1;
-  playerPlace = elegirCamino(movDir,movDirOpt,playerPlace, jugador,key,srcFichas,puntajes,num,tablero1,tablero2,tablero3);
-  tablero1=actualizarEstado(playerPlace,tablero1,countPlayers,tablero2)
-
-}
 /* DADO */
 
 /**/
@@ -505,12 +481,15 @@ function resetDado() {
   $("#Dado").show();//Muestra el modal del dado
 }
 
+
 /* Se ejecuta al inicio donde cada jugador tira un dado y el mayor inicia */
 function ordenarJugadores(numJug) {
   aviso("Jugador "+numJug+" <br> te toca tirar", ()=>{
     resetDado();//cuando se hace click al aviso muestra el modal
   });
 }
+
+
 function aviso(txt, callback){
   $(".modal-background").show();//se ponde el fondo modal
   var aviso = $("<div id='aviso'><p>"+txt+"</p></div>");//Se muestra a hacer un aviso
@@ -520,6 +499,8 @@ function aviso(txt, callback){
   })
   $("body").append(aviso);//Se añade el aviso
 }
+
+
 function avisoLg(txt, callback) {
   $(".modal-background").show();//se ponde el fondo modal
   var aviso = $("<div id='avisoLg'><p>"+txt+"</p></div>");//Se muestra a hacer un aviso
@@ -529,6 +510,8 @@ function avisoLg(txt, callback) {
   })
   $("body").append(aviso);//Se añade el aviso
 }
+
+
 function valortiro(val, jug){
   var tiro = {};
   tirosInit.push({tiro:val, jugador:jug});
@@ -566,6 +549,8 @@ function valortiro(val, jug){
     })
   }
 }
+
+
 function jugando(numJugador) {
   var nomJug = jugadores[(tirosInit[(numJugador-1)].jugador)-1].nickname
   aviso(nomJug+" te toca tirar", ()=>{

@@ -437,7 +437,7 @@ body{
   width: 800px;
   height: fit-content;
   position: absolute;
-  top: 20%;
+  top: calc(50vh - 300px);
   left: 25%;
   z-index: 110;
   border-radius: 25px;
@@ -511,7 +511,7 @@ body{
   width: 90%;
 }
 .boolean{
-  height: 90%;
+  height: 50%;
   margin: 5%;
   width: 90%;
   font-size: 40px;
@@ -523,28 +523,28 @@ body{
   margin: 0.5em 0.5em 0.5em 0.2em
 }
 #Resp_1{
-  background-color: #c80c0c;
+  background-color: #ac0b0b;
 }
 #Resp_1:hover{
-  background-color: #a81414;
+  background-color: #890d0d;
 }
 #Resp_2{
-  background-color: #2a30c6;
+  background-color: #3035bf;
 }
 #Resp_2:hover{
-  background-color: #1419a2;
+  background-color: #222689;
 }
 #Resp_3{
-  background-color: #D89E00;
+  background-color: #d6a725;
 }
 #Resp_3:hover{
-  background-color: #cc9708;
+  background-color: #bb8d0d;
 }
 #Resp_4{
   background-color: #21ac33;
 }
 #Resp_4:hover{
-  background-color: #0e9620;
+  background-color: #148723;
 }
 #aviso{
   width: 500px;
@@ -562,10 +562,8 @@ body{
   margin-bottom: 30px;
 }
 #aviso > p {
-  position: absolute;
-  left:calc(50% - 200px);
   display: table-cell;
-  width: 400px;
+  width: 500px;
   height: 300px;
   vertical-align: middle;
   text-align: center;

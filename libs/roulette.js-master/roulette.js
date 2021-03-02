@@ -122,7 +122,8 @@
 			}
 			$roulette.find('div').remove();
 			p.$images.css({
-				'display' : 'block'
+				'display' : 'block',
+				'width' : '200px'
 			});
 			p.$rouletteTarget = $('<div>').css({
 				'position' : 'relative',
