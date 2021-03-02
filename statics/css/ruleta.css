@@ -9,12 +9,13 @@ div.roulette_container {
 }
 #RuletaCateg{
 	/* display: none; */
+	border-radius: 25px;
 	transition: display 0.2s ease;
 	height: 450px;
 	background:var(--menuBckGradient);
-  z-index: 100;
-  position: absolute;
-  width: 600px;
+	z-index: 100;
+	position: absolute;
+	width: 600px;
 	left: 30%;
 	top: 20%;
 }
@@ -24,9 +25,11 @@ div.roulette_container {
 	font-size: 20px;
 	font-weight: bold;
 	color: white;
-  text-shadow: 1px 1px 10px black;
+	text-shadow: 1px 1px 10px black;
 }
 #RuletaCateg > .girar > button{
+	border-radius: 10px;
+	border: none;
 	background: var(--blueButton);
     color: white;
     font-size: 30px;
@@ -34,18 +37,22 @@ div.roulette_container {
     text-align: center;
     width: 20%;
     left: 40%;
-		margin: 20px 0;
+	margin: 20px 0;
     height: 50px;
+	outline: none;
 }
 #RuletaCateg > .girar > button:hover{
 	cursor: pointer;
+	outline: none;
+	background: var(--blueButtonHover);
+
 }
 
 #RuletaCateg > .girar > .respRul{
 	color: white;
-  font-size: 40px;
+	font-size: 40px;
 	margin: 10px;
-  text-align: center;
+	text-align: center;
 	text-shadow: 1px 1px 10px black;
 }
 
@@ -59,11 +66,12 @@ div.roulette_container {
 #Dado{
 	display: none;
 	transition: display 0.2s ease;
-	height: 450px;
+	height: 400px;
 	background:var(--menuBckGradient);
-  z-index: 100;
-  position: absolute;
-  width: 600px;
+	border-radius: 15px;
+	z-index: 100;
+	position: absolute;
+	width: 600px;
 	left: 30%;
 	top: 20%;
 }
@@ -78,9 +86,11 @@ div.roulette_container {
 	font-size: 20px;
 	font-weight: bold;
 	color: white;
-  text-shadow: 1px 1px 10px black;
+	text-shadow: 1px 1px 5px black;
 }
 #Dado > .Tirar > button{
+	border-radius: 10px;
+	border: none;
 	background: var(--blueButton);
     color: white;
     font-size: 30px;
@@ -88,17 +98,20 @@ div.roulette_container {
     text-align: center;
     width: 20%;
     left: 40%;
-		margin: 20px 0;
+	margin: 20px 0;
     height: 50px;
+	outline: none;
 }
 #Dado > .Tirar > button:hover{
 	cursor: pointer;
+	outline: none;
+	background: var(--blueButtonHover);
 }
 
 #Dado > .Tirar > .respRul{
 	color: white;
-  font-size: 40px;
+	font-size: 40px;
 	margin: 10px;
-  text-align: center;
+	text-align: center;
 	text-shadow: 1px 1px 10px black;
 }

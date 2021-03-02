@@ -14,18 +14,6 @@ var jugadores = JSON.parse(getCookie("jugadores"));
 3:rojo
 4:morado
 */
-/*  var gameBoardStart = [0,5,1,1,2,1,3,1,4,1,// Primera Fila
-                    0,0,3,0,0,0,1,"f3",0,2,// Segunda Fila
-                    0,"f3",1,0,0,0,4,3,3,1,// Tercera Fila
-                    3,4,3,"f2",0,"f1",1,0,"f1",2,// Cuarta Fila
-                    2,0,2,3,1,1,2,0,0,3,// Quinta Fila
-                    1,0,0,"f3",1,0,0,"f2",0,1,// Sexta Fila
-                    4,"f3",0,0,3,4,1,2,1,1,// Séptima Fila
-                    3,0,0,0,0,0,0,0,0,3,// Octava Fila
-                    1,1,2,4,2,3,1,1,2,1]// Novena Fila];  */
- /*
- ARREGLO PROVISIONAL, POR PROBLEMA DE DOS CASILLAS
- */
  var gameBoardStart = [0,1,4,2,2,3,3,2,4,3,// Primera Fila
                     0,0,3,0,0,0,0,0,0,2,// Segunda Fila
                     0,0,3,0,0,0,0,0,0,4,// Tercera Fila
@@ -44,25 +32,6 @@ var gameBoardStatus=gameBoardStart.slice();
 3: arriba
 4: abajo
 combinaciones cuando hay dos direcciones*/
-/* var gameBoardDirec = [0,1,1,1,1,1,1,1,1,4,// Primera Fila
-                    0,0,3,0,0,0,3,0,0,4,// Segunda Fila
-                    0,0,3,0,0,0,13,1,1,4,// Tercera Fila
-                    1,1,3,0,0,0,3,0,0,4,// Cuarta Fila
-                    3,0,3,2,12,1,3,0,0,4,// Quinta Fila
-                    3,0,0,0,3,0,0,0,0,4,// Sexta Fila
-                    3,0,0,0,3,2,2,2,2,24,// Séptima Fila
-                    3,0,0,0,0,0,0,0,0,4,// Octava Fila
-                    3,2,2,2,2,2,2,2,2,2// Novena Fila]; */
-/*  var gameBoardDirec = [0,1,1,1,1,1,1,1,1,4,// Primera Fila
-                    0,0,3,0,0,0,3,0,0,4,// Segunda Fila
-                    0,0,3,0,0,0,7,1,1,4,// Tercera Fila
-                    1,1,3,0,0,0,3,0,0,4,// Cuarta Fila
-                    3,0,3,2,6,1,3,0,0,4,// Quinta Fila
-                    3,0,0,0,3,0,0,0,0,4,// Sexta Fila
-                    3,0,0,0,3,2,2,2,2,5,// Séptima Fila
-                    3,0,0,0,0,0,0,0,0,4,// Octava Fila
-                    3,2,2,2,2,2,2,2,2,2]// Novena Fila];  */
-/* ARREGLOOOO PROVISIONAAAAAAAL */
  var gameBoardDirec = [0,1,1,1,1,1,1,1,1,4,// Primera Fila
                     0,0,3,0,0,0,0,0,0,4,// Segunda Fila
                     0,0,3,0,0,0,0,0,0,4,// Tercera Fila
@@ -84,7 +53,6 @@ combinaciones cuando hay dos direcciones*/
     slowDownCallback : function()/*Que hace al bajar velocidad*/  {
     },
     stopCallback : function($stopElm)/*Que hace al acabar de girar*/ {
-      $("#Dado .Tirar").append("<p class='respRul'>¡¡ "+$stopElm[0].alt+" !!</p>");//Añade el mennsaje de respuesta
       /*Da un tiempo para que el jugador puede ver el resultado*/
       setTimeout(()=>{
         if (seleccionOrden)/*Ordenar tiro*/ {

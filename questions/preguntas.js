@@ -241,7 +241,7 @@ function puntuar(correct, idPreg) {
   }
   var fin = false;
   maxPuntaje = mayorPuntaje(puntajes);
-  if(maxPuntaje >= 20){
+  if(maxPuntaje >= 2){
     console.log(maxPuntaje)
     fin = true;
   }
@@ -250,9 +250,11 @@ function puntuar(correct, idPreg) {
     var ganador = puntajes.indexOf(maxPuntaje);
     console.log(ganador);
     var avatarGanador= "../statics/img/ficha"+jugadores[ganador].avatar+".png"
-    $("body").append("<div id=\"podiumBck\"><div id=\"podiumCont\"><h3>¡FELICIDADES!</h3><div id=\"winnerContainer\"><div><img src=\"../statics/img/hojas.svg\"></div><div id=\"ganadorNick\"></div><a id=\"menuButtonEnd\"href=\"../\">Volver a Menú</a></div></div></div>")
-    $("#winnerContainer").css("background-image","url("+avatarGanador+")");
-    $("#ganadorNick").html("<p>"+jugadores[ganador].nickname+"</p>")
+    setTimeout(()=>{
+      $("body").append("<div id=\"podiumBck\"><div id=\"podiumCont\"><h3>¡FELICIDADES!</h3><div id=\"winnerContainer\"><div><img src=\"../statics/img/hojas.png\"></div><div id=\"ganadorNick\"></div><a id=\"menuButtonEnd\"href=\"../\">Volver a Menú</a></div></div></div>")
+      $("#winnerContainer").css("background-image","url("+avatarGanador+")");
+      $("#ganadorNick").html("<p>"+jugadores[ganador].nickname+"</p>")
+    },2000)
   }else{
     setTimeout(()=>{
       $(".modal-background").show();//Oculta el fondo del modal
