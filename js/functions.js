@@ -279,16 +279,16 @@ function generarTablero(tablero,srcFichas){
                   break;
               case "f3":
                   color = "flechaArriba";
-                  break;    
+                  break;
               case "f1":
                 color = "flechaDerecha";
-                break;  
+                break;
               case "f2":
                 color = "flechaIzquierda";
                 break;
               case "f4":
                 color = "flechaAbajo";
-                break;                     
+                break;
               default:
                   color = "vacio"
           }
@@ -346,12 +346,12 @@ function verifCasillas(pos,tablero){
     case 6:
       var casillasValidas=[true,true,false,false];
       break;
-    case 7: 
-      var casillasValidas=[true,false,true,false]; 
+    case 7:
+      var casillasValidas=[true,false,true,false];
       break;
-    default: 
-      casillaDoble = false; 
-  }   
+    default:
+      casillaDoble = false;
+  }
   if(!casillaDoble){
     if(pos[1]!=0){
       if(tablero[pos[1]*10+pos[0]]==3){
@@ -381,7 +381,7 @@ function verifCasillas(pos,tablero){
             }
         }
     }
-  } 
+  }
   return(casillasValidas)
 }
 
@@ -464,7 +464,7 @@ function moverJugador(jugador,countPlayers,srcFichas,puntajes,num,tablero1,table
             console.log("Gira robotica")
             $("#RuletaCateg .girar button").hide();
             $('#RuletaCateg div.roulette').roulette("start");
-          } 
+          }
         }, 200)
           clearInterval(movimientoInterval);
       }
@@ -521,9 +521,11 @@ function valortiro(val, jug){
     if (jugadores[numJugTiroInit-1].nickname.match(/Bot\d/i)) {
       aviso("Generando tiros del resto de jugadores ...", ()=>{
         for (var i = numJugTiroInit-1; i < 4; i++) {
-          tirosInit.push({tiro:(Math.floor(Math.random() * 5)+1), jugador:numJugTiroInit});//Da valores aleatorios al resto de jugadores
+          tirosInit.push({tiro:(Math.floor(Math.random() * 5)+1), jugador:(i+1)});//Da valores aleatorios al resto de jugadores
         }
         tirosInit = tirosInit.sort((a, b) => b.tiro - a.tiro )/*Se ordenan los resultados de mayor tiro a menor tiro, en caso de que dos sean iguales tirara primero el jugador con num de jugador menor*/;
+        console.log(tirosInit);
+        console.log(jugadores);
         avisoLg("El orden de tiro es <br> 1° "+jugadores[(tirosInit[0].jugador)-1].nickname+"<br> 2° "+jugadores[(tirosInit[1].jugador)-1].nickname+"<br> 3° "+jugadores[(tirosInit[2].jugador)-1].nickname+"<br> 4° "+jugadores[(tirosInit[3].jugador)-1].nickname, ()=>{
           $(".modal-background").hide();
           setTimeout(()=>{
