@@ -12,6 +12,15 @@ Software	Aplicación que permite crear y administrar máquinas virtuales	Dificil
 Software	Es el entorno de escritorio predeterminado de Ubuntu	Dificil	multiple	Unity	Gnome	Unity-Gnome	kde	r3	
 Software	Entornos de escritorio ampliamente extendidos y conocidos de Ubuntu	Dificil	multiple	Unity	Gnome	Unity-Gnome	KDE y GNOME	r4	
 Software	Diseñó el KERNEL de LINUX	Dificil	multiple	Richard Stallman	Linus Torvalds	Bill Gates	Steve Jobs	r2	
+Historia	¿Quién es considerado uno de los padres de Internet por desarrollar los protocolos TCP/IP?	Dificil	multiple	Alan Turing	Vinton Cerf	John von Neumann	Howard Aiken	r2	
+Historia	¿Quién es considerado uno de los padres de Internet por crear la World Wide Web?	Dificil	multiple	Tim Berners-Lee	Vinton Cerf	Paul Allen	John von Neumann	r1	
+Historia	¿Qué es MS-DOS?	Dificil	multiple	El primer sistema operativo (Steve Jobs y Steve Wozniak)	El primer microprocesador diseñado por INTEL	El primer sistema operativo (Bill Gates y Paul Allen)	Un programa que sirvió para crear Internet	r3	
+Lenguaje	Es una forma de programar que trata de dar una solución a los problemas	Dificil	multiple	Paradigma orientada	Paradigma objetual	Objetos	Metodos	r1	
+Lenguaje	Es la definicion de las propiedades de un objeto concreto	Dificil	multiple	Objeto	Metodo	Clase	Evento	r3	
+Lenguaje	Algoritmo asociado a un objeto	Dificil	multiple	Objeto	Metodo	Clase	Evento	r2	
+Lenguaje	Coleccion de objetos que contienen objetos diferentes	Dificil	multiple	Polimorfismo	Herencia	Agrupación	Colleción	r1	
+Lenguaje	Caracteristica esencial de un objeto	Dificil	multiple	Abstraccion	Polimorfismo	Herencia	Pluridad	r1	
+Lenguaje	Significa reunir a todos los elementos	Dificil	multiple	Herencia	Abstraccion	Encapsulamiento	Polimorfismo	r3	
 Hardware	La digitalización es un proceso que convierte los datos de	Facil	multiple	Analógico a digital	Digital a digital	Digital a analógico	Analógico a analógico	r1	
 Hardware	Parte física de los ordenadores y perifericos	Facil	multiple	Hardware	Software	Pantalla	Sistema Operativo	r1	
 Hardware	DVD-ROM es es una unidad de	Facil	multiple	Solo escritura	Solo lectura	Escritura y lectura	Ninguna de las dos	r1	
@@ -92,10 +101,80 @@ Software	.doc es la extensión de un archivo de ...	Facil	multiple	Power Point	W
 Software	.ppt es la extensión de un archivo de ...	Facil	multiple	Power Point	Word	Imagen	Audio	r1	
 Software	.jpg es la extensión de un archivo de ...	Facil	multiple	Power Point	Word	Imagen	Audio	r3	
 Software	.mp3 es la extensión de un archivo de ...	Facil	multiple	Power Point	Word	Imagen	Audio	r4	
+Cultura	Sistema operativo caracteristico de las computadoras personales IBM durante la década de 1980 y mediados de los 90	Facil	multiple	MS-DOS.	Unix	Linux	Microsoft Windows	r1	
+Software	El sistema hexadecimal es el sistema de numeración posicional que tiene como base ...	Facil	multiple	2 cifras	10 cifras	8 cifras	16 cifras	r4	
+Software	El sistema octal es el sistema de numeración posicional que tiene como base ...	Facil	multiple	2 cifras	10 cifras	8 cifras	16 cifras	r3	
+Software	El sistema decimal es el sistema de numeración posicional que tiene como base ...	Facil	multiple	2 cifras	10 cifras	8 cifras	16 cifras	r2	
+Historia	¿Qué significa la palabra Informática? 	Facil	multiple	Computación	Unión de dos palabras: Información y Automática	Computadoras y Máquinas	Máquinas	r2	
+Historia	¿Qué hace la Informática?	Facil	multiple	Utiliza programas para realizar trabajos digitales	Trata la info, almacena, organiza y la transmite en máquinas	Nos enseña a utilizar la robótica	Diseña y estructura la parte física de las computadoras	r4	
+Historia	¿Cuál fue la primer máquina construida que hacía operaciones de suma y resta?	Facil	multiple	Calculadora	Computador	Pascalina	La Rueda	r3	
+Historia	Inventor de la Pascalina	Facil	multiple	Charles Babbage	Blaise Pascal	Eckert	Maulchy	r2	
+Historia	¿En cuantas generaciones se clasifica la tecnología?	Facil	multiple	5	16	7	6	r4	
+Historia	Que años abarca la primera generación computacional	Facil	multiple	1964 a 1971	1951 a 1958	1959 a 1964	1941 a 1950	r2	
+Historia	Que años abarca la segunda generación computacional	Facil	multiple	1959 a 1964	1952 a 1958	1970 a 1985	1942 a 1950	r1	
+Historia	Que años abarca la tercera generación computacional	Facil	multiple	1951 a 1958	1941 a 1950	1964 a 1971	1982 a 1989	r3	
+Historia	Que años abarca la cuarta generación computacional	Facil	multiple	1967 a 1971	1954 a 1958	1962 a 1964	1971 a 1981	r4	
+Historia	Que años abarca la quinta generación computacional	Facil	multiple	1964 a 1971	1951 a 1958	1959 a 1964	1982 a 1989	r4	
+Historia	Que años abarca la sexta generación computacional	Facil	multiple	1980 hasta la fecha	1990 hasta la fecha	2000 hasta la fecha	2012 hasta la fecha	r2	
+Historia	Son características de la primera generación.	Facil	multiple	Se inventó el microchip	Más componentes en un chip, se creancomputadoras personales	Tubos de vacío, grandes dimensiones, alto consumo de energético	Usode transistores, máspequeñas, consumen menos electricidad	r3	
+Historia	Esta generación se caracteriza por la invención del Transistor	Facil	multiple	3° Generación	2° Generación	5° Generación	6° Generación	r2	
+Historia	Características de la 3° Generación	Facil	multiple	Steve Jobs yBill Gates haciendo Apple y Microsoft.	Microchip, reduce el espacio físico, costos y mantenimiento	Operaciones de suma, resta, multiplicación y división	Tubos de vacío, grandes dimensiones, alto consumo de energético	r2	
+Historia	La reducción del microprocesador de Chip hizo posible la creación de las computadoras personales	Facil	multiple	3° Generación	4° Generación	5° Generación	6° Generación	r2	
+Historia	Características de la 4° Generación	Facil	multiple	Más componentes en un chip, se crean computadoras personales	Se inventó el microchip	Tubos de vacío, grandes dimensiones, alto consumo de energético	Steve Jobs yBill Gates haciendo Apple y Microsoft.	r1	
+Historia	En esta generación hace su aparición la nueva novedad de la tecnología	Facil	multiple	3° Generación	4° Generación	5° Generación	6° Generación	r3	
+Historia	Características de la 5° Generación	Facil	multiple	Surge la robótica, aparecen todas las redes y canales decomu	Se inventó el microchip	Más componentes en un chip, se crean computadoras personales	Steve Jobs yBill Gates haciendo Apple y Microsoft.	r4	
+Cultura	Metodo abreviado para cortar	Facil	multiple	Ctrl + C	Ctrl + V	Ctrl + T	Ctrl + X	r4	
+Historia	Es posiblemente el primer dispositivo mecánico de contabilidad en la historia	Facil	multiple	la calculadora	el abaco	la sumadora	rueda escala	r2	
+Historia	Se les considera los inventores del abaco	Facil	multiple	los chinos	los sirios	los alemanes	los franceses	r1	
+Historia	Características de la computadora ENIAC 	Facil	multiple	ordenador electrónico 	maquina automática eléctrica	tecnología de válvulas de vacío	realizar operaciones	r1	
+Historia	Cúal fue el invento que hizo realidad pasar la primera a la segunda generación	Facil	multiple	circuitos integrados	los bulbos	memorias con núcleos magnéticos	los transistores	r4	
+Historia	¿Qué hizo Charles Babbage por el desarrollo de la informática?	Facil	multiple	El cálculo automático de logaritmos y ecuaciones	La máquina analítica, que utilizaba tarjetas perforadas.	El uso de muelles y relés para hacer una máquina diferencial	Es considerado el padre de la teoría de la informática	r2	
+Historia	¿Qué es ENIAC?	Facil	multiple	Una computadora de alta resolución programable y electrónica	Un proyecto de ordenador personal de la universidad de UCLA	El primer ordenador que conectó con Internet	Primer computador digital, electrónico y programable (1946)	r4	
+Lenguaje	Es el lenguaje para estructurar las páginas web	Facil	multiple	HTML 	CSS 	 Javascript	Adobe Dreamweaver	r1	
+Lenguaje	Es el lenguaje para definir estilos en nuestra página web	Facil	multiple	HTML 	CSS 	 Javascript	Adobe Dreamweaver	r2	
+Lenguaje	Es la etiqueta de HTML para inserta imágenes	Facil	multiple	<link>	<a>	<ul>	<img>	r4	
+Lenguaje	Es la etiqueta para insertar enlaces	Facil	multiple	<link>	<a>	<iframe>	<h1>	r2	
+Lenguaje	¿Es posible darle estilos a nuestros documentos HTML, dentro del mismo HTML?	Facil	booleana	Sí, es posible, pero no se recomienda	No, es imposible			r1	
+Lenguaje	Es la etiqueta que me permite crear tablas	Facil	multiple	<li>	<td>	<table>	<h2>	r3	
+Lenguaje	Permite centrar el texto en CSS	Facil	multiple	texto-alineado: center	text-align: centro	center-text 	text-align: center	r4	
+Lenguaje	Si no queremos utilizar un subrayado ¿qué hacemos?	Facil	multiple	text-decoration: underline	text-decoration: none	text-decoration: overline	display: block	r2	
+Lenguaje	Etiqueta de encabezado:	Facil	multiple	<Title>	<Head>	<Encabezado>	<Cabeza>	r2	
+Lenguaje	Etiqueta que permite colocar el nombre de la página en la pestaña:	Facil	multiple	<Head>	<h1>	<Title>	<Cabeza>	r3	
+Lenguaje	Etiqueta que me permite iniciar con el cuerpo de mi página web:	Facil	multiple	<head>	<cuerpo>	<body>	<main>	r3	
+Lenguaje	Etiqueta que me permite agregar párrafos a mi página web:	Facil	multiple	<p>	<texto>	<parrafo>	<pp>	r1	
+Lenguaje	Etiqueta que me permite iniciar página web:	Facil	multiple	<body>	<html>	<head>	<title>	r2	
+Lenguaje	Ha clic en la etiqueta que está escrita correctamente:	Facil	multiple	<bodi>	<body/>	<body>	<bodi/>	r3	
+Lenguaje	Etiqueta que me permite agregar una lista ordenada:	Facil	booleana	<ul>	<ol>			r2	
+Lenguaje	Etiqueta que me permite agregar una lista no ordenada:	Facil	multiple	<ul>	<ol>			r1	
+Lenguaje	Etiqueta que me permite finalizar el cuerpo de mi página web:	Facil	multiple	<html>	</body>	<fin>	<close>	r2	
+Lenguaje	Signo que utilizamos para cerrar etiquetas:	Facil	multiple	/	"	=	<>	r3	
+Lenguaje	¿Qué significan los signos "<="?	Facil	multiple	Igual	Mayor o igual que.	Menor o igual que.	Mayor que.	r3	
+Lenguaje	¿Qué significan los signos ">="?	Facil	multiple	Igual	Mayor o igual que.	Menor o igual que.	Menor que.	r2	
+Lenguaje	¿Qué significa el signo "<"?	Facil	multiple	Igual	Mayor que.	Menor o igual que.	Menor que.	r4	
+Lenguaje	¿Qué significan los signos "!="?	Facil	multiple	Diferente	Igual	Exacto	Identico	r1	
+Lenguaje	¿Para que sirve la sentencia if?	Facil	multiple	para permitir ejecutar una condicion	para hacer una operacion	para poner una tabla	para agregar un comentario	r1	
+Lenguaje	¿que hace la sentencia else?	Facil	multiple	determina si es verdadera o falsa la condicion	te deja poner un comentario	cierra un codigo php	abre un codigo php	r1	
+Lenguaje	¿que representa el elemento <form>?	Facil	multiple	un formulario	una variable	una formula	ninguna es correcta	r1	
+Lenguaje	¿Qué significan los signos "=="?	Facil	multiple	Equivalente	Incremento	Al doble	Diferente	r1	
+Lenguaje	¿que hace el elemento <br>?	Facil	multiple	agrega cursiva al texto	ejecuta un salto de linea	centra un texto	hace una linea	r1	
+Lenguaje	¿HTML, es un lenguaje de programación?	Facil	booleana	Si	No			r2	
+Lenguaje	¿CSS, es un lenguaje de programación?	Facil	booleana	Si	No			r2	
+Lenguaje	¿PHP, es un lenguaje de programación?	Facil	booleana	Si	No			r1	
+Lenguaje	¿JavaScript, es un lenguaje de programación?	Facil	booleana	Si	No			r1	
+Lenguaje	Con HTML definimos el ________, de nuestra pagina web.	Facil	multiple	Estilo	Comportamiento	Contenido	Espectro	r3	
+Lenguaje	¿Cual es el elemento de "encabezado" mas grande?	Facil	multiple	<h1>	<h6>	<heading>	<p>	r1	
+Lenguaje	Cual de las siguientes es la forma valida de agregar un hipervinculo	Facil	multiple	&lt;a url="http://www.w3schools.com">W3Schools.com</a>	&lt;a name="http://www.w3schools.com">W3Schools.com</a>	&lt;a>http://www.w3schools.com</a>	&lt;a href="http://www.w3schools.com">W3Schools</a>	r4	
+Lenguaje	Con CSS definimos el _______, de nuestra pagina web.	Facil	multiple	Contenido	Estilo	Comportamiento	Nombre	r2	
+Lenguaje	Cual es la forma correcta de vincular estilos CSS desde un archivo externo.	Facil	multiple	&lt;link rel="stylesheet" type="text/css" href="mystyle.css">	&lt;link url="stylesheet" type="text/css" href="mystyle.css">	&lt;style src="mystyle.css">	&lt;stylesheet>mystyle.css</stylesheet>	r1	
+Lenguaje	¿Cual es la forma correcta de insertar un comentario en CSS?	Facil	multiple	// this is a comment	/* this is a comment */	// this is a comment //	 this is a comment	r2	
+Lenguaje	Cual es la propiedad utilizada para cambiar el color de fondo?	Facil	multiple	color	bgcolor	background-color	fond-color	r3	
+Lenguaje	Como seleccionas a todos los elementos p dentro de la clase test?	Facil	multiple	test p	p .test	.test p	p.test	r3	
+Lenguaje	¿Cual es la sintaxis correcta para agregar codigo JS?	Facil	multiple	&lt;script src="script.js">	 &lt;script path="script.js">	&lt;script href="script.js">	 &lt;script link="script.js">	r1	
+Lenguaje	¿Como declaramos una función en JS?	Facil	multiple	function nombreFuncion() { };	public String nombreFuncion() { }	funcion nombreFuncion() { };	function nombreFuncion() { };	r1	
+Lenguaje	¿Java y Javascript son los mismo?	Facil	booleana	Si	No			r2	
 Cultura	La computadora personal (PC) fue introducida por	Media	multiple	Apple	Ford	IBM	Hp	r3	
 Cultura	El acrónimo en inglés "USB" significa...	Media	multiple	Universal Serial Bus	Universal Society of Books	University of Brisbane	United States Bank	r1	
 Cultura	Un _____________ es un estándar que define cómo un código de barras almacena su información.	Media	multiple	Identificación de frecuencia de radio	Reconocimiento óptico de caracteres	Código Universal de Producto	Reconocimiento óptico de marcas	r3	
-Cultura	Sistema operativo caracteristico de las computadoras personales IBM durante la década de 1980 y mediados de los 90	Facil	multiple	MS-DOS.	Unix	Linux	Microsoft Windows	r1	
 Lenguaje	ASCII significa pos sus siglas en inglés "_________ Standard Code for Information Interchange"	Media	multiple	Association	African	American	Audio	r3	
 Hardware	Parte de la computadora que interpreta las instrucciones y procesa los datos de los programas de computadora	Media	multiple	CPU	Memoria RAM	Tarjeta Madre	Disco duro	r1	
 Hardware	La CPU usa la RAM como área de almacenamiento __________.	Media	multiple	Permanente 	Primario	Secundario	Temporal	r4	
@@ -142,46 +221,38 @@ Software	Indica cuál de estos Sistemas Operativos es de código abierto	Media	m
 Software	¿Cuál de estos caracteres no se puede utilizar para nombrar un archivo?	Media	multiple	ñ	-	á	Todo se pueden	r4	
 Software	.rar es la extensión de un archivo de ...	Media	multiple	Audio	Comprimido	Imagen	Vídeo	r2	
 Software	.exe es la extensión de un archivo de ...	Media	multiple	Audio	Comprimido	Imagen	Ejecutable	r4	
-Software	El sistema hexadecimal es el sistema de numeración posicional que tiene como base ...	Facil	multiple	2 cifras	10 cifras	8 cifras	16 cifras	r4	
-Software	El sistema octal es el sistema de numeración posicional que tiene como base ...	Facil	multiple	2 cifras	10 cifras	8 cifras	16 cifras	r3	
-Software	El sistema decimal es el sistema de numeración posicional que tiene como base ...	Facil	multiple	2 cifras	10 cifras	8 cifras	16 cifras	r2	
-Historia	¿Qué significa la palabra Informática? 	Facil	multiple	Computación	Unión de dos palabras: Información y Automática	Computadoras y Máquinas	Máquinas	r2	
-Historia	¿Qué hace la Informática?	Facil	multiple	Utiliza programas para realizar trabajos digitales	Trata la info, almacena, organiza y la transmite en máquinas	Nos enseña a utilizar la robótica	Diseña y estructura la parte física de las computadoras	r4	
-Historia	¿Cuál fue la primer máquina construida que hacía operaciones de suma y resta?	Facil	multiple	Calculadora	Computador	Pascalina	La Rueda	r3	
-Historia	Inventor de la Pascalina	Facil	multiple	Charles Babbage	Blaise Pascal	Eckert	Maulchy	r2	
 Historia	¿A quién se le conoce como el padre de la tecnología?	Media	multiple	Bleise Pascal	Eckert	Charles Babbage	Maulchy	r3	
-Historia	¿En cuantas generaciones se clasifica la tecnología?	Facil	multiple	5	16	7	6	r4	
 Historia	Primera computadora digital electrónica	Media	multiple	ENIAC	UNIVAC	CPU	IBM 1401	r1	
 Historia	Primera computadora en serie, es una modificación de la ENIAC utilizando la Memoria de Neumann	Media	multiple	ENIAC	PC	IBM	UNIVAC	r4	
-Historia	Que años abarca la primera generación computacional	Facil	multiple	1964 a 1971	1951 a 1958	1959 a 1964	1941 a 1950	r2	
-Historia	Que años abarca la segunda generación computacional	Facil	multiple	1959 a 1964	1952 a 1958	1970 a 1985	1942 a 1950	r1	
-Historia	Que años abarca la tercera generación computacional	Facil	multiple	1951 a 1958	1941 a 1950	1964 a 1971	1982 a 1989	r3	
-Historia	Que años abarca la cuarta generación computacional	Facil	multiple	1967 a 1971	1954 a 1958	1962 a 1964	1971 a 1981	r4	
-Historia	Que años abarca la quinta generación computacional	Facil	multiple	1964 a 1971	1951 a 1958	1959 a 1964	1982 a 1989	r4	
-Historia	Que años abarca la sexta generación computacional	Facil	multiple	1980 hasta la fecha	1990 hasta la fecha	2000 hasta la fecha	2012 hasta la fecha	r2	
-Historia	Son características de la primera generación.	Facil	multiple	Se inventó el microchip	Más componentes en un chip, se creancomputadoras personales	Tubos de vacío, grandes dimensiones, alto consumo de energético	Usode transistores, máspequeñas, consumen menos electricidad	r3	
-Historia	Esta generación se caracteriza por la invención del Transistor	Facil	multiple	3° Generación	2° Generación	5° Generación	6° Generación	r2	
-Historia	Características de la 3° Generación	Facil	multiple	Steve Jobs yBill Gates haciendo Apple y Microsoft.	Microchip, reduce el espacio físico, costos y mantenimiento	Operaciones de suma, resta, multiplicación y división	Tubos de vacío, grandes dimensiones, alto consumo de energético	r2	
-Historia	La reducción del microprocesador de Chip hizo posible la creación de las computadoras personales	Facil	multiple	3° Generación	4° Generación	5° Generación	6° Generación	r2	
-Historia	Características de la 4° Generación	Facil	multiple	Más componentes en un chip, se crean computadoras personales	Se inventó el microchip	Tubos de vacío, grandes dimensiones, alto consumo de energético	Steve Jobs yBill Gates haciendo Apple y Microsoft.	r1	
-Historia	En esta generación hace su aparición la nueva novedad de la tecnología	Facil	multiple	3° Generación	4° Generación	5° Generación	6° Generación	r3	
-Historia	Características de la 5° Generación	Facil	multiple	Surge la robótica, aparecen todas las redes y canales decomu	Se inventó el microchip	Más componentes en un chip, se crean computadoras personales	Steve Jobs yBill Gates haciendo Apple y Microsoft.	r4	
-Cultura	Metodo abreviado para cortar	Facil	multiple	Ctrl + C	Ctrl + V	Ctrl + T	Ctrl + X	r4	
-Historia	Es posiblemente el primer dispositivo mecánico de contabilidad en la historia	Facil	multiple	la calculadora	el abaco	la sumadora	rueda escala	r2	
 Historia	Construyo la primera sumadora mecanica	Media	multiple	Leonardo Da Vinci	Blaise Pascal	Wilhelfm Schikard	Gottifried Wilhelm Von Leibniz	r4	
 Historia	La calculadora universal o rueda escala era capaz de realizar	Media	multiple	divisiones, restas, sumas y fracciones	multiplicaciones, restas, diviciones y sumas	multiplicaciones, sumas, sustraccion y adiccion	suma, resta, divisiones y raices cuadradas	r4	
-Historia	Se les considera los inventores del abaco	Facil	multiple	los chinos	los sirios	los alemanes	los franceses	r1	
 Historia	Personaje que trazo las primeras ideas de una sumadora mecanica	Media	multiple	Josep-Marie Jacquard	Blaise Pascal	Gottfried Wilhelm Von Leibniz	Leonardo Da Vinci	r4	
-Historia	Características de la computadora ENIAC 	Facil	multiple	ordenador electrónico 	maquina automática eléctrica	tecnología de válvulas de vacío	realizar operaciones	r1	
-Historia	Cúal fue el invento que hizo realidad pasar la primera a la segunda generación	Facil	multiple	circuitos integrados	los bulbos	memorias con núcleos magnéticos	los transistores	r4	
 Historia	¿Quiénes contribuyeron al desarrollo del cálculo en el siglo XVII?	Media	multiple	Napier, Pascal y Leibniz	Pascal, Leibniz y Leonardo da Vinci	Newton, Kepler y Pascal	Newton y Hollerith	r1	
-Historia	¿Qué hizo Charles Babbage por el desarrollo de la informática?	Facil	multiple	El cálculo automático de logaritmos y ecuaciones	La máquina analítica, que utilizaba tarjetas perforadas.	El uso de muelles y relés para hacer una máquina diferencial	Es considerado el padre de la teoría de la informática	r2	
 Historia	¿Por qué se considera a Ada Lovelace la primera programadora?	Media	multiple	Era la hija de Lord Byron	Creó un lenguaje de programación para la máquina de Babbage	Planteó usar tarjetas perforadas en la máquina de Babbage.	Propuso un lenguaje capaz de calcular operaciones complejas	r2	
 Historia	¿Cuál es la importancia de Hollerith en la historia de la informática?	Media	multiple	Sentó las bases sobre las que se creó IBM	Usó tarjetas perforadas para procesar la información.	Ayudó a mejorar el sistema del censo en EEUU	Utilizó la electricidad	r2	
 Historia	¿Qué máquina es la primera en tratar digitalmente los datos de forma electromecánica?	Media	multiple	Máquina tabuladora de Hollerith (1890)	Mark I (1944), desarrollado por Howard Aiken en Harvard	Máquina analítica de Babbage (1837)	Máquina calculadora de Leibniz (1670)	r2	
-Historia	¿Qué es ENIAC?	Facil	multiple	Una computadora de alta resolución programable y electrónica	Un proyecto de ordenador personal de la universidad de UCLA	El primer ordenador que conectó con Internet	Primer computador digital, electrónico y programable (1946)	r4	
 Historia	¿Quién es considerado Padre de la inteligencia artificial y formalizó el concepto de algoritmo?	Media	multiple	Albert Einstein	Alan Turing	Steve Jobs	John von Neumann	r2	
-Historia	¿Quién es considerado uno de los padres de Internet por desarrollar los protocolos TCP/IP?	Dificil	multiple	Alan Turing	Vinton Cerf	John von Neumann	Howard Aiken	r2	
-Historia	¿Quién es considerado uno de los padres de Internet por crear la World Wide Web?	Dificil	multiple	Tim Berners-Lee	Vinton Cerf	Paul Allen	John von Neumann	r1	
 Historia	¿Quién desarrolló el primer microprocesador?	Media	multiple	AMD 	Intel	Motorola	Microsoft	r2	
-Historia	¿Qué es MS-DOS?	Dificil	multiple	El primer sistema operativo (Steve Jobs y Steve Wozniak)	El primer microprocesador diseñado por INTEL	El primer sistema operativo (Bill Gates y Paul Allen)	Un programa que sirvió para crear Internet	r3	
+Lenguaje	¿Qué significa HTML?	Media	multiple	CÓDIGOS DE PÁGINAS WEB	Lenguaje de marcas de textos	Lenguaje de marcas de hiper texto	Lenguaje de páginas web	r3	
+Lenguaje	¿Qué es php?	Media	multiple	Es un programa informático para dieñar	Es un sistema de base de datos	Es un lenguaje de programación de uso general de código.	Es un servidor web	r3	
+Lenguaje	¿Qué es MySQL?	Media	multiple	Es un servidor web	Es un sistema de gestión de base de datos	Es un programa informático para hacer cuentas	Es un lenguaje de programación de uso general de código	r2	
+Lenguaje	¿Qué es un servidor web?	Media	multiple	Una base de datos	Un formulario	Un programa informático que procesa una aplicación	Es un servidor independiente de plataforma de código libre	r3	
+Lenguaje	¿Qué es XAMPP?	Media	multiple	Un servidor independiente de plataforma de código libre.	Una base de datos	Un programa informático que procesa una aplicación	Un formulario	r1	
+Lenguaje	¿Qué es Apache?	Media	multiple	Un formulario	Una base de datos	Es un servidor independiente de plataforma de código libre	Es un servidor web de código abierto	r4	
+Lenguaje	¿Qué hace la función PHPinfo() en php?	Media	multiple	Imprime un mensaje en pantalla	Ejecuta un parte específica del programa	Muestra información sobre la configuración de php	Permite la ejecución condicional de fragmentos de código	r3	
+Lenguaje	¿Cómo comenzamos un bloque de php?	Media	multiple	?>php	?>	<?php	<html>	r3	
+Lenguaje	¿cómo imprimimos un mensaje en pantalla con php?	Media	multiple	info()	echo	if	imprim	r2	
+Lenguaje	¿Como declaramos una variable en php?	Media	multiple	Con echo	Con else	Con var	Con un sigo de pesos ($)	r4	
+Lenguaje	¿Qué es la concatenación?	Media	multiple	Es un tipo de software	Es un servidor web	Es la unión de dos o más cadenas dentro de una sola línea	Es el uso de una etiqueta	r3	
+Lenguaje	¿Qué es lo que hace el script?	Media	multiple	Imprime un mensaje en pantalla	Ejecuta una parte específica del programa	Permite la ejecución condicional de fragmentos de código	Muestra información sobre la configuración de php	r2	
+Lenguaje	¿Qué es un array?	Media	multiple	Es un símbolo de código de php	Es una parte específica del programa	Es la unión de dos o más cadenas dentro de una línea	Es un mapa ordenado de datos que asocia valores con claves.	r4	
+Lenguaje	¿Cómo se ponen los comentarios en php?	Media	multiple	/**/	*//*	/"/"	"//"	r1	
+Lenguaje	¿Cómo se declara una variable númerica en php?	Media	multiple	$Var>=5	$Var=5	$Var!=5	$Var=Numero"5"	r2	
+Cultura	¿Quien define los estándares de la web?	Media	multiple	Google	Microsoft	The World Wide Web Consortium	Mozilla	r3	
+Lenguaje	¿Que significan las siglas HTML por sus siglas en inglés?	Media	multiple	Hyper Markup Language	Hypertext Makeup Language	Hypertext Markup League	Hypertext Markup Language	r4	
+Lenguaje	¿Que significan las siglas por su sigle en ingles "CSS"?	Media	multiple	Cascading Style Shoots	Cascading Style Sheets	Cascading Style Super	Catastrophic Style Sheets	r2	
+Lenguaje	¿Como podemos mostrar un "alert" con el mensaje "Hola Mundo"?	Media	multiple	alertBox(Hola Mundo);	alert(Hola Mundo);	alert("Hola Mundo");	alert(/Hola Mundo/)	r3	
+Lenguaje	¿Como declaramos una variable en JS?	Media	multiple	variable uno = 1;	var uno = 1;	uno = 1;	$uno = 1;	r2	
+Lenguaje	¿Cual es la forma correcta de "comentar" el código en JS?	Media	multiple	 {# ... #}	 <!--- .... ---!>	 // ....	 \\ ...	r3	
+Lenguaje	Es un suceso de interaccion al usuario con la maquina	Media	multiple	Objeto	Metodo	Clase	Evento	r4	
+Lenguaje	Es una comunicacion dirigida a un objeto	Media	multiple	Herencia	Mensaje	Evento	Transferencia	r2	

@@ -2,6 +2,8 @@
 /****** INGRESAR NOMBRE DEL ARCHIVO .tsv ******/
 /**********************************************/
 var nombreArchivoCSV = "Preguntas_computacion";
+/* Sonidos */
+var ruletaSonido = new Audio("../statics/media/ruleta.mp3");
 
 
 
@@ -221,6 +223,9 @@ function puntuar(correct, idPreg) {
   console.log(correct);
   var preg = obtenerPregPorId(window.preguntas, idPreg)
   if (correct) {
+    /* Licence: The sound effect is permitted for non-commercial use under license “Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) */
+    var correctSonido = new Audio("../statics/media/correct.mp3");
+    correctSonido.play();
     if (preg.Dificultad == "Facil") {
       puntajes[jugadorActual-1] +=3;
     }else if (preg.Dificultad == "Media") {
@@ -233,6 +238,10 @@ function puntuar(correct, idPreg) {
     }
     $("#points"+ jugadorActual).html(puntajes[jugadorActual-1]);
   }else{
+    /* Licence: The sound effect is permitted for non-commercial use under license “Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)” */
+    var mistakeSonido = new Audio("../statics/media/mistake.mp3");
+    mistakeSonido.play();
+    console.log(mistakeSonido)
     console.log("No puntuo");
   }
   jugadorActual++;
@@ -241,7 +250,7 @@ function puntuar(correct, idPreg) {
   }
   var fin = false;
   maxPuntaje = mayorPuntaje(puntajes);
-  if(maxPuntaje >= 5){
+  if(maxPuntaje >= 2){
     console.log(maxPuntaje)
     fin = true;
   }
@@ -249,11 +258,13 @@ function puntuar(correct, idPreg) {
   if (fin) {
     var ganador = puntajes.indexOf(maxPuntaje);
     console.log(ganador);
-    var avatarGanador= "../statics/img/ficha"+jugadores[ganador].avatar+".png"  
+    var avatarGanador= "../statics/img/ficha"+jugadores[ganador].avatar+".png"
+    var triumphSonido = new Audio("../statics/media/triumph.mp3");
     setTimeout(()=>{
+      triumphSonido.play();
       $("body").append("<div id=\"podiumBck\"><div id=\"podiumCont\"><h3>¡FELICIDADES!</h3><div id=\"winnerContainer\"><div><img src=\"../statics/img/hojas.png\"></div><div id=\"ganadorNick\"></div><a id=\"menuButtonEnd\"href=\"../\">Volver a Menú</a></div></div></div>")
       $("#winnerContainer").css("background-image","url("+avatarGanador+")");
-      $("#ganadorNick").html("<p>"+jugadores[ganador].nickname+"</p>")  
+      $("#ganadorNick").html("<p>"+jugadores[ganador].nickname+"</p>")
     },2000)
   }else{
     setTimeout(()=>{
@@ -285,7 +296,7 @@ function RuletaCat(){
           default:
               difCasilla = "";
               break;
-        }    
+        }
         $("#RuletaCateg .girar").append("<p class='respRul'>"+$stopElm[0].alt+"</p>");//Agrega respuesta al modal
         console.log(difCasilla)
         var pregunta = generarPregunta($stopElm[0].alt,difCasilla);//Genera una pregunta con los parametros dados

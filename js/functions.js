@@ -10,7 +10,12 @@ function generarFrasesCarga(tiempo){
     },tiempo);
 }
 
-
+function popSound(element){
+  var pop = new Audio("../statics/media/pop.mp3");
+  $(element).mouseenter(()=>{
+    pop.play();
+  })
+}
 /* Revisa si el número de jugadores es el máximo para ocultar la opción de agregar nuevos
 -numPlay:cantidad de jugadores hasta el momento */
 function checkMaxPlayer(numPlay){
@@ -21,7 +26,12 @@ function checkMaxPlayer(numPlay){
     }
 };
 
+/* Crea sonido de fondo */
+function backgroundSound(){
+  var track1 = new Audio("../statics/media/Track01.mp3");
+  track1.play();
 
+}
 
 /* Agrega Nuevos Jugadores
 count: cuenta de jugadores al momento */
@@ -167,6 +177,11 @@ function cambiarPags(target, ruta){
         .then((html)=>{
             $("#OTHER").html(html);
             if(target="jugarButton"){
+                popSound(".charAñadir");
+                popSound(".charAñadir span");
+                popSound(".charImgs img");
+                popSound(".btn-elegir");
+                popSound(".generalButtonIn");
                 captarInfo(persElegibles);
                 count = nuevoJugador(persElegibles,count);
                 descPersonajes(persElegibles);
@@ -473,7 +488,8 @@ function moverJugador(jugador,countPlayers,srcFichas,puntajes,num,tablero1,table
             console.log("Gira robotica")
             $("#RuletaCateg .girar button").hide();
             $('#RuletaCateg div.roulette').roulette("start");
-            ruletaSonido.play()
+            ruletaSonido.play();
+            musicaOver(track1);
           }
         }, 200)
           clearInterval(movimientoInterval);

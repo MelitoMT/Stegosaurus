@@ -31,6 +31,7 @@ $(document).ready(()=>{
     var jugarButton = $("#jugar");
     var instruccionesButton = $("#instrucciones");
     var personajesButton = $("#personajes");
+    popSound(".generalButtonIn");
     setTimeout(()=>{
         console.log($(window));
         title.css("display","none");
