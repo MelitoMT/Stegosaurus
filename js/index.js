@@ -8,12 +8,12 @@ var persElegibles = [
    descripcion:"Un canguro mago nomas"
   },
   {personaje:"Michibot",
-   urlImg:"./statics/img/michibot2.png",
+   urlImg:"./statics/img/michibot.png",
    urlImgAvatar:"./statics/img/MichibotAvatar.png",
    descripcion:"Gato-robot UwU "
   },
   {personaje:"Fireoat",
-   urlImg:"./statics/img/Fireoat.png",
+   urlImg:"./statics/img/Fireoat2.png",
    urlImgAvatar:"./statics/img/FireoatAvatar.png",
    descripcion:"Un canguro mago nomas, la secuela"
   },
@@ -33,7 +33,6 @@ $(document).ready(()=>{
     var personajesButton = $("#personajes");
     popSound(".generalButtonIn");
     setTimeout(()=>{
-        console.log($(window));
         title.css("display","none");
         cambiarPags(jugarButton,'./templates/charOpts.html');
         cambiarPags(instruccionesButton,'./templates/instrucciones.html');

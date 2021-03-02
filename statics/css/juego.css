@@ -1,36 +1,34 @@
 :root{
-    --casillaAzul: rgb(26, 115, 204);
-    --casillaVerde: rgb(33, 171, 60);
-    --casillaRojo: rgb(179, 4, 4);
-    --casillaMorada: rgb(133, 28, 165);
+    --casillaVerde:linear-gradient(180deg, #30af1d 0%, #158c12 100%);
+    --casillaRojo: linear-gradient(180deg, #0cc7dc 0%, #243db8 100%);
+    --casillaMorada: linear-gradient(180deg, #c21dce 0%, #70128c 100%);
     --casillaInicio: rgb(249, 231, 255);
-    --bordeCasilla:rgb(235, 225, 187);
+    --bordeCasilla:rgb(83, 37, 0);
+    --bordeCasilla2:rgb(54, 28, 4);
 }
 body{
     overflow-x: hidden;
 }
-.azul, .verde, .rojo, .morado, .inicial{
+.azul, .verde, .rojo, .morado, .inicial,.fichaImg{
     border-radius: 50%;
-    border: 2px solid var(--bordeCasilla);
+    border: 3px solid var(--bordeCasilla);
+    box-shadow: 1px 2px var(--bordeCasilla2);
 }
 .vacio,.azul, .verde, .rojo, .morado, .inicial,.flechaArriba,.flechaAbajo,.flechaDerecha,.flechaIzquierda{
     width:40px;
     height:40px;
 }
-.azul{
-    background-color: var(--casillaAzul);
-}
 .verde{
-    background-color: var(--casillaVerde);
+    background: var(--casillaVerde);
 }
 .rojo{
-    background-color: var(--casillaRojo);
+    background: var(--casillaRojo);
 }
 .morado{
-    background-color: var(--casillaMorada);
+    background: var(--casillaMorada);
 }
 .inicial{
-    background-color: var(--casillaInicio);
+    background: var(--casillaInicio);
 }
 .fichaImg{
     width: 40px;

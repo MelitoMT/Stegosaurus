@@ -433,19 +433,20 @@ body{
   z-index: 100;
 }
 .modal{
-  background-color: #ffffff;
+  background: var(--menuBckGradient);
   width: 800px;
   height: fit-content;
   position: absolute;
   top: calc(50vh - 300px);
   left: 25%;
   z-index: 110;
-  border-radius: 25px;
+  border-radius: 20px;
   box-shadow: 2px 0px 10px #000000;
 }
 .modal-title{
+  text-shadow: 2px 2px 10px #000;
   width: 100%;
-  color: #000000;
+  color: #ffffff;
   height: fit-content;
   font-size: 22px;
   padding: 15px;
@@ -455,7 +456,7 @@ body{
 }
 .modal-img{
   width: 100%;
-  color: #000000;
+  color: #ffffff;
   height: 240px;
   font-size: 22px;
   padding: 15px;
@@ -522,29 +523,13 @@ body{
 #Resp_2, #Resp_4{
   margin: 0.5em 0.5em 0.5em 0.2em
 }
-#Resp_1{
-  background-color: #ac0b0b;
+
+#Resp_1,#Resp_2,#Resp_3,#Resp_4{
+  background: var(--blueButton);
+  border-radius: 10px;
 }
-#Resp_1:hover{
-  background-color: #890d0d;
-}
-#Resp_2{
-  background-color: #3035bf;
-}
-#Resp_2:hover{
-  background-color: #222689;
-}
-#Resp_3{
-  background-color: #d6a725;
-}
-#Resp_3:hover{
-  background-color: #bb8d0d;
-}
-#Resp_4{
-  background-color: #21ac33;
-}
-#Resp_4:hover{
-  background-color: #148723;
+#Resp_1:hover,#Resp_2:hover,#Resp_3:hover,#Resp_4:hover{
+  background: var(--blueButtonHover);
 }
 #aviso{
   width: 500px;

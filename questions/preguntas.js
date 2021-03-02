@@ -138,6 +138,8 @@ function mostrarPreg(idPreg) {
   $("body").append(modal)//añade el modal
   contar = true;//variable si indica seguir contando
   cuentaRegre(20, pregunta.id)//comienza la cuenta regresiva para contestar
+  var questSound = new Audio("../statics/media/quest.mp3");
+  questSound.play();
   // Añade evento a las respuestas
   $.each($(".resp"),(index, elem)=>{
     elem.onclick= ()=>{
@@ -157,8 +159,6 @@ function mostrarPreg(idPreg) {
     }else if (pregunta.Tipo=="booleana") {
       var respRandom = Math.floor((Math.random() * 1)+1);
     }
-    console.log("Tipo "+pregunta.Tipo);
-    console.log("Respondi "+respRandom);
     setTimeout(()=>{
       contar = false;//Cancela el contar
       responder(pregunta.id, respRandom)/*Manda respuesta aleatoria*/
@@ -189,7 +189,6 @@ function ocultarPreg(id) {
 var contar = true;//Valor default de contar
 /*Cuenta regresiva para ejercer cierta precion a contestar*/
 function cuentaRegre(seg/*segundo para responder*/, idpPreg/*id de la pregunta a responder*/){
-  console.log(seg);
   $(".tiempo").empty();
   $(".tiempo").append(seg);
     if (seg>0/*tiempo restante mayor a 0*/ && contar/*checa si seguir contado*/) {
@@ -219,8 +218,6 @@ function cuentaRegre(seg/*segundo para responder*/, idpPreg/*id de la pregunta a
     }
 }
 function puntuar(correct, idPreg) {
-  console.log("Puntuando");
-  console.log(correct);
   var preg = obtenerPregPorId(window.preguntas, idPreg)
   if (correct) {
     /* Licence: The sound effect is permitted for non-commercial use under license “Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) */
@@ -233,16 +230,12 @@ function puntuar(correct, idPreg) {
     }else if (preg.Dificultad == "Dificil") {
       puntajes[jugadorActual-1] +=10;
       //Añadir valor
-    }else{
-      console.log("Ninguno?");
     }
     $("#points"+ jugadorActual).html(puntajes[jugadorActual-1]);
   }else{
     /* Licence: The sound effect is permitted for non-commercial use under license “Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)” */
     var mistakeSonido = new Audio("../statics/media/mistake.mp3");
     mistakeSonido.play();
-    console.log(mistakeSonido)
-    console.log("No puntuo");
   }
   jugadorActual++;
   if (jugadorActual>4) {
@@ -250,14 +243,12 @@ function puntuar(correct, idPreg) {
   }
   var fin = false;
   maxPuntaje = mayorPuntaje(puntajes);
-  if(maxPuntaje >= 2){
-    console.log(maxPuntaje)
+  if(maxPuntaje >= 50){
     fin = true;
   }
   /*Checa si aguien ya gano*/
   if (fin) {
     var ganador = puntajes.indexOf(maxPuntaje);
-    console.log(ganador);
     var avatarGanador= "../statics/img/ficha"+jugadores[ganador].avatar+".png"
     var triumphSonido = new Audio("../statics/media/triumph.mp3");
     setTimeout(()=>{
@@ -282,7 +273,6 @@ function RuletaCat(){
       duration : 3,
       stopImageNumber : -1,//Numero elige aleatorio
       stopCallback : function($stopElm)/*Que hace al acabar de girar*/ {
-        console.log(playerPlace)
         switch(gameBoardStart[playerPlace[jugadorActual-1][1]*10+playerPlace[jugadorActual-1][0]]){
           case 2:
               difCasilla= "Facil";
@@ -298,7 +288,6 @@ function RuletaCat(){
               break;
         }
         $("#RuletaCateg .girar").append("<p class='respRul'>"+$stopElm[0].alt+"</p>");//Agrega respuesta al modal
-        console.log(difCasilla)
         var pregunta = generarPregunta($stopElm[0].alt,difCasilla);//Genera una pregunta con los parametros dados
         /*Da un pequeño tiempo para leer la respuesta*/
         setTimeout(()=>{

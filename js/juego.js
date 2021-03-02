@@ -61,7 +61,6 @@ combinaciones cuando hay dos direcciones*/
           valortiro($stopElm[0].alt, numJugTiroInit)//Ejectuta el analizis del tiro
           $("#Dado").hide();//Oculta el modal del dado
         }else if (true) /*Avanze jugador*/{
-          console.log("Jugador avanza "+$stopElm[0].alt);
           gameBoardStatus = actualizarEstado(playerPlace,gameBoardStatus,jugadores.length,gameBoardStart)
           generarTablero(gameBoardStatus,srcFichas);
           moverJugador(jugadorActual,4,srcFichas,puntajes, $stopElm[0].alt,gameBoardStatus,gameBoardStart,gameBoardDirec)

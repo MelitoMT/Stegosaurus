@@ -10,6 +10,8 @@ function generarFrasesCarga(tiempo){
     },tiempo);
 }
 
+/* Agrega sonido de selección a botón 'pop'
+-element: elemento al que se le aplicará el sonido al pasarle con el mouse */
 function popSound(element){
   var pop = new Audio("../statics/media/pop.mp3");
   $(element).mouseenter(()=>{
@@ -123,7 +125,6 @@ function captarInfo(obj){
           jugadores.push(jugador);
         }
       }
-      console.log(jugadores);
       var nicknamesStr= JSON.stringify(jugadores);
       document.cookie="jugadores"+"="+nicknamesStr;
     })
@@ -140,13 +141,11 @@ function regresarInicio() {
 /* AGREGAR DESCRI´CIÓN */
 function descPersonajes(obj){
   $.each(obj,(index, elem)=>{
-    console.log(elem);
     let charImg = $('<div class="charImgs" id="char'+(index+1)+'">' );
     charImg.append('<img src="'+elem.urlImgAvatar+'" alt="'+elem.personaje+'">');
     charImg.click(()=>{
       $(".charImgs").removeClass("selected")
       charImg.addClass("selected")
-      console.log("Cambiar imagen y descripcion");
       $("#avatarImgDescr").attr("src",elem.urlImg);
       $("#avatarImgDescr").attr("alt",elem.personaje);
     })
@@ -206,12 +205,13 @@ function cambiarPags(target, ruta){
 /* Función que busca una cookie */
 function getCookie(cookie) {
   var target = cookie + "=";
+  var cookieListdecode = decodeURIComponent(document.cookie);
   var cookieResult;
-  var cookieList = document.cookie.split(';');/* Separamos las cookies existentes */
+  var cookieList = cookieListdecode.split(';');/* Separamos las cookies existentes */
   for(var i = 0; i < cookieList.length; i++) {
       /* Si la cookie es la que buscamos, la regresa */
-    if (cookieList[i].indexOf(target) == 0) {
-      cookieResult = cookieList[i].substring(target.length, cookieList[i].length);
+    if (cookieList[i].substring(0,target.length+1).toString = target) {
+      cookieResult = cookieList[i].substring(target.length+1, cookieList[i].length);
     }
   }
   return cookieResult;
@@ -301,18 +301,6 @@ function generarTablero(tablero,srcFichas){
               case 4:
                   color= "morado";
                   break;
-              case "f3":
-                  color = "flechaArriba";
-                  break;
-              case "f1":
-                color = "flechaDerecha";
-                break;
-              case "f2":
-                color = "flechaIzquierda";
-                break;
-              case "f4":
-                color = "flechaAbajo";
-                break;
               default:
                   color = "vacio"
           }
@@ -462,7 +450,6 @@ function moverJugador(jugador,countPlayers,srcFichas,puntajes,num,tablero1,table
           var casillasValidNum = 0;
           var movDir;
           var movDirOpt = 0;
-          console.log(casillasValid)
           for(var i = 0; i < casillasValid.length;i++){
               if(casillasValid[i]==true){
                   if(casillasValidNum >= 1){
@@ -478,18 +465,18 @@ function moverJugador(jugador,countPlayers,srcFichas,puntajes,num,tablero1,table
               playerPlace = actualizarPos(movDir,playerPlace,jugador-1);
           }
           tablero1=actualizarEstado(playerPlace,tablero1,countPlayers,tablero2);
+          var pop2 = new Audio("../statics/media/pop2.mp3");
+          pop2.play();
           generarTablero(tablero1,srcFichas)
       }
       else{
         setTimeout(()=>{
            resetRulCat ();
-          var nomJug = jugadores[jugador].nickname
+          var nomJug = jugadores[jugador-1].nickname
           if (nomJug.match(/Bot\d/i)) {
-            console.log("Gira robotica")
             $("#RuletaCateg .girar button").hide();
             $('#RuletaCateg div.roulette').roulette("start");
             ruletaSonido.play();
-            musicaOver(track1);
           }
         }, 200)
           clearInterval(movimientoInterval);
@@ -550,13 +537,10 @@ function valortiro(val, jug){
           tirosInit.push({tiro:(Math.floor(Math.random() * 5)+1), jugador:(i+1)});//Da valores aleatorios al resto de jugadores
         }
         tirosInit = tirosInit.sort((a, b) => b.tiro - a.tiro )/*Se ordenan los resultados de mayor tiro a menor tiro, en caso de que dos sean iguales tirara primero el jugador con num de jugador menor*/;
-        console.log(tirosInit);
-        console.log(jugadores);
         avisoLg("El orden de tiro es <br> 1° "+jugadores[(tirosInit[0].jugador)-1].nickname+"<br> 2° "+jugadores[(tirosInit[1].jugador)-1].nickname+"<br> 3° "+jugadores[(tirosInit[2].jugador)-1].nickname+"<br> 4° "+jugadores[(tirosInit[3].jugador)-1].nickname, ()=>{
           $(".modal-background").hide();
           setTimeout(()=>{
             seleccionOrden = false;
-            console.log("Iniciar juego");
             jugando(jugadorActual);
           }, 1500)
         })
@@ -571,7 +555,6 @@ function valortiro(val, jug){
       //Pequeño descanso antes de inciar
       setTimeout(()=>{
         seleccionOrden = false;
-        console.log("Iniciar juego");
         jugando(jugadorActual);
       }, 1500)
     })
@@ -582,7 +565,6 @@ function valortiro(val, jug){
 function jugando(numJugador) {
   var nomJug = jugadores[(tirosInit[(numJugador-1)].jugador)-1].nickname
   aviso(nomJug+" te toca tirar", ()=>{
-    console.log("tirar dados");
     resetDado();
     if (nomJug.match(/Bot\d/i)) {
       $("#Dado .Tirar button").hide();
