@@ -276,6 +276,9 @@ function RuletaCat(){
       speed : 15,
       duration : 3,
       stopImageNumber : -1,//Numero elige aleatorio
+      startCallback : function(){
+        ruletaSonido.play();
+      },
       stopCallback : function($stopElm)/*Que hace al acabar de girar*/ {
         var indexPlayer = jugadores[(tirosInit[(jugadorActual-1)].jugador)-1].nPlayer;
         switch(gameBoardStart[playerPlace[indexPlayer-1][1]*10+playerPlace[indexPlayer-1][0]]){

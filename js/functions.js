@@ -2,14 +2,28 @@
 Parámetros:
 tiempo:Cada cuánto se cambia la palabra*/
 function generarFrasesCarga(tiempo){
-    var frasesCarga = ['Elige sabiamente tu personaje...','Enseñando magia al Cangumago...', 'Michibot escribiendo su primer "Hola Mundo..."','Eligiendo preguntas...','Alimentando a la nutria de fuego...','Afilando las branquias del Ajolote'];
     /* Elige una frase de forma pseudoaleatoria para desplegar */
-    setInterval(()=>{
-        var i = Math.floor(Math.random() * Math.floor(frasesCarga.length + 1));
-        $("#frases").html(frasesCarga[i]);
-    },tiempo);
+    var frasesCargaInterval = setInterval(generando, tiempo);
+    setTimeout(()=>{
+      clearInterval(frasesCargaInterval)
+      $("#frases").html("");
+      $("#titleButton").css("display","block");
+    },3000);
 }
 
+/*Genera las diferentes frases de pantalla de inicio*/
+function generando(){
+  var frasesCarga = ['Elige sabiamente tu personaje...','Enseñando magia al Cangumago...', 'Michibot escribiendo su primer "Hola Mundo..."','Eligiendo preguntas...','Alimentando a la nutria de fuego...','Afilando las branquias del Ajolote'];
+  var i = Math.floor(Math.random() * Math.floor(frasesCarga.length + 1));
+  $("#frases").html(frasesCarga[i]);
+}
+
+/* Genera la música de fondo en bucle */
+function musicaFondo(){
+  var musicBck = new Audio("../statics/media/Track01.mp3");
+  musicBck.loop = true;
+  musicBck.play();
+}
 /* Agrega sonido de selección a botón 'pop'
 -element: elemento al que se le aplicará el sonido al pasarle con el mouse */
 function popSound(element){
@@ -62,7 +76,7 @@ function nuevoJugador(obj,count){
 }
 
 
-/* AGREGAR DESCRI´CIÓN */
+/* Obtiene el index de cada personaje a traves de su nombre*/
 function getIndexByName(nombre, obj){
   var index;
   for (var i = 0; i < obj.length; i++) {
@@ -74,14 +88,14 @@ function getIndexByName(nombre, obj){
 }
 
 
-/* AGREGAR DESCRI´CIÓN */
+/* Se genera un index aleatorio de un objeto seleccionado*/
 function generRandomIndex(obj) {
   var index = Math.floor((Math.random() * obj.length));
   return index;
 }
 
 
-/* AGREGAR DESCRI´CIÓN */
+/* Cambia el avatar seleccionado */
 function cambiarAvatar(obj){
   $.each($(".btn-elegir"),(index, elem)=>{
     elem.onclick= ()=>{
@@ -90,7 +104,8 @@ function cambiarAvatar(obj){
   });
 }
 
-/* AGREGAR DESCRI´CIÓN */
+/* Actualiza la imagen del jugador seleccionado
+   del jugador seleccionado */
 function actualizarImg(jugador, imagen, obj) {
   var imgPlayer = $("#player"+jugador).children(".playerImg").children("img");
   var index = getIndexByName(imagen, obj);
@@ -98,7 +113,8 @@ function actualizarImg(jugador, imagen, obj) {
   imgPlayer.attr("alt", obj[index].personaje);
 }
 
-/* AGREGAR DESCRI´CIÓN */
+/* Función que obtiene captura toda la información
+   de los jugadores para despues guardarla en un objeto*/
 function captarInfo(obj){
     $("#jugarFinal").click(()=>{
       let divCont = $("#botonesJugadores").children();
@@ -130,7 +146,8 @@ function captarInfo(obj){
     })
 }
 
-/* AGREGAR DESCRI´CIÓN */
+/* Funcion que permite en la página principal
+   intercambiar entre diferentes vistas*/
 function regresarInicio() {
   $(".inicio").click(()=>{
     $("#INDEX").show();
@@ -138,7 +155,8 @@ function regresarInicio() {
   })
 }
 
-/* AGREGAR DESCRI´CIÓN */
+/* Crea los diferentes avatar dentro del menú
+   seleccionable a traves del objeto que esta en index*/
 function descPersonajes(obj){
   $.each(obj,(index, elem)=>{
     let charImg = $('<div class="charImgs" id="char'+(index+1)+'">' );
@@ -471,12 +489,11 @@ function moverJugador(jugador,countPlayers,srcFichas,puntajes,num,tablero1,table
       }
       else{
         setTimeout(()=>{
-           resetRulCat ();
+          resetRulCat ();
           var nomJug = jugadores[jugador-1].nickname
           if (nomJug.match(/Bot\d/i)) {
             $("#RuletaCateg .girar button").hide();
             $('#RuletaCateg div.roulette').roulette("start");
-            ruletaSonido.play();
           }
         }, 200)
           clearInterval(movimientoInterval);
@@ -561,7 +578,8 @@ function valortiro(val, jug){
   }
 }
 
-
+/*Funcion que comienza cada ronda de juego
+  numJugador: Numero de jugador dependiendo su posicion sacado en el tiro*/
 function jugando(numJugador) {
   var nomJug = jugadores[(tirosInit[(numJugador-1)].jugador)-1].nickname
   aviso(nomJug+" te toca tirar", ()=>{

@@ -50,7 +50,7 @@ combinaciones cuando hay dos direcciones*/
     duration : 1,//duracion en segundos
     stopImageNumber : -1,//Numero elige aleatorio
     startCallback : function()/*Que hace al iniciar de girar*/  {
-      ruletaSonido.play()
+      ruletaSonido.play();
     },
     slowDownCallback : function()/*Que hace al bajar velocidad*/  {
     },
@@ -68,7 +68,7 @@ combinaciones cuando hay dos direcciones*/
           $(".modal-background").hide();//Oculta el fondo
         }
       }, 1500)
-    }
+    },
   }
   rouletter.roulette(option);//Creo la ruleta
   var numJugTiroInit = 1;//Numero de jugador que se usa para elegir quien tira primera
@@ -79,6 +79,7 @@ combinaciones cuando hay dos direcciones*/
 
 /*Evento de click al buton del dado*/
 $("#Dado .Tirar button").click(()=>{
+  ruletaSonido.play()
   $("#Dado .Tirar button").hide();
   $('#Dado div.roulette').roulette("start");
 })
