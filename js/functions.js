@@ -1,3 +1,9 @@
+/* 
+Nombre de proyecto:Master Question
+Autor: Stegosaurs
+ */
+
+
 /* Hace el cambio de frases para la pantalla de carga
 Parámetros:
 tiempo:Cada cuánto se cambia la palabra*/
