@@ -18,8 +18,10 @@ function generando(){
   $("#frases").html(frasesCarga[i]);
 }
 
+/* Genera la música de fondo en bucle */
 function musicaFondo(){
   var musicBck = new Audio("../statics/media/Track01.mp3");
+  musicBck.loop = true;
   musicBck.play();
 }
 /* Agrega sonido de selección a botón 'pop'

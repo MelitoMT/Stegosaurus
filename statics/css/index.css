@@ -72,7 +72,8 @@ body{
   top: 15%;
 }
 #menuTitle > img{
-  width: 700px;
+  width: 50%;
+  overflow: hidden;
   left: 60px;
   top:20%;
 }
