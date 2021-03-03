@@ -1,4 +1,4 @@
-/* 
+/*
 Nombre de proyecto:Master Question
 Autor: Stegosaurs
  */
@@ -234,8 +234,8 @@ function getCookie(cookie) {
   var cookieList = cookieListdecode.split(';');/* Separamos las cookies existentes */
   for(var i = 0; i < cookieList.length; i++) {
       /* Si la cookie es la que buscamos, la regresa */
-    if (cookieList[i].substring(0,target.length+1).toString = target) {
-      cookieResult = cookieList[i].substring(target.length+1, cookieList[i].length);
+    if (cookieList[i].substring(0,target.length) == target) {
+      cookieResult = cookieList[i].substring(target.length, cookieList[i].length);
     }
   }
   return cookieResult;
