@@ -7,17 +7,21 @@ function generarFrasesCarga(tiempo){
     setTimeout(()=>{
       clearInterval(frasesCargaInterval)
       $("#frases").html("");
-      console.log("Borrado")
       $("#titleButton").css("display","block");
     },3000);
 }
 
+/*Genera las diferentes frases de pantalla de inicio*/
 function generando(){
   var frasesCarga = ['Elige sabiamente tu personaje...','Enseñando magia al Cangumago...', 'Michibot escribiendo su primer "Hola Mundo..."','Eligiendo preguntas...','Alimentando a la nutria de fuego...','Afilando las branquias del Ajolote'];
   var i = Math.floor(Math.random() * Math.floor(frasesCarga.length + 1));
   $("#frases").html(frasesCarga[i]);
 }
 
+function musicaFondo(){
+  var musicBck = new Audio("../statics/media/Track01.mp3");
+  musicBck.play();
+}
 /* Agrega sonido de selección a botón 'pop'
 -element: elemento al que se le aplicará el sonido al pasarle con el mouse */
 function popSound(element){

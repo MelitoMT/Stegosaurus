@@ -32,10 +32,11 @@ $(document).ready(()=>{
     var instruccionesButton = $("#instrucciones");
     var personajesButton = $("#personajes");
     $("#titleButton").click(()=>{
-        popSound(".generalButtonIn")
-        title.css("display","none");
-        cambiarPags(jugarButton,'./templates/charOpts.html');
-        cambiarPags(instruccionesButton,'./templates/instrucciones.html');
-        cambiarPags(personajesButton,'./templates/personajes.html');
+      musicaFondo();
+      popSound(".generalButtonIn");
+      title.css("display","none");
+      cambiarPags(jugarButton,'./templates/charOpts.html');
+      cambiarPags(instruccionesButton,'./templates/instrucciones.html');
+      cambiarPags(personajesButton,'./templates/personajes.html');
     });
 })
