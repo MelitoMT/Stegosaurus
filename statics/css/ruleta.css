@@ -15,6 +15,7 @@ div.roulette_container {
 	background:var(--menuBckGradient);
 	z-index: 100;
 	position: absolute;
+	left: calc(50% - 300px);
 	width: 600px;
 	left: 30%;
 	top: 20%;
@@ -72,7 +73,7 @@ div.roulette_container {
 	z-index: 100;
 	position: absolute;
 	width: 600px;
-	left: 30%;
+	left: calc(50% - 300px);
 	top: 20%;
 }
 #Dado .roulette img{
