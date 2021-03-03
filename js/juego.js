@@ -40,8 +40,8 @@ combinaciones cuando hay dos direcciones*/
                     3,0,0,0,0,0,0,0,0,4,// Quinta Fila
                     3,0,0,0,0,0,0,0,0,4,// Sexta Fila
                     3,0,0,0,0,0,0,0,0,4,// Séptima Fila
-                    3,0,0,0,0,0,0,0,0,4,// Octava Fila 
-                    3,2,2,2,2,2,2,2,2,2]//Novena Fila ]; 
+                    3,0,0,0,0,0,0,0,0,4,// Octava Fila
+                    3,2,2,2,2,2,2,2,2,2]//Novena Fila ];
 
 /* Crea la ruleta de dado*/
   var rouletter = $('#Dado div.roulette');//Se selecciona el modal
@@ -63,7 +63,7 @@ combinaciones cuando hay dos direcciones*/
         }else if (true) /*Avanze jugador*/{
           gameBoardStatus = actualizarEstado(playerPlace,gameBoardStatus,jugadores.length,gameBoardStart)
           generarTablero(gameBoardStatus,srcFichas);
-          moverJugador(jugadorActual,4,srcFichas,puntajes, $stopElm[0].alt,gameBoardStatus,gameBoardStart,gameBoardDirec)
+          moverJugador(jugadores[(tirosInit[(jugadorActual-1)].jugador)-1].nPlayer,4,srcFichas,puntajes, $stopElm[0].alt,gameBoardStatus,gameBoardStart,gameBoardDirec)
           $("#Dado").hide();//Oculta el modal del dado
           $(".modal-background").hide();//Oculta el fondo
         }
