@@ -604,6 +604,15 @@ body{
 #avisoLg:hover{
   cursor: pointer;
 }
+.continuar{
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 14px;
+  height: 20px;
+}
 /* Créditos */
 .cardProfile{
   background-color: var(--blueButton);

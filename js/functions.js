@@ -527,6 +527,7 @@ function aviso(txt, callback){
     aviso.remove();//Se elimina el aviso
     callback();//Se ejecuta el callback
   })
+  aviso.append($("<p class='continuar'>Haz click para continuar</p>"))
   $("body").append(aviso);//Se añade el aviso
 }
 
@@ -538,6 +539,7 @@ function avisoLg(txt, callback) {
     aviso.remove();//Se elimina el aviso
     callback();//Se ejecuta el callback
   })
+  aviso.append($("<p class='continuar'>Haz click para continuar</p>"))
   $("body").append(aviso);//Se añade el aviso
 }
 
