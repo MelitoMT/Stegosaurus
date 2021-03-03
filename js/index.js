@@ -1,3 +1,8 @@
+/* 
+Nombre de proyecto:Master Question
+Autor: Stegosaurs
+ */
+
 
 /* Pantalla de carga */
 var title = $('#title');

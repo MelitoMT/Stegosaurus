@@ -1,4 +1,7 @@
-
+/* 
+Nombre de proyecto:Master Question
+Autor: Stegosaurs
+ */
 
 /* Guarda posición del jugador
 Al inicio 1,0 es la posición predeterminada*/
