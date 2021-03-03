@@ -462,7 +462,7 @@ body{
   height: fit-content;
   position: absolute;
   top: calc(50vh - 300px);
-  left: 25%;
+  left: calc(50% - 400px);
   z-index: 110;
   border-radius: 20px;
   box-shadow: 2px 0px 10px #000000;
