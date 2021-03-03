@@ -1,7 +1,3 @@
-/* 
-Nombre de proyecto:Master Question
-Autor: Stegosaurs
- */
 
 
 /**********************************************/
@@ -113,7 +109,7 @@ function mostrarPreg(idPreg) {
   var modal = $("<div id='p-"+pregunta.id+"' class='modal'>");//Crea el modal
   modal.append($("<div class='tiempo'>"))
   modal.append($("<div class='modal-title'>"+pregunta.Pregunta+"</div>"))//Añade la pregunta
-  modal.append($("<div class='modal-img'><img src='../statics/img/default-quest.png' alt='default'></div>"))//Añade imagen default al modal
+  modal.append($("<div class='modal-img'><img src='../statics/img/LOGO.png' alt='default'></div>"))//Añade imagen default al modal
   var modalCont = $("<div class='modal-cont'>");//Contenerdor de las respuestas
   var contIzq = $("<div class='contIzq'>");//Parte izquierda
   var contDer = $("<div class='contDer'>");//Parte derecha
@@ -229,15 +225,22 @@ function puntuar(correct, idPreg) {
     /* Licence: The sound effect is permitted for non-commercial use under license “Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) */
     var correctSonido = new Audio("../statics/media/correct.mp3");
     correctSonido.play();
+    var numJugadorGrafico;
+    for(var g = 0; g < jugadores.length;g++){
+      if(jugadores[g].nickname==jugadorGraph){
+        numJugadorGrafico = g;
+      }
+    }
     if (preg.Dificultad == "Facil") {
-      puntajes[jugadorActual-1] +=3;
+      puntajes[numJugadorGrafico] +=3;
     }else if (preg.Dificultad == "Media") {
-      puntajes[jugadorActual-1] +=5;
+      puntajes[numJugadorGrafico] +=5;
     }else if (preg.Dificultad == "Dificil") {
-      puntajes[jugadorActual-1] +=10;
+      puntajes[numJugadorGrafico] +=10;
       //Añadir valor
     }
-    $("#points"+ jugadorActual).html(puntajes[jugadorActual-1]);
+    
+    $("#points"+ (numJugadorGrafico+1)).html(puntajes[numJugadorGrafico]);
   }else{
     /* Licence: The sound effect is permitted for non-commercial use under license “Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)” */
     var mistakeSonido = new Audio("../statics/media/mistake.mp3");

@@ -66,7 +66,13 @@ combinaciones cuando hay dos direcciones*/
         }else if (true) /*Avanze jugador*/{
           gameBoardStatus = actualizarEstado(playerPlace,gameBoardStatus,jugadores.length,gameBoardStart)
           generarTablero(gameBoardStatus,srcFichas);
-          moverJugador(jugadorActual,4,srcFichas,puntajes, $stopElm[0].alt,gameBoardStatus,gameBoardStart,gameBoardDirec)
+          var numJugadorGrafico;
+          for(var g = 0; g < jugadores.length;g++){
+            if(jugadores[g].nickname==jugadorGraph){
+              numJugadorGrafico = g+1;
+            }
+          }
+          moverJugador(numJugadorGrafico,4,srcFichas,puntajes, $stopElm[0].alt,gameBoardStatus,gameBoardStart,gameBoardDirec)
           $("#Dado").hide();//Oculta el modal del dado
           $(".modal-background").hide();//Oculta el fondo
         }
@@ -77,6 +83,7 @@ combinaciones cuando hay dos direcciones*/
   var numJugTiroInit = 1;//Numero de jugador que se usa para elegir quien tira primera
   var tirosInit =[]; //Orden en el que los jugadores jugaran
   var seleccionOrden = true;//variable que indica que funcion seguir al tirar los dados
+  var jugadorGraph;
   var jugadorActual = 1;
 
 

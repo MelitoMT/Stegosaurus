@@ -313,10 +313,10 @@ function generarTablero(tablero,srcFichas){
                   color= "inicial";
                   break;
               case 2:
-                  color= "verde";
+                  color= "azul";
                   break;
               case 3:
-                  color= "rojo";
+                  color= "verde";
                   break;
               case 4:
                   color= "morado";
@@ -584,6 +584,7 @@ function valortiro(val, jug){
 function jugando(numJugador) {
   var nomJug = jugadores[(tirosInit[(numJugador-1)].jugador)-1].nickname
   aviso(nomJug+" te toca tirar", ()=>{
+    jugadorGraph = nomJug;
     resetDado();
     if (nomJug.match(/Bot\d/i)) {
       $("#Dado .Tirar button").hide();

@@ -1,6 +1,6 @@
 :root{
     --casillaVerde:linear-gradient(180deg, #30af1d 0%, #158c12 100%);
-    --casillaRojo: linear-gradient(180deg, #0cc7dc 0%, #243db8 100%);
+    --casillaAzul: linear-gradient(180deg, #0cc7dc 0%, #243db8 100%);
     --casillaMorada: linear-gradient(180deg, #c21dce 0%, #70128c 100%);
     --casillaInicio: rgb(249, 231, 255);
     --bordeCasilla:rgb(83, 37, 0);
@@ -21,8 +21,8 @@ body{
 .verde{
     background: var(--casillaVerde);
 }
-.rojo{
-    background: var(--casillaRojo);
+.azul{
+    background: var(--casillaAzul);
 }
 .morado{
     background: var(--casillaMorada);
