@@ -82,7 +82,7 @@ function nuevoJugador(obj,count){
 }
 
 
-/* AGREGAR DESCRI´CIÓN */
+/* Obtiene el index de cada personaje a traves de su nombre*/
 function getIndexByName(nombre, obj){
   var index;
   for (var i = 0; i < obj.length; i++) {
@@ -94,14 +94,14 @@ function getIndexByName(nombre, obj){
 }
 
 
-/* AGREGAR DESCRI´CIÓN */
+/* Se genera un index aleatorio de un objeto seleccionado*/
 function generRandomIndex(obj) {
   var index = Math.floor((Math.random() * obj.length));
   return index;
 }
 
 
-/* AGREGAR DESCRI´CIÓN */
+/* Cambia el avatar seleccionado */
 function cambiarAvatar(obj){
   $.each($(".btn-elegir"),(index, elem)=>{
     elem.onclick= ()=>{
@@ -110,7 +110,8 @@ function cambiarAvatar(obj){
   });
 }
 
-/* AGREGAR DESCRI´CIÓN */
+/* Actualiza la imagen del jugador seleccionado
+   del jugador seleccionado */
 function actualizarImg(jugador, imagen, obj) {
   var imgPlayer = $("#player"+jugador).children(".playerImg").children("img");
   var index = getIndexByName(imagen, obj);
@@ -118,7 +119,8 @@ function actualizarImg(jugador, imagen, obj) {
   imgPlayer.attr("alt", obj[index].personaje);
 }
 
-/* AGREGAR DESCRI´CIÓN */
+/* Función que obtiene captura toda la información
+   de los jugadores para despues guardarla en un objeto*/
 function captarInfo(obj){
     $("#jugarFinal").click(()=>{
       let divCont = $("#botonesJugadores").children();
@@ -146,11 +148,12 @@ function captarInfo(obj){
         }
       }
       var nicknamesStr= JSON.stringify(jugadores);
-      document.cookie="jugadores"+"="+nicknamesStr;
+      document.cookie="jugadores = "+nicknamesStr;
     })
 }
 
-/* AGREGAR DESCRI´CIÓN */
+/* Funcion que permite en la página principal
+   intercambiar entre diferentes vistas*/
 function regresarInicio() {
   $(".inicio").click(()=>{
     $("#INDEX").show();
@@ -158,7 +161,8 @@ function regresarInicio() {
   })
 }
 
-/* AGREGAR DESCRI´CIÓN */
+/* Crea los diferentes avatar dentro del menú
+   seleccionable a traves del objeto que esta en index*/
 function descPersonajes(obj){
   $.each(obj,(index, elem)=>{
     let charImg = $('<div class="charImgs" id="char'+(index+1)+'">' );
@@ -529,6 +533,7 @@ function aviso(txt, callback){
     aviso.remove();//Se elimina el aviso
     callback();//Se ejecuta el callback
   })
+  aviso.append($("<p class='continuar'>Haz click para continuar</p>"))
   $("body").append(aviso);//Se añade el aviso
 }
 
@@ -540,6 +545,7 @@ function avisoLg(txt, callback) {
     aviso.remove();//Se elimina el aviso
     callback();//Se ejecuta el callback
   })
+  aviso.append($("<p class='continuar'>Haz click para continuar</p>"))
   $("body").append(aviso);//Se añade el aviso
 }
 
@@ -580,7 +586,8 @@ function valortiro(val, jug){
   }
 }
 
-
+/*Funcion que comienza cada ronda de juego
+  numJugador: Numero de jugador dependiendo su posicion sacado en el tiro*/
 function jugando(numJugador) {
   var nomJug = jugadores[(tirosInit[(numJugador-1)].jugador)-1].nickname
   aviso(nomJug+" te toca tirar", ()=>{

@@ -123,7 +123,6 @@ Historia	La reducción del microprocesador de Chip hizo posible la creación de 
 Historia	Características de la 4° Generación	Facil	multiple	Más componentes en un chip, se crean computadoras personales	Se inventó el microchip	Tubos de vacío, grandes dimensiones, alto consumo de energético	Steve Jobs yBill Gates haciendo Apple y Microsoft.	r1	
 Historia	En esta generación hace su aparición la nueva novedad de la tecnología	Facil	multiple	3° Generación	4° Generación	5° Generación	6° Generación	r3	
 Historia	Características de la 5° Generación	Facil	multiple	Surge la robótica, aparecen todas las redes y canales decomu	Se inventó el microchip	Más componentes en un chip, se crean computadoras personales	Steve Jobs yBill Gates haciendo Apple y Microsoft.	r4	
-Cultura	Metodo abreviado para cortar	Facil	multiple	Ctrl + C	Ctrl + V	Ctrl + T	Ctrl + X	r4	
 Historia	Es posiblemente el primer dispositivo mecánico de contabilidad en la historia	Facil	multiple	la calculadora	el abaco	la sumadora	rueda escala	r2	
 Historia	Se les considera los inventores del abaco	Facil	multiple	los chinos	los sirios	los alemanes	los franceses	r1	
 Historia	Características de la computadora ENIAC 	Facil	multiple	ordenador electrónico 	maquina automática eléctrica	tecnología de válvulas de vacío	realizar operaciones	r1	
@@ -256,3 +255,16 @@ Lenguaje	¿Como declaramos una variable en JS?	Media	multiple	variable uno = 1;	
 Lenguaje	¿Cual es la forma correcta de "comentar" el código en JS?	Media	multiple	 {# ... #}	 <!--- .... ---!>	 // ....	 \\ ...	r3	
 Lenguaje	Es un suceso de interaccion al usuario con la maquina	Media	multiple	Objeto	Metodo	Clase	Evento	r4	
 Lenguaje	Es una comunicacion dirigida a un objeto	Media	multiple	Herencia	Mensaje	Evento	Transferencia	r2	
+Cultura	Atajo de teclado para bloquear el PC a partir de Windows 8.1	Media	multiple	Windows + F	Windows + B	Windows + C	Windows + L	r4	
+Cultura	Atajo de teclado para abrir configuracion de Windows a partir de Windows 8.1	Media	multiple	Windows + R	Windows + I	Windows + T	Windows + C	r2	
+Cultura	Atajo de teclado para abrir Cortana en Windows 10	Media	multiple	Windows + Q	Windows + S	Windows + K	Windows + C	r1	
+Cultura	Atajo de teclado para abrir la ventana emergente “Ejecutar”	Media	multiple	Windows + Q	Windows + S	Windows + R	Windows + E	r3	
+Cultura	Atajo de teclado para cambiar de aplicación en la barra de tareas	Media	multiple	Windows + R	Windows + B	Windows + T	Windows + C	r3	
+Cultura	Atajo de teclado para mostrar y ocultar el escritorio	Media	multiple	Windows + D	Windows + O	Windows + R	Windows + H	r1	
+Cultura	Atajo de teclado para minimizar todas las ventanas 	Media	multiple	Windows + M	Windows + N	Windows + P 	Windows + S	r1	
+Cultura	Atajo de teclado para cerrar la ventana o programa activo	Facil	multiple	Alt + 1	Alt + 2	Alt + 3	Alt + 4	r4	
+Cultura	Atajo de teclado para vista previa temporal del escritorio	Media	multiple	Windows + ,	Windows + .	Windows + tab	Windows + esc	r3	
+Cultura	Atajo de teclado para guardar archivo 	Facil	multiple	Ctrl + S	Ctrl + G	Ctrl + V	Ctrl + X	r1	
+Cultura	Atajo de teclado para seleccionar todo 	Facil	multiple	Ctrl + T	Ctrl + A	Ctrl + S	Ctrl + X	r2	
+Cultura	Atajo de teclado para cortar elemento seleccionado	Facil	multiple	Ctrl + T	Ctrl + A	Ctrl + S	Ctrl + X	r4	
+Cultura	Atajo de teclado para copiar elemento seleccionado	Facil	multiple	Ctrl + C	Ctrl + V	Ctrl + X	Ctrl + Z	r1	

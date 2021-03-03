@@ -109,7 +109,11 @@ function mostrarPreg(idPreg) {
   var modal = $("<div id='p-"+pregunta.id+"' class='modal'>");//Crea el modal
   modal.append($("<div class='tiempo'>"))
   modal.append($("<div class='modal-title'>"+pregunta.Pregunta+"</div>"))//Añade la pregunta
-  modal.append($("<div class='modal-img'><img src='../statics/img/LOGO.png' alt='default'></div>"))//Añade imagen default al modal
+  if ((/\.(gif|jpe?g|tiff?|png|webp|bmp)$/i).test(pregunta.img)) {
+    modal.append($("<div class='modal-img'><img src='../statics/img/"+pregunta.img+"' alt='"+pregunta.img+"'></div>"))//Añade imagen default al modal
+  }else{
+    modal.append($("<div class='modal-img'><img src='../statics/img/LOGO.png' alt='default'></div>"))//Añade imagen default al modal
+  }
   var modalCont = $("<div class='modal-cont'>");//Contenerdor de las respuestas
   var contIzq = $("<div class='contIzq'>");//Parte izquierda
   var contDer = $("<div class='contDer'>");//Parte derecha
@@ -285,7 +289,8 @@ function RuletaCat(){
         ruletaSonido.play();
       },
       stopCallback : function($stopElm)/*Que hace al acabar de girar*/ {
-        switch(gameBoardStart[playerPlace[jugadorActual-1][1]*10+playerPlace[jugadorActual-1][0]]){
+        var indexPlayer = jugadores[(tirosInit[(jugadorActual-1)].jugador)-1].nPlayer;
+        switch(gameBoardStart[playerPlace[indexPlayer-1][1]*10+playerPlace[indexPlayer-1][0]]){
           case 2:
               difCasilla= "Facil";
               break;
@@ -301,9 +306,11 @@ function RuletaCat(){
         }
         $("#RuletaCateg .girar").append("<p class='respRul'>"+$stopElm[0].alt+"</p>");//Agrega respuesta al modal
         var pregunta = generarPregunta($stopElm[0].alt,difCasilla);//Genera una pregunta con los parametros dados
+        console.log($stopElm[0].alt+","+difCasilla);
         /*Da un pequeño tiempo para leer la respuesta*/
         setTimeout(()=>{
           $("#RuletaCateg").hide();//Oculta el carrusel
+          console.log(pregunta.id);
           mostrarPreg(pregunta.id)//Muestra la pregunta
         }, 1500);
       }

@@ -43,8 +43,8 @@ combinaciones cuando hay dos direcciones*/
                     3,0,0,0,0,0,0,0,0,4,// Quinta Fila
                     3,0,0,0,0,0,0,0,0,4,// Sexta Fila
                     3,0,0,0,0,0,0,0,0,4,// Séptima Fila
-                    3,0,0,0,0,0,0,0,0,4,// Octava Fila 
-                    3,2,2,2,2,2,2,2,2,2]//Novena Fila ]; 
+                    3,0,0,0,0,0,0,0,0,4,// Octava Fila
+                    3,2,2,2,2,2,2,2,2,2]//Novena Fila ];
 
 /* Crea la ruleta de dado*/
   var rouletter = $('#Dado div.roulette');//Se selecciona el modal
