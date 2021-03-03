@@ -228,14 +228,14 @@ function puntuar(correct, idPreg) {
     var correctSonido = new Audio("../statics/media/correct.mp3");
     correctSonido.play();
     if (preg.Dificultad == "Facil") {
-      puntajes[jugadorActual-1] +=3;
+      puntajes[(jugadores[(tirosInit[(jugadorActual-1)].jugador)-1].nPlayer)-1] +=3;
     }else if (preg.Dificultad == "Media") {
-      puntajes[jugadorActual-1] +=5;
+      puntajes[(jugadores[(tirosInit[(jugadorActual-1)].jugador)-1].nPlayer)-1] +=5;
     }else if (preg.Dificultad == "Dificil") {
-      puntajes[jugadorActual-1] +=10;
+      puntajes[(jugadores[(tirosInit[(jugadorActual-1)].jugador)-1].nPlayer)-1] +=10;
       //Añadir valor
     }
-    $("#points"+ jugadorActual).html(puntajes[jugadorActual-1]);
+    $("#points"+ (jugadores[(tirosInit[(jugadorActual-1)].jugador)-1].nPlayer)).html(puntajes[(jugadores[(tirosInit[(jugadorActual-1)].jugador)-1].nPlayer)-1]);
   }else{
     /* Licence: The sound effect is permitted for non-commercial use under license “Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)” */
     var mistakeSonido = new Audio("../statics/media/mistake.mp3");
