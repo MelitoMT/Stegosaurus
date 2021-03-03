@@ -42,11 +42,39 @@ body{
 #title > h1{
     padding-top:5%;
     color: var(--whiteblueCarga);
-    font-size: 4em;
 }
 #title > #frases{
     color: var(--whiteblueCarga);
     font-size: 1.2em;
+}
+#titleButton{
+  display: none;
+  position: absolute;
+  left:calc(50% - 200px);
+  top:calc(50% - 7vh);
+}
+#menuTitle{
+  width: 150px;
+}
+.masterQ{
+  font-size: 3.2em;
+  color: white;
+  font-weight: 800;
+
+}
+#menuTitle span,#menuTitle > img{
+  position: absolute;
+  z-index: 20;
+}
+#menuTitle span{
+  width: 500px;
+  left:70px;
+  top: 15%;
+}
+#menuTitle > img{
+  width: 700px;
+  left: 60px;
+  top:20%;
 }
 /* Botones */
 .generalButtonOut{

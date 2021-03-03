@@ -31,11 +31,11 @@ $(document).ready(()=>{
     var jugarButton = $("#jugar");
     var instruccionesButton = $("#instrucciones");
     var personajesButton = $("#personajes");
-    popSound(".generalButtonIn");
-    setTimeout(()=>{
+    $("#titleButton").click(()=>{
+        popSound(".generalButtonIn")
         title.css("display","none");
         cambiarPags(jugarButton,'./templates/charOpts.html');
         cambiarPags(instruccionesButton,'./templates/instrucciones.html');
         cambiarPags(personajesButton,'./templates/personajes.html');
-    }, 4000);
+    });
 })

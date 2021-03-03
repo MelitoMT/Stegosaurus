@@ -272,6 +272,9 @@ function RuletaCat(){
       speed : 15,
       duration : 3,
       stopImageNumber : -1,//Numero elige aleatorio
+      startCallback : function(){
+        ruletaSonido.play();
+      },
       stopCallback : function($stopElm)/*Que hace al acabar de girar*/ {
         switch(gameBoardStart[playerPlace[jugadorActual-1][1]*10+playerPlace[jugadorActual-1][0]]){
           case 2:

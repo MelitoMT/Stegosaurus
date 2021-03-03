@@ -2,12 +2,20 @@
 Parámetros:
 tiempo:Cada cuánto se cambia la palabra*/
 function generarFrasesCarga(tiempo){
-    var frasesCarga = ['Elige sabiamente tu personaje...','Enseñando magia al Cangumago...', 'Michibot escribiendo su primer "Hola Mundo..."','Eligiendo preguntas...','Alimentando a la nutria de fuego...','Afilando las branquias del Ajolote'];
     /* Elige una frase de forma pseudoaleatoria para desplegar */
-    setInterval(()=>{
-        var i = Math.floor(Math.random() * Math.floor(frasesCarga.length + 1));
-        $("#frases").html(frasesCarga[i]);
-    },tiempo);
+    var frasesCargaInterval = setInterval(generando, tiempo);
+    setTimeout(()=>{
+      clearInterval(frasesCargaInterval)
+      $("#frases").html("");
+      console.log("Borrado")
+      $("#titleButton").css("display","block");
+    },3000);
+}
+
+function generando(){
+  var frasesCarga = ['Elige sabiamente tu personaje...','Enseñando magia al Cangumago...', 'Michibot escribiendo su primer "Hola Mundo..."','Eligiendo preguntas...','Alimentando a la nutria de fuego...','Afilando las branquias del Ajolote'];
+  var i = Math.floor(Math.random() * Math.floor(frasesCarga.length + 1));
+  $("#frases").html(frasesCarga[i]);
 }
 
 /* Agrega sonido de selección a botón 'pop'
@@ -471,12 +479,11 @@ function moverJugador(jugador,countPlayers,srcFichas,puntajes,num,tablero1,table
       }
       else{
         setTimeout(()=>{
-           resetRulCat ();
+          resetRulCat ();
           var nomJug = jugadores[jugador-1].nickname
           if (nomJug.match(/Bot\d/i)) {
             $("#RuletaCateg .girar button").hide();
             $('#RuletaCateg div.roulette').roulette("start");
-            ruletaSonido.play();
           }
         }, 200)
           clearInterval(movimientoInterval);
