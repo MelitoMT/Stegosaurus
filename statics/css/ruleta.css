@@ -15,9 +15,9 @@ div.roulette_container {
 	background:var(--menuBckGradient);
 	z-index: 100;
 	position: absolute;
+	left: calc(50% - 300px);
+	top: calc(50vh - 240px);
 	width: 600px;
-	left: 30%;
-	top: 20%;
 }
 #RuletaCateg > .titulo{
 	padding: 25px;
@@ -72,8 +72,9 @@ div.roulette_container {
 	z-index: 100;
 	position: absolute;
 	width: 600px;
-	left: 30%;
-	top: 20%;
+	left: calc(50% - 300px);
+	top: calc(50vh - 220px);
+
 }
 #Dado .roulette img{
 	width: 200px;
