@@ -1,4 +1,4 @@
 set url="localhost:8123"
 
-start server/php.exe -S %url% 
+start "server" "server/Apache24/bin/httpd.exe" 
 start chrome http://%url%
